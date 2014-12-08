@@ -15,6 +15,8 @@
 
 namespace Venus\core;
 
+use \Venus\lib\Debug as Debug;
+
 /**
  * Config Manager
  *
@@ -137,6 +139,12 @@ class Config {
 			self::$_aConfCache[$sName] = $aBase;
 		}
 
+		if (!self::$_aConfCache[$sName]) {
+			
+			$oDebug = new Debug;
+			$oDebug->error('The configuration file '.$sName.' is in error!');
+		}
+		
 		return self::$_aConfCache[$sName];
 	}
 
