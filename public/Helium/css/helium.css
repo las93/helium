@@ -17,15 +17,9 @@ hr.forh1 {
     border-top-color:#555555;
 }
 
-.a-center-line {
-    float:left;
-    width:100%;
-    font-size:10px;
-}
-
 .cadre_tier {
     float:left;
-    width:250px;
+    width:270px;
     font-size:11px;
     font-weight:bold;
 }
@@ -253,9 +247,19 @@ h1.category {
    .right-content {
         float:left;
         width:518px;
-        font-size:10px;
+        font-size:11px;
         margin-bottom:5px;   	
     }
+   .a-right-div {
+        float:left;
+        width:300px;
+        margin-left:10px;   	
+    }
+    .a-center-line {
+        float:left;
+        width:390px;
+        font-size:10px;
+    }    
 }
 
 @media screen and (min-width: 1200px) {
@@ -270,9 +274,21 @@ h1.category {
    .right-content {
         float:left;
         width:800px;
-        font-size:10px;
-        margin-bottom:5px;   	
+        font-size:11px;  	
     }
+   .a-right-div {
+        margin-top:10px;   	
+        float:left;
+        width:300px;
+   	    margin-left:10px;
+        margin-bottom:5px;
+   	    font-size:12px;
+    }
+    .a-center-line {
+        float:left;
+        width:830px;
+        font-size:10px;
+    }    
 }
 
 @media screen and (max-width: 768px) {
@@ -285,5 +301,13 @@ h1.category {
         font-size:10px;
         margin-top:5px;
         margin-bottom:5px;
-    }    
+    }
+   .a-right-div {
+        display:none;
+    }
+	.a-center-line {
+	    float:left;
+	    width:100%;
+	    font-size:10px;
+	}
 }

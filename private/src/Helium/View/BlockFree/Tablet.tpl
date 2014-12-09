@@ -1,0 +1,1 @@
+    <a href="#"><img src="/img/pub/tablette.jpg" alt="tablet" title="tablet" border="0"/></a>

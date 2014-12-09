@@ -14,5 +14,5 @@
         			<td>Database name :</td><td/><input type="text" name="name"/></td>
         		</tr>
         	</table>
-        	{if $setup.count_error < 1}<p><input type="submit" class="btn btn-primary btn-lg" value="Continue &raquo;"/></p>{/if}
+        	<p><input type="submit" class="btn btn-primary btn-lg" value="Continue &raquo;"/></p>
         </form>

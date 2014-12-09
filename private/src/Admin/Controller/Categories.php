@@ -95,8 +95,7 @@ class Categories extends Controller {
 		$aFinalCategories = array('0' => '--None--');
 		
 		foreach ($aCategories as $aOneCategorie) {
-		 
-			$oCategory = new Category;
+
 			$aFinalCategories[$aOneCategorie->get_id()] = $aOneCategorie->get_name();
 		}
 		
@@ -138,8 +137,7 @@ class Categories extends Controller {
 		$aFinalCategories = array('0' => '--None--');
 		
 		foreach ($aCategories as $aOneCategorie) {
-		 
-			$oCategory = new Category;
+
 			$aFinalCategories[$aOneCategorie->get_id()] = $aOneCategorie->get_name();
 		}
 		

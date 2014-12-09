@@ -17,6 +17,7 @@
 namespace Venus\src\Admin\Controller;
 
 use \Venus\src\Admin\common\Controller as Controller;
+use \Venus\src\Helium\Model\brand as Brand;
 use \Venus\src\Helium\Model\product as Product;
 
 /**
@@ -83,9 +84,18 @@ class Products extends Controller {
 	public function add() {
 	
 		$this->_checkRight(4);
+
+		$oBrand = new Brand;
+		$aBrands = $oBrand->findAll();
+		
+		foreach ($aBrands as $oOneBrand) {
+
+		    $aFinalBrands[$oOneBrand->get_id()] = $oOneBrand->get_name();
+		}
 		
 		$sForm = $this->form
 					  ->add('name', 'text', 'Name')
+					  ->add('id_brand', 'select', 'Brand', null, $aFinalBrands)
 					  ->add('short_description', 'textarea', 'Description')
 					  ->add('description', 'textarea', 'Full Description')
 					  ->add('ean13', 'text', 'Ean13')
@@ -111,18 +121,27 @@ class Products extends Controller {
 	public function update() {
 	
 		$this->_checkRight(4);
+
+		$oBrand = new Brand;
+		$aBrands = $oBrand->findAll();
+		
+		foreach ($aBrands as $oOneBrand) {
+		
+		    $aFinalBrands[$oOneBrand->get_id()] = $oOneBrand->get_name();
+		}
 		
 		$sForm = $this->form
-					  ->add('name', 'text', 'Name')
-					  ->add('short_description', 'textarea', 'Description')
-					  ->add('description', 'textarea', 'Full Description')
-					  ->add('ean13', 'text', 'Ean13')
-					  ->add('reference/SKU', 'text', 'Reference')
-					  ->add('market_price', 'text', 'Market price')
-					  ->add('validate', 'submit')
-					  ->synchronizeEntity('Venus\src\Helium\Entity\product', $_GET['update'])
-					  ->getForm();
-
+		              ->add('name', 'text', 'Name')
+		              ->add('id_brand', 'select', 'Brand', null, $aFinalBrands)
+		              ->add('short_description', 'textarea', 'Description')
+		              ->add('description', 'textarea', 'Full Description')
+		              ->add('ean13', 'text', 'Ean13')
+		              ->add('reference', 'text', 'Reference/SKU')
+		              ->add('market_price', 'text', 'Market price')
+		              ->add('validate', 'submit')
+		              ->synchronizeEntity('Venus\src\Helium\Entity\product', $_GET['update'])
+		              ->getForm();
+	
 		$this->layout
 			 ->assign('form', $sForm)
 			 ->assign('model', '/src/Admin/View/ProductsAdd.tpl')

@@ -19,9 +19,11 @@ namespace Venus\src\Setup\Controller;
 use \Venus\src\Helium\Entity\attribute as Attribute;
 use \Venus\src\Helium\Entity\attribute_category as AttributeCategory;
 use \Venus\src\Helium\Entity\attribute_value as AttributeValue;
+use \Venus\src\Helium\Entity\brand as Brand;
 use \Venus\src\Helium\Entity\category as Category;
 use \Venus\src\Helium\Entity\country as Country;
 use \Venus\src\Helium\Entity\merchant as Merchant;
+use \Venus\src\Helium\Entity\product as Product;
 use \Venus\src\Helium\Entity\right as Right;
 use \Venus\src\Helium\Entity\user as User;
 use \Venus\src\Helium\Entity\vat as Vat;
@@ -1566,8 +1568,30 @@ class Setup extends Controller {
 								 ->set_id_by_type(1) //@todo remplir après création de l'attribue
 								 ->set_value('Lecteurs DVD portables')
 								 ->save();
-		
 			
+			$oBrand = new Brand;
+			
+			$iIdBrand = $oBrand->set_name('Samsung')
+			                   ->save();
+		
+			$oProduct = new Product;
+			
+			$oProduct->set_name('Samsung HW-H450 Barre de son 2.1 Bluetooth 290 W Noir')
+			         ->set_description('Utilisez votre smartphone pour activer vos haut-parleurs à distance grâce à la compatibilité Bluetooth<br/>
+			             Le caisson de basse supersonique ajoute des basses dynamiques et riches à votre expérience auditive<br/>La fonctionnalité 
+			             3D SOUND ajoute de la profondeur et de la grandeur au son<br/>Vous avez le choix entre différents modes de son : MUSIC / 
+			             VOICE / SPORTS / CINEMA / STANDARD (Son Original)<br/>Connectez facilement votre télévision et votre barre de son par 
+			             Bluetooth ou HDMI')
+			         ->set_ean13('1234553')
+			         ->set_market_price(221.00)
+			         ->set_reference('B00JZRH6K6')
+			         ->set_short_description('Utilisez votre smartphone pour activer vos haut-parleurs à distance grâce à la compatibilité Bluetooth<br/>
+			             Le caisson de basse supersonique ajoute des basses dynamiques et riches à votre expérience auditive<br/>La fonctionnalité 
+			             3D SOUND ajoute de la profondeur et de la grandeur au son<br/>Vous avez le choix entre différents modes de son : MUSIC / 
+			             VOICE / SPORTS / CINEMA / STANDARD (Son Original)<br/>Connectez facilement votre télévision et votre barre de son par 
+			             Bluetooth ou HDMI')
+			         ->set_id_brand($iIdBrand)
+			         ->save();
 		}
 		else {
 			

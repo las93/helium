@@ -1,0 +1,1 @@
+    <a href="#"><img src="/img/pub/premium.png" alt="pub" title="pub" border="0"/></a>
