@@ -22,6 +22,7 @@ set_include_path(get_include_path().PATH_SEPARATOR.str_replace('public'.DIRECTOR
 require 'conf/AutoLoad.php';
 
 \Venus\lib\Debug::activateDebug();
+\Venus\lib\Debug::setKindOfReportLog('all');
 
 $oRouter = new \Venus\core\Router();
 $oRouter->run();
