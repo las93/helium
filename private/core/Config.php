@@ -12,7 +12,6 @@
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\core;
 
 use \Venus\lib\Debug as Debug;
@@ -29,16 +28,14 @@ use \Venus\lib\Debug as Debug;
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class Config {
-
+class Config
+{
 	/**
 	 * conf in a cache array
 	 *
 	 * @access private
 	 * @var    array
 	 */
-
 	private static $_aConfCache = array();
 
 	/**
@@ -49,9 +46,8 @@ class Config {
 	 * @param  string $sPortal portal name if you specify it
 	 * @return void
 	 */
-
-	public static function get($sName, $sPortal = null) {
-
+	public static function get($sName, $sPortal = null) 
+	{
 		if ($sPortal === null || !is_string($sPortal)) { $sPortal = PORTAIL; }
 
 		if (!isset(self::$_aConfCache[$sName])) {
@@ -156,9 +152,8 @@ class Config {
 	 * @param  array $aBase base
 	 * @return array
 	 */
-
-	private static function  _mergeAndGetConf($sFileToMerge, $aBase) {
-
+	private static function  _mergeAndGetConf($sFileToMerge, $aBase)
+	{
 		$aConfFiles = json_decode(file_get_contents($sFileToMerge));
 		list($aConfFiles, $aBase) = self::_recursiveGet($aConfFiles, $aBase);
 		return $aBase;
@@ -172,9 +167,8 @@ class Config {
 	 * @param  array $aBase
 	 * @return multitype:array multitype:array
 	 */
-
-	private static function _recursiveGet($aConfFiles, $aBase) {
-
+	private static function _recursiveGet($aConfFiles, $aBase)
+	{
 		foreach ($aConfFiles as $sKey => $mOne) {
 
 			if (!isset($aBase->$sKey)) {
