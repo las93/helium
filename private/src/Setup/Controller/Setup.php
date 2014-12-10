@@ -122,6 +122,8 @@ class Setup extends Controller {
 
 	public function configuration() {
 
+		var_dump($_GET);
+		
 		$this->layout
 			 ->assign('model', '/src/Setup/View/Configuration.tpl')
 			 ->display();
@@ -146,8 +148,17 @@ class Setup extends Controller {
 			file_put_contents('../../private/src/Helium/conf/Db.conf', $sFileConf);
 			
 			$aOptions = array('p' => 'Helium', 'r' => 'yes', 'c' => true, 'f' => true, 'd' => true);
-
-			$oPdo = new \PDO('mysql:host='.$_POST['host'], $_POST['login'], $_POST['password'], array());
+			
+			
+			try {
+				
+				$oPdo = new \PDO('mysql:host='.$_POST['host'], $_POST['login'], $_POST['password'], array());
+			} 
+			catch (\PDOException $Exception){
+				
+				$this->redirect($this->url->getUrl('step2', array('error' => 'db_error')));
+			}
+			
 			$oPdo->query('CREATE DATABASE IF NOT EXISTS '.$_POST['name']);
 			
 			$oEntity = new \Venus\src\Batch\Controller\Entity;
