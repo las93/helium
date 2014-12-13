@@ -42,11 +42,12 @@ class Config
 	 * get a configuration
 	 *
 	 * @access public
-	 * @param  string sName name of the configuration
+	 * @param  string $sName name of the configuration
 	 * @param  string $sPortal portal name if you specify it
+	 * @param  bool $bNoDoRedirect not allowed the redirect parameter
 	 * @return void
 	 */
-	public static function get($sName, $sPortal = null) 
+	public static function get($sName, $sPortal = null, $bNoDoRedirect = false) 
 	{
 		if ($sPortal === null || !is_string($sPortal)) { $sPortal = PORTAIL; }
 
@@ -127,7 +128,7 @@ class Config
 				trigger_error("Error in your Json format in this file : ".$sJsonFile, E_USER_NOTICE);
 			}
 
-			if (isset($aBase->redirect)) {
+			if (isset($aBase->redirect) && $bNoDoRedirect === false) {
 			
 				$aBase = self::get($sName, $aBase->redirect);
 			}
@@ -142,6 +143,21 @@ class Config
 		}
 		
 		return self::$_aConfCache[$sName];
+	}
+	
+	/**
+	 * get the bundle name location or the actualy bundle name if they isn't location
+	 *
+	 * @access public
+	 * @param  string $sName name of the configuration
+	 * @return string
+	 */
+	public static function getBundleLocationName($sName) {
+	    
+	    $oConfig = self::get($sName, null, true);
+	    
+	    if (isset($oConfig->redirect)) { return $oConfig->redirect; }
+	    else { return PORTAIL; }
 	}
 
 	/**

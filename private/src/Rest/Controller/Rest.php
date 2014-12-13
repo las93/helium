@@ -16,6 +16,7 @@
 
 namespace Venus\src\Rest\Controller;
 
+use \Venus\core\Config as Config;
 use \Venus\lib\Entity as LibEntity;
 use \Venus\lib\Response as Response;
 use \Venus\src\Rest\common\Controller as Controller;
@@ -62,7 +63,11 @@ class Rest extends Controller {
 		$sClassNameEntity = '\Venus\src\Helium\Entity\\'.$sEntity;
 		$sClassNameModel = '\Venus\src\Helium\Model\\'.$sEntity;
 		
-		if (class_exists($sClassNameEntity)) {
+		$oAccessConfig = Config::get('Access')->configuration;
+		$oDbConfig = Config::get('Db')->configuration;
+		$sBundleName = Config::getBundleLocation('Db');
+		
+		if (isset($oAccessConfig->allowed) && in_array($sEntity, $oAccessConfig->allowed, true) && class_exists($sClassNameEntity)) {
 			
 			$oClassNameEntity = new $sClassNameEntity;
 			$sPrimaryKeyName = LibEntity::getPrimaryKeyName($oClassNameEntity);
