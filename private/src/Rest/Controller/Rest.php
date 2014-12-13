@@ -60,19 +60,19 @@ class Rest extends Controller {
 
 	public function get($sEntity, $iId) {
 
-		$sClassNameEntity = '\Venus\src\Helium\Entity\\'.$sEntity;
-		$sClassNameModel = '\Venus\src\Helium\Model\\'.$sEntity;
-		
-		$oAccessConfig = Config::get('Access')->configuration;
-		$oDbConfig = Config::get('Db')->configuration;
-		$sBundleName = Config::getBundleLocation('Db');
+	    $oAccessConfig = Config::get('Access');
+	    $oDbConfig = Config::get('Db')->configuration;
+	    $sBundleName = Config::getBundleLocationName('Db');
+	    
+		$sClassNameEntity = '\Venus\src\\'.$sBundleName.'\Entity\\'.$sEntity;
+		$sClassNameModel = '\Venus\src\\'.$sBundleName.'\Model\\'.$sEntity;
 		
 		if (isset($oAccessConfig->allowed) && in_array($sEntity, $oAccessConfig->allowed, true) && class_exists($sClassNameEntity)) {
-			
+
 			$oClassNameEntity = new $sClassNameEntity;
 			$sPrimaryKeyName = LibEntity::getPrimaryKeyName($oClassNameEntity);
 			$sMethodName = 'findBy'.$sPrimaryKeyName;
-			
+	
 			$oClassNameModel = new $sClassNameModel;
 			
 			$aResults = $oClassNameModel->$sMethodName($iId);
