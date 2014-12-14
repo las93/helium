@@ -10,7 +10,7 @@ Contact judicael.paquet@gmail.com to participate at the project or to have more 
 Français
 ===================
 
-CMS eCommercer basé sur le Framework Venus
+CMS eCommerce basé sur le Framework Venus
 
 Pour faire la configuration de base du CMS, voici le Vhost apache Type à mettre en place :
 
