@@ -3,5 +3,5 @@
         <p>The installation is finish! Please change your Apache configuration.</p>
         <p>Change /venus/public/Setup/ by /venus/public/Helium/.</p>
         <p>The default admin user in the admin is : admin@hotmail.fr | admin</p>
-        {if $setup.count_error < 1}<p><input type="submit" class="btn btn-primary btn-lg" value="Continue &raquo;"/></p>{/if}
+        <p><input type="submit" class="btn btn-primary btn-lg" value="Continue &raquo;"/></p>
         </form>

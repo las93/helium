@@ -311,3 +311,76 @@ h1.category {
 	    font-size:10px;
 	}
 }
+
+
+.a-center-line-high-font {
+    font-size:12px;
+}
+
+
+.a-center-line-thumbs {
+    float:left;
+    width:70px;
+	margin-top:10px;	
+}
+
+.a-center-line-thumbs img {
+    border:solid 1px gray;
+    margin-bottom:10px;	
+}
+
+.a-center-line-big-img {
+    float:left;
+    width:380px;
+    margin-top:10px;    
+}
+
+.a-center-line-description {
+    float:left;
+    width:380px;
+    margin-top:10px;    
+}
+
+.a-center-line-description h1 {
+    font-size:14px; 
+	font-weight:bold;
+	color:black;
+	margin-bottom:0px;
+    margin-top:0px;	
+}
+
+.a-center-line-description .stars {
+    background-position: -5px -41px;
+    width: 90px;
+    height: 17px;
+	display: inline-block;
+	background-image: url("/img/product/stars.jpg");
+}
+
+.a-center-line-description hr {
+    margin-top:3px;
+}
+
+.a-center-line-description .price-strike {
+    font-size:14px; 
+}
+
+.a-center-line-description .price {
+    font-size:18px; 
+	color:orange;
+}
+.a-center-line-description .free-shipping {
+    font-size:12px; 
+    color:red;
+	font-weight:bold;
+}
+
+.price-reduction {
+    font-size:14px; 
+    color:orange;
+}
+
+.a-center-line-description .price-status {
+    font-size:18px; 
+    color:green;
+}

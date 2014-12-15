@@ -85,6 +85,18 @@
 	
 	
 		/**
+		 * id_vat
+		 *
+		 * @access private
+		 * @var    int
+		 *
+		 */
+	
+		private $id_vat = null;
+	
+	
+	
+		/**
 		 * enable
 		 *
 		 * @access private
@@ -177,6 +189,30 @@
 		 */
 	
 		private $description = null;
+	
+	
+	
+		/**
+		 * price
+		 *
+		 * @access private
+		 * @var    float
+		 *
+		 */
+	
+		private $price = null;
+	
+	
+	
+		/**
+		 * market_price
+		 *
+		 * @access private
+		 * @var    float
+		 *
+		 */
+	
+		private $market_price = null;
 	
 	
 	
@@ -281,6 +317,32 @@
 		public function set_id_offer_status($id_offer_status) {
 	
 			$this->id_offer_status = $id_offer_status;
+			return $this;
+		}
+	
+		/**
+		 * get id_vat of offer
+		 *
+		 * @access public
+		 * @return int
+		 */
+	
+		public function get_id_vat() {
+	
+			return $this->id_vat;
+		}
+	
+		/**
+		 * set id_vat of offer
+		 *
+		 * @access public
+		 * @param  int $id_vat id_vat of offer
+		 * @return \Venus\src\Helium\Entity\offer
+		 */
+	
+		public function set_id_vat($id_vat) {
+	
+			$this->id_vat = $id_vat;
 			return $this;
 		}
 	
@@ -489,6 +551,58 @@
 		public function set_description($description) {
 	
 			$this->description = $description;
+			return $this;
+		}
+	
+		/**
+		 * get price of offer
+		 *
+		 * @access public
+		 * @return float
+		 */
+	
+		public function get_price() {
+	
+			return $this->price;
+		}
+	
+		/**
+		 * set price of offer
+		 *
+		 * @access public
+		 * @param  float $price price of offer
+		 * @return \Venus\src\Helium\Entity\offer
+		 */
+	
+		public function set_price($price) {
+	
+			$this->price = $price;
+			return $this;
+		}
+	
+		/**
+		 * get market_price of offer
+		 *
+		 * @access public
+		 * @return float
+		 */
+	
+		public function get_market_price() {
+	
+			return $this->market_price;
+		}
+	
+		/**
+		 * set market_price of offer
+		 *
+		 * @access public
+		 * @param  float $market_price market_price of offer
+		 * @return \Venus\src\Helium\Entity\offer
+		 */
+	
+		public function set_market_price($market_price) {
+	
+			$this->market_price = $market_price;
 			return $this;
 		}
 	}

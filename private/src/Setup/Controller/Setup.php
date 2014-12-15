@@ -122,8 +122,6 @@ class Setup extends Controller {
 
 	public function configuration() {
 
-		var_dump($_GET);
-		
 		$this->layout
 			 ->assign('model', '/src/Setup/View/Configuration.tpl')
 			 ->display();
@@ -141,10 +139,10 @@ class Setup extends Controller {
 		if (is_writable('../../private/src/Helium/conf/Db.conf') === true) {
 				
 			$sFileConf = file_get_contents('../../private/src/Helium/conf/Db.conf');
-			$sFileConf = preg_replace('/"host": "localhost",/', '"host": "'.$_POST['host'].'",', $sFileConf);
-			$sFileConf = preg_replace('/"db": "helium",/', '"db": "'.$_POST['name'].'",', $sFileConf);
-			$sFileConf = preg_replace('/"user": "root",/', '"user": "'.$_POST['login'].'",', $sFileConf);
-			$sFileConf = preg_replace('/"password": "test",/', '"password": "'.$_POST['password'].'",', $sFileConf);
+			$sFileConf = preg_replace('/"host": "[^"]+",/', '"host": "'.$_POST['host'].'",', $sFileConf);
+			$sFileConf = preg_replace('/"db": "[^"]+",/', '"db": "'.$_POST['name'].'",', $sFileConf);
+			$sFileConf = preg_replace('/"user": "[^"]+",/', '"user": "'.$_POST['login'].'",', $sFileConf);
+			$sFileConf = preg_replace('/"password": "[^"]+",/', '"password": "'.$_POST['password'].'",', $sFileConf);
 			file_put_contents('../../private/src/Helium/conf/Db.conf', $sFileConf);
 			
 			$aOptions = array('p' => 'Helium', 'r' => 'yes', 'c' => true, 'f' => true, 'd' => true);

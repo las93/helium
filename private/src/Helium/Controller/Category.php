@@ -95,8 +95,7 @@ class Category extends Controller {
 			
 				$oSearchAttribute = new SearchAttribute;
 					
-				$aAttributesCategories[] = $oSearchAttribute->getSearchAttributesRulesForOneSearchAttribute($oOneSearchAttributes->get_id());
-					
+				$aAttributesCategories[] = $oSearchAttribute->getSearchAttributesRulesForOneSearchAttribute($oOneSearchAttributes->get_id());	
 			}
 		}
 
