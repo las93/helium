@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class vat_offer extends Entity {
+	class vat_offer extends Entity 
+	{
 
 		/**
 		 * id_offer
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_offer = null;
 	
 	
@@ -56,7 +54,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_country = null;
 	
 	
@@ -69,7 +66,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_vat = null;
 	
 	
@@ -80,9 +76,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_offer() {
-	
+		public function get_id_offer()
+		{
 			return $this->id_offer;
 		}
 	
@@ -93,9 +88,8 @@
 		 * @param  int $id_offer id_offer of vat_offer
 		 * @return \Venus\src\Helium\Entity\vat_offer
 		 */
-	
-		public function set_id_offer($id_offer) {
-	
+		public function set_id_offer($id_offer) 
+		{
 			$this->id_offer = $id_offer;
 			return $this;
 		}
@@ -106,9 +100,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_country() {
-	
+		public function get_id_country()
+		{
 			return $this->id_country;
 		}
 	
@@ -119,9 +112,8 @@
 		 * @param  int $id_country id_country of vat_offer
 		 * @return \Venus\src\Helium\Entity\vat_offer
 		 */
-	
-		public function set_id_country($id_country) {
-	
+		public function set_id_country($id_country) 
+		{
 			$this->id_country = $id_country;
 			return $this;
 		}
@@ -132,9 +124,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_vat() {
-	
+		public function get_id_vat()
+		{
 			return $this->id_vat;
 		}
 	
@@ -145,9 +136,8 @@
 		 * @param  int $id_vat id_vat of vat_offer
 		 * @return \Venus\src\Helium\Entity\vat_offer
 		 */
-	
-		public function set_id_vat($id_vat) {
-	
+		public function set_id_vat($id_vat) 
+		{
 			$this->id_vat = $id_vat;
 			return $this;
 		}

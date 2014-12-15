@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class search_attribute_rule extends Entity {
+	class search_attribute_rule extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_search_attribute = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $name = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $type = null;
 	
 	
@@ -91,7 +86,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $id_by_type = null;
 	
 	
@@ -103,7 +97,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $value_min = null;
 	
 	
@@ -115,7 +108,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $value_max = null;
 	
 	
@@ -127,7 +119,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $value = null;
 	
 	
@@ -138,9 +129,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -151,9 +141,8 @@
 		 * @param  int $id id of search_attribute_rule
 		 * @return \Venus\src\Helium\Entity\search_attribute_rule
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -164,9 +153,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_search_attribute() {
-	
+		public function get_id_search_attribute()
+		{
 			return $this->id_search_attribute;
 		}
 	
@@ -177,9 +165,8 @@
 		 * @param  int $id_search_attribute id_search_attribute of search_attribute_rule
 		 * @return \Venus\src\Helium\Entity\search_attribute_rule
 		 */
-	
-		public function set_id_search_attribute($id_search_attribute) {
-	
+		public function set_id_search_attribute($id_search_attribute) 
+		{
 			$this->id_search_attribute = $id_search_attribute;
 			return $this;
 		}
@@ -190,9 +177,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_name() {
-	
+		public function get_name()
+		{
 			return $this->name;
 		}
 	
@@ -203,9 +189,8 @@
 		 * @param  string $name name of search_attribute_rule
 		 * @return \Venus\src\Helium\Entity\search_attribute_rule
 		 */
-	
-		public function set_name($name) {
-	
+		public function set_name($name) 
+		{
 			$this->name = $name;
 			return $this;
 		}
@@ -216,9 +201,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_type() {
-	
+		public function get_type()
+		{
 			return $this->type;
 		}
 	
@@ -229,9 +213,8 @@
 		 * @param  string $type type of search_attribute_rule
 		 * @return \Venus\src\Helium\Entity\search_attribute_rule
 		 */
-	
-		public function set_type($type) {
-	
+		public function set_type($type) 
+		{
 			$this->type = $type;
 			return $this;
 		}
@@ -242,9 +225,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_id_by_type() {
-	
+		public function get_id_by_type()
+		{
 			return $this->id_by_type;
 		}
 	
@@ -255,9 +237,8 @@
 		 * @param  string $id_by_type id_by_type of search_attribute_rule
 		 * @return \Venus\src\Helium\Entity\search_attribute_rule
 		 */
-	
-		public function set_id_by_type($id_by_type) {
-	
+		public function set_id_by_type($id_by_type) 
+		{
 			$this->id_by_type = $id_by_type;
 			return $this;
 		}
@@ -268,9 +249,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_value_min() {
-	
+		public function get_value_min()
+		{
 			return $this->value_min;
 		}
 	
@@ -281,9 +261,8 @@
 		 * @param  int $value_min value_min of search_attribute_rule
 		 * @return \Venus\src\Helium\Entity\search_attribute_rule
 		 */
-	
-		public function set_value_min($value_min) {
-	
+		public function set_value_min($value_min) 
+		{
 			$this->value_min = $value_min;
 			return $this;
 		}
@@ -294,9 +273,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_value_max() {
-	
+		public function get_value_max()
+		{
 			return $this->value_max;
 		}
 	
@@ -307,9 +285,8 @@
 		 * @param  int $value_max value_max of search_attribute_rule
 		 * @return \Venus\src\Helium\Entity\search_attribute_rule
 		 */
-	
-		public function set_value_max($value_max) {
-	
+		public function set_value_max($value_max) 
+		{
 			$this->value_max = $value_max;
 			return $this;
 		}
@@ -320,9 +297,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_value() {
-	
+		public function get_value()
+		{
 			return $this->value;
 		}
 	
@@ -333,9 +309,8 @@
 		 * @param  string $value value of search_attribute_rule
 		 * @return \Venus\src\Helium\Entity\search_attribute_rule
 		 */
-	
-		public function set_value($value) {
-	
+		public function set_value($value) 
+		{
 			$this->value = $value;
 			return $this;
 		}

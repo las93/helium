@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class attribute_value extends Entity {
+	class attribute_value extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_attribute = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $value = null;
 	
 	
@@ -78,9 +74,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -91,9 +86,8 @@
 		 * @param  int $id id of attribute_value
 		 * @return \Venus\src\Helium\Entity\attribute_value
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -104,9 +98,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_attribute() {
-	
+		public function get_id_attribute()
+		{
 			return $this->id_attribute;
 		}
 	
@@ -117,9 +110,8 @@
 		 * @param  int $id_attribute id_attribute of attribute_value
 		 * @return \Venus\src\Helium\Entity\attribute_value
 		 */
-	
-		public function set_id_attribute($id_attribute) {
-	
+		public function set_id_attribute($id_attribute) 
+		{
 			$this->id_attribute = $id_attribute;
 			return $this;
 		}
@@ -130,9 +122,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_value() {
-	
+		public function get_value()
+		{
 			return $this->value;
 		}
 	
@@ -143,9 +134,8 @@
 		 * @param  string $value value of attribute_value
 		 * @return \Venus\src\Helium\Entity\attribute_value
 		 */
-	
-		public function set_value($value) {
-	
+		public function set_value($value) 
+		{
 			$this->value = $value;
 			return $this;
 		}

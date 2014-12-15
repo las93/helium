@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class cart extends Entity {
+	class cart extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -52,10 +50,9 @@
 		 * id_cart_status
 		 *
 		 * @access private
-		 * @var    string
+		 * @var    int
 		 *
 		 */
-	
 		private $id_cart_status = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_user = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_billing_address = null;
 	
 	
@@ -91,7 +86,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_site = null;
 	
 	
@@ -103,7 +97,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_currency = null;
 	
 	
@@ -115,7 +108,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_insert_channel_id = null;
 	
 	
@@ -127,7 +119,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_channel_id = null;
 	
 	
@@ -139,7 +130,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_cart_parent = null;
 	
 	
@@ -151,7 +141,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_create = null;
 	
 	
@@ -163,7 +152,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_update = null;
 	
 	
@@ -172,10 +160,9 @@
 		 * enable
 		 *
 		 * @access private
-		 * @var    int
+		 * @var    bool
 		 *
 		 */
-	
 		private $enable = null;
 	
 	
@@ -187,7 +174,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $synchronize = null;
 	
 	
@@ -198,9 +184,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -211,9 +196,8 @@
 		 * @param  int $id id of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -222,11 +206,10 @@
 		 * get id_cart_status of cart
 		 *
 		 * @access public
-		 * @return string
+		 * @return int
 		 */
-	
-		public function get_id_cart_status() {
-	
+		public function get_id_cart_status()
+		{
 			return $this->id_cart_status;
 		}
 	
@@ -234,12 +217,11 @@
 		 * set id_cart_status of cart
 		 *
 		 * @access public
-		 * @param  string $id_cart_status id_cart_status of cart
+		 * @param  int $id_cart_status id_cart_status of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id_cart_status($id_cart_status) {
-	
+		public function set_id_cart_status($id_cart_status) 
+		{
 			$this->id_cart_status = $id_cart_status;
 			return $this;
 		}
@@ -250,9 +232,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_user() {
-	
+		public function get_id_user()
+		{
 			return $this->id_user;
 		}
 	
@@ -263,9 +244,8 @@
 		 * @param  int $id_user id_user of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id_user($id_user) {
-	
+		public function set_id_user($id_user) 
+		{
 			$this->id_user = $id_user;
 			return $this;
 		}
@@ -276,9 +256,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_billing_address() {
-	
+		public function get_id_billing_address()
+		{
 			return $this->id_billing_address;
 		}
 	
@@ -289,9 +268,8 @@
 		 * @param  int $id_billing_address id_billing_address of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id_billing_address($id_billing_address) {
-	
+		public function set_id_billing_address($id_billing_address) 
+		{
 			$this->id_billing_address = $id_billing_address;
 			return $this;
 		}
@@ -302,9 +280,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_site() {
-	
+		public function get_id_site()
+		{
 			return $this->id_site;
 		}
 	
@@ -315,9 +292,8 @@
 		 * @param  int $id_site id_site of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id_site($id_site) {
-	
+		public function set_id_site($id_site) 
+		{
 			$this->id_site = $id_site;
 			return $this;
 		}
@@ -328,9 +304,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_currency() {
-	
+		public function get_id_currency()
+		{
 			return $this->id_currency;
 		}
 	
@@ -341,9 +316,8 @@
 		 * @param  int $id_currency id_currency of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id_currency($id_currency) {
-	
+		public function set_id_currency($id_currency) 
+		{
 			$this->id_currency = $id_currency;
 			return $this;
 		}
@@ -354,9 +328,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_insert_channel_id() {
-	
+		public function get_id_insert_channel_id()
+		{
 			return $this->id_insert_channel_id;
 		}
 	
@@ -367,9 +340,8 @@
 		 * @param  int $id_insert_channel_id id_insert_channel_id of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id_insert_channel_id($id_insert_channel_id) {
-	
+		public function set_id_insert_channel_id($id_insert_channel_id) 
+		{
 			$this->id_insert_channel_id = $id_insert_channel_id;
 			return $this;
 		}
@@ -380,9 +352,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_channel_id() {
-	
+		public function get_id_channel_id()
+		{
 			return $this->id_channel_id;
 		}
 	
@@ -393,9 +364,8 @@
 		 * @param  int $id_channel_id id_channel_id of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id_channel_id($id_channel_id) {
-	
+		public function set_id_channel_id($id_channel_id) 
+		{
 			$this->id_channel_id = $id_channel_id;
 			return $this;
 		}
@@ -406,9 +376,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_cart_parent() {
-	
+		public function get_id_cart_parent()
+		{
 			return $this->id_cart_parent;
 		}
 	
@@ -419,9 +388,8 @@
 		 * @param  int $id_cart_parent id_cart_parent of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_id_cart_parent($id_cart_parent) {
-	
+		public function set_id_cart_parent($id_cart_parent) 
+		{
 			$this->id_cart_parent = $id_cart_parent;
 			return $this;
 		}
@@ -432,9 +400,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_create() {
-	
+		public function get_date_create()
+		{
 			return $this->date_create;
 		}
 	
@@ -445,9 +412,8 @@
 		 * @param  string $date_create date_create of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_date_create($date_create) {
-	
+		public function set_date_create($date_create) 
+		{
 			$this->date_create = $date_create;
 			return $this;
 		}
@@ -458,9 +424,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_update() {
-	
+		public function get_date_update()
+		{
 			return $this->date_update;
 		}
 	
@@ -471,9 +436,8 @@
 		 * @param  string $date_update date_update of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_date_update($date_update) {
-	
+		public function set_date_update($date_update) 
+		{
 			$this->date_update = $date_update;
 			return $this;
 		}
@@ -482,11 +446,10 @@
 		 * get enable of cart
 		 *
 		 * @access public
-		 * @return int
+		 * @return bool
 		 */
-	
-		public function get_enable() {
-	
+		public function get_enable()
+		{
 			return $this->enable;
 		}
 	
@@ -494,12 +457,11 @@
 		 * set enable of cart
 		 *
 		 * @access public
-		 * @param  int $enable enable of cart
+		 * @param  bool $enable enable of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_enable($enable) {
-	
+		public function set_enable($enable) 
+		{
 			$this->enable = $enable;
 			return $this;
 		}
@@ -510,9 +472,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_synchronize() {
-	
+		public function get_synchronize()
+		{
 			return $this->synchronize;
 		}
 	
@@ -523,9 +484,8 @@
 		 * @param  int $synchronize synchronize of cart
 		 * @return \Venus\src\Helium\Entity\cart
 		 */
-	
-		public function set_synchronize($synchronize) {
-	
+		public function set_synchronize($synchronize) 
+		{
 			$this->synchronize = $synchronize;
 			return $this;
 		}

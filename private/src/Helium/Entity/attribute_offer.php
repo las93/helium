@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class attribute_offer extends Entity {
+	class attribute_offer extends Entity 
+	{
 
 		/**
 		 * id_attribute
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_attribute = null;
 	
 	
@@ -56,7 +54,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_offer = null;
 	
 	
@@ -68,7 +65,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $value = null;
 	
 	
@@ -79,9 +75,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_attribute() {
-	
+		public function get_id_attribute()
+		{
 			return $this->id_attribute;
 		}
 	
@@ -92,9 +87,8 @@
 		 * @param  int $id_attribute id_attribute of attribute_offer
 		 * @return \Venus\src\Helium\Entity\attribute_offer
 		 */
-	
-		public function set_id_attribute($id_attribute) {
-	
+		public function set_id_attribute($id_attribute) 
+		{
 			$this->id_attribute = $id_attribute;
 			return $this;
 		}
@@ -105,9 +99,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_offer() {
-	
+		public function get_id_offer()
+		{
 			return $this->id_offer;
 		}
 	
@@ -118,9 +111,8 @@
 		 * @param  int $id_offer id_offer of attribute_offer
 		 * @return \Venus\src\Helium\Entity\attribute_offer
 		 */
-	
-		public function set_id_offer($id_offer) {
-	
+		public function set_id_offer($id_offer) 
+		{
 			$this->id_offer = $id_offer;
 			return $this;
 		}
@@ -131,9 +123,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_value() {
-	
+		public function get_value()
+		{
 			return $this->value;
 		}
 	
@@ -144,9 +135,8 @@
 		 * @param  string $value value of attribute_offer
 		 * @return \Venus\src\Helium\Entity\attribute_offer
 		 */
-	
-		public function set_value($value) {
-	
+		public function set_value($value) 
+		{
 			$this->value = $value;
 			return $this;
 		}

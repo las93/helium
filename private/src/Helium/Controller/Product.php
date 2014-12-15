@@ -16,6 +16,7 @@
 namespace Venus\src\Helium\Controller;
 
 use \Venus\src\Helium\common\Controller as Controller;
+use \Venus\src\Helium\Model\offer as Offer;
 
 /**
  * Controller to Product

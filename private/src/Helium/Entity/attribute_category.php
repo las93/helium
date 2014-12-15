@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class attribute_category extends Entity {
+	class attribute_category extends Entity 
+	{
 
 		/**
 		 * id_attribute
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_attribute = null;
 	
 	
@@ -56,7 +54,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_category = null;
 	
 	
@@ -67,9 +64,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_attribute() {
-	
+		public function get_id_attribute()
+		{
 			return $this->id_attribute;
 		}
 	
@@ -80,9 +76,8 @@
 		 * @param  int $id_attribute id_attribute of attribute_category
 		 * @return \Venus\src\Helium\Entity\attribute_category
 		 */
-	
-		public function set_id_attribute($id_attribute) {
-	
+		public function set_id_attribute($id_attribute) 
+		{
 			$this->id_attribute = $id_attribute;
 			return $this;
 		}
@@ -93,9 +88,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_category() {
-	
+		public function get_id_category()
+		{
 			return $this->id_category;
 		}
 	
@@ -106,9 +100,8 @@
 		 * @param  int $id_category id_category of attribute_category
 		 * @return \Venus\src\Helium\Entity\attribute_category
 		 */
-	
-		public function set_id_category($id_category) {
-	
+		public function set_id_category($id_category) 
+		{
 			$this->id_category = $id_category;
 			return $this;
 		}

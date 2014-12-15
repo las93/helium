@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class user_merchant extends Entity {
+	class user_merchant extends Entity 
+	{
 
 		/**
 		 * id_user
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_user = null;
 	
 	
@@ -56,7 +54,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_merchant = null;
 	
 	
@@ -67,9 +64,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_user() {
-	
+		public function get_id_user()
+		{
 			return $this->id_user;
 		}
 	
@@ -80,9 +76,8 @@
 		 * @param  int $id_user id_user of user_merchant
 		 * @return \Venus\src\Helium\Entity\user_merchant
 		 */
-	
-		public function set_id_user($id_user) {
-	
+		public function set_id_user($id_user) 
+		{
 			$this->id_user = $id_user;
 			return $this;
 		}
@@ -93,9 +88,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_merchant() {
-	
+		public function get_id_merchant()
+		{
 			return $this->id_merchant;
 		}
 	
@@ -106,9 +100,8 @@
 		 * @param  int $id_merchant id_merchant of user_merchant
 		 * @return \Venus\src\Helium\Entity\user_merchant
 		 */
-	
-		public function set_id_merchant($id_merchant) {
-	
+		public function set_id_merchant($id_merchant) 
+		{
 			$this->id_merchant = $id_merchant;
 			return $this;
 		}

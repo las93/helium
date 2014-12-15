@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class cart_detail extends Entity {
+	class cart_detail extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_cart = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_offer = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_merchant = null;
 	
 	
@@ -91,7 +86,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_shipping_address = null;
 	
 	
@@ -103,7 +97,6 @@
 		 * @var    float
 		 *
 		 */
-	
 		private $vat_id = null;
 	
 	
@@ -115,7 +108,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_create = null;
 	
 	
@@ -127,7 +119,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_update = null;
 	
 	
@@ -136,10 +127,9 @@
 		 * enable
 		 *
 		 * @access private
-		 * @var    int
+		 * @var    string
 		 *
 		 */
-	
 		private $enable = null;
 	
 	
@@ -151,7 +141,6 @@
 		 * @var    float
 		 *
 		 */
-	
 		private $price = null;
 	
 	
@@ -160,10 +149,9 @@
 		 * is_gift
 		 *
 		 * @access private
-		 * @var    int
+		 * @var    bool
 		 *
 		 */
-	
 		private $is_gift = null;
 	
 	
@@ -175,7 +163,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $gift_message = null;
 	
 	
@@ -186,9 +173,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -199,9 +185,8 @@
 		 * @param  int $id id of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -212,9 +197,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_cart() {
-	
+		public function get_id_cart()
+		{
 			return $this->id_cart;
 		}
 	
@@ -225,9 +209,8 @@
 		 * @param  int $id_cart id_cart of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_id_cart($id_cart) {
-	
+		public function set_id_cart($id_cart) 
+		{
 			$this->id_cart = $id_cart;
 			return $this;
 		}
@@ -238,9 +221,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_offer() {
-	
+		public function get_id_offer()
+		{
 			return $this->id_offer;
 		}
 	
@@ -251,9 +233,8 @@
 		 * @param  int $id_offer id_offer of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_id_offer($id_offer) {
-	
+		public function set_id_offer($id_offer) 
+		{
 			$this->id_offer = $id_offer;
 			return $this;
 		}
@@ -264,9 +245,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_merchant() {
-	
+		public function get_id_merchant()
+		{
 			return $this->id_merchant;
 		}
 	
@@ -277,9 +257,8 @@
 		 * @param  int $id_merchant id_merchant of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_id_merchant($id_merchant) {
-	
+		public function set_id_merchant($id_merchant) 
+		{
 			$this->id_merchant = $id_merchant;
 			return $this;
 		}
@@ -290,9 +269,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_shipping_address() {
-	
+		public function get_id_shipping_address()
+		{
 			return $this->id_shipping_address;
 		}
 	
@@ -303,9 +281,8 @@
 		 * @param  int $id_shipping_address id_shipping_address of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_id_shipping_address($id_shipping_address) {
-	
+		public function set_id_shipping_address($id_shipping_address) 
+		{
 			$this->id_shipping_address = $id_shipping_address;
 			return $this;
 		}
@@ -316,9 +293,8 @@
 		 * @access public
 		 * @return float
 		 */
-	
-		public function get_vat_id() {
-	
+		public function get_vat_id()
+		{
 			return $this->vat_id;
 		}
 	
@@ -329,9 +305,8 @@
 		 * @param  float $vat_id vat_id of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_vat_id($vat_id) {
-	
+		public function set_vat_id($vat_id) 
+		{
 			$this->vat_id = $vat_id;
 			return $this;
 		}
@@ -342,9 +317,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_create() {
-	
+		public function get_date_create()
+		{
 			return $this->date_create;
 		}
 	
@@ -355,9 +329,8 @@
 		 * @param  string $date_create date_create of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_date_create($date_create) {
-	
+		public function set_date_create($date_create) 
+		{
 			$this->date_create = $date_create;
 			return $this;
 		}
@@ -368,9 +341,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_update() {
-	
+		public function get_date_update()
+		{
 			return $this->date_update;
 		}
 	
@@ -381,9 +353,8 @@
 		 * @param  string $date_update date_update of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_date_update($date_update) {
-	
+		public function set_date_update($date_update) 
+		{
 			$this->date_update = $date_update;
 			return $this;
 		}
@@ -392,11 +363,10 @@
 		 * get enable of cart_detail
 		 *
 		 * @access public
-		 * @return int
+		 * @return string
 		 */
-	
-		public function get_enable() {
-	
+		public function get_enable()
+		{
 			return $this->enable;
 		}
 	
@@ -404,12 +374,11 @@
 		 * set enable of cart_detail
 		 *
 		 * @access public
-		 * @param  int $enable enable of cart_detail
+		 * @param  string $enable enable of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_enable($enable) {
-	
+		public function set_enable($enable) 
+		{
 			$this->enable = $enable;
 			return $this;
 		}
@@ -420,9 +389,8 @@
 		 * @access public
 		 * @return float
 		 */
-	
-		public function get_price() {
-	
+		public function get_price()
+		{
 			return $this->price;
 		}
 	
@@ -433,9 +401,8 @@
 		 * @param  float $price price of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_price($price) {
-	
+		public function set_price($price) 
+		{
 			$this->price = $price;
 			return $this;
 		}
@@ -444,11 +411,10 @@
 		 * get is_gift of cart_detail
 		 *
 		 * @access public
-		 * @return int
+		 * @return bool
 		 */
-	
-		public function get_is_gift() {
-	
+		public function get_is_gift()
+		{
 			return $this->is_gift;
 		}
 	
@@ -456,12 +422,11 @@
 		 * set is_gift of cart_detail
 		 *
 		 * @access public
-		 * @param  int $is_gift is_gift of cart_detail
+		 * @param  bool $is_gift is_gift of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_is_gift($is_gift) {
-	
+		public function set_is_gift($is_gift) 
+		{
 			$this->is_gift = $is_gift;
 			return $this;
 		}
@@ -472,9 +437,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_gift_message() {
-	
+		public function get_gift_message()
+		{
 			return $this->gift_message;
 		}
 	
@@ -485,9 +449,8 @@
 		 * @param  string $gift_message gift_message of cart_detail
 		 * @return \Venus\src\Helium\Entity\cart_detail
 		 */
-	
-		public function set_gift_message($gift_message) {
-	
+		public function set_gift_message($gift_message) 
+		{
 			$this->gift_message = $gift_message;
 			return $this;
 		}

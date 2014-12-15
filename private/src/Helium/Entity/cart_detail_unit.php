@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class cart_detail_unit extends Entity {
+	class cart_detail_unit extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_cart_detail = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_discount = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_tax = null;
 	
 	
@@ -91,7 +86,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_parent = null;
 	
 	
@@ -103,7 +97,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_create = null;
 	
 	
@@ -115,7 +108,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_update = null;
 	
 	
@@ -124,10 +116,9 @@
 		 * enable
 		 *
 		 * @access private
-		 * @var    int
+		 * @var    bool
 		 *
 		 */
-	
 		private $enable = null;
 	
 	
@@ -136,10 +127,9 @@
 		 * discount_amount
 		 *
 		 * @access private
-		 * @var    int
+		 * @var    float
 		 *
 		 */
-	
 		private $discount_amount = null;
 	
 	
@@ -151,7 +141,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $tax_amount = null;
 	
 	
@@ -162,9 +151,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -175,9 +163,8 @@
 		 * @param  int $id id of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -188,9 +175,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_cart_detail() {
-	
+		public function get_id_cart_detail()
+		{
 			return $this->id_cart_detail;
 		}
 	
@@ -201,9 +187,8 @@
 		 * @param  int $id_cart_detail id_cart_detail of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_id_cart_detail($id_cart_detail) {
-	
+		public function set_id_cart_detail($id_cart_detail) 
+		{
 			$this->id_cart_detail = $id_cart_detail;
 			return $this;
 		}
@@ -214,9 +199,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_discount() {
-	
+		public function get_id_discount()
+		{
 			return $this->id_discount;
 		}
 	
@@ -227,9 +211,8 @@
 		 * @param  int $id_discount id_discount of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_id_discount($id_discount) {
-	
+		public function set_id_discount($id_discount) 
+		{
 			$this->id_discount = $id_discount;
 			return $this;
 		}
@@ -240,9 +223,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_tax() {
-	
+		public function get_id_tax()
+		{
 			return $this->id_tax;
 		}
 	
@@ -253,9 +235,8 @@
 		 * @param  int $id_tax id_tax of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_id_tax($id_tax) {
-	
+		public function set_id_tax($id_tax) 
+		{
 			$this->id_tax = $id_tax;
 			return $this;
 		}
@@ -266,9 +247,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_parent() {
-	
+		public function get_id_parent()
+		{
 			return $this->id_parent;
 		}
 	
@@ -279,9 +259,8 @@
 		 * @param  int $id_parent id_parent of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_id_parent($id_parent) {
-	
+		public function set_id_parent($id_parent) 
+		{
 			$this->id_parent = $id_parent;
 			return $this;
 		}
@@ -292,9 +271,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_create() {
-	
+		public function get_date_create()
+		{
 			return $this->date_create;
 		}
 	
@@ -305,9 +283,8 @@
 		 * @param  string $date_create date_create of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_date_create($date_create) {
-	
+		public function set_date_create($date_create) 
+		{
 			$this->date_create = $date_create;
 			return $this;
 		}
@@ -318,9 +295,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_update() {
-	
+		public function get_date_update()
+		{
 			return $this->date_update;
 		}
 	
@@ -331,9 +307,8 @@
 		 * @param  string $date_update date_update of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_date_update($date_update) {
-	
+		public function set_date_update($date_update) 
+		{
 			$this->date_update = $date_update;
 			return $this;
 		}
@@ -342,11 +317,10 @@
 		 * get enable of cart_detail_unit
 		 *
 		 * @access public
-		 * @return int
+		 * @return bool
 		 */
-	
-		public function get_enable() {
-	
+		public function get_enable()
+		{
 			return $this->enable;
 		}
 	
@@ -354,12 +328,11 @@
 		 * set enable of cart_detail_unit
 		 *
 		 * @access public
-		 * @param  int $enable enable of cart_detail_unit
+		 * @param  bool $enable enable of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_enable($enable) {
-	
+		public function set_enable($enable) 
+		{
 			$this->enable = $enable;
 			return $this;
 		}
@@ -368,11 +341,10 @@
 		 * get discount_amount of cart_detail_unit
 		 *
 		 * @access public
-		 * @return int
+		 * @return float
 		 */
-	
-		public function get_discount_amount() {
-	
+		public function get_discount_amount()
+		{
 			return $this->discount_amount;
 		}
 	
@@ -380,12 +352,11 @@
 		 * set discount_amount of cart_detail_unit
 		 *
 		 * @access public
-		 * @param  int $discount_amount discount_amount of cart_detail_unit
+		 * @param  float $discount_amount discount_amount of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_discount_amount($discount_amount) {
-	
+		public function set_discount_amount($discount_amount) 
+		{
 			$this->discount_amount = $discount_amount;
 			return $this;
 		}
@@ -396,9 +367,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_tax_amount() {
-	
+		public function get_tax_amount()
+		{
 			return $this->tax_amount;
 		}
 	
@@ -409,9 +379,8 @@
 		 * @param  int $tax_amount tax_amount of cart_detail_unit
 		 * @return \Venus\src\Helium\Entity\cart_detail_unit
 		 */
-	
-		public function set_tax_amount($tax_amount) {
-	
+		public function set_tax_amount($tax_amount) 
+		{
 			$this->tax_amount = $tax_amount;
 			return $this;
 		}

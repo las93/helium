@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class order_detail extends Entity {
+	class order_detail extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $order_cart = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_order_status = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_create = null;
 	
 	
@@ -91,7 +86,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_update = null;
 	
 	
@@ -100,10 +94,9 @@
 		 * enable
 		 *
 		 * @access private
-		 * @var    int
+		 * @var    bool
 		 *
 		 */
-	
 		private $enable = null;
 	
 	
@@ -114,9 +107,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -127,9 +119,8 @@
 		 * @param  int $id id of order_detail
 		 * @return \Venus\src\Helium\Entity\order_detail
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -140,9 +131,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_order_cart() {
-	
+		public function get_order_cart()
+		{
 			return $this->order_cart;
 		}
 	
@@ -153,9 +143,8 @@
 		 * @param  int $order_cart order_cart of order_detail
 		 * @return \Venus\src\Helium\Entity\order_detail
 		 */
-	
-		public function set_order_cart($order_cart) {
-	
+		public function set_order_cart($order_cart) 
+		{
 			$this->order_cart = $order_cart;
 			return $this;
 		}
@@ -166,9 +155,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_order_status() {
-	
+		public function get_id_order_status()
+		{
 			return $this->id_order_status;
 		}
 	
@@ -179,9 +167,8 @@
 		 * @param  int $id_order_status id_order_status of order_detail
 		 * @return \Venus\src\Helium\Entity\order_detail
 		 */
-	
-		public function set_id_order_status($id_order_status) {
-	
+		public function set_id_order_status($id_order_status) 
+		{
 			$this->id_order_status = $id_order_status;
 			return $this;
 		}
@@ -192,9 +179,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_create() {
-	
+		public function get_date_create()
+		{
 			return $this->date_create;
 		}
 	
@@ -205,9 +191,8 @@
 		 * @param  string $date_create date_create of order_detail
 		 * @return \Venus\src\Helium\Entity\order_detail
 		 */
-	
-		public function set_date_create($date_create) {
-	
+		public function set_date_create($date_create) 
+		{
 			$this->date_create = $date_create;
 			return $this;
 		}
@@ -218,9 +203,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_update() {
-	
+		public function get_date_update()
+		{
 			return $this->date_update;
 		}
 	
@@ -231,9 +215,8 @@
 		 * @param  string $date_update date_update of order_detail
 		 * @return \Venus\src\Helium\Entity\order_detail
 		 */
-	
-		public function set_date_update($date_update) {
-	
+		public function set_date_update($date_update) 
+		{
 			$this->date_update = $date_update;
 			return $this;
 		}
@@ -242,11 +225,10 @@
 		 * get enable of order_detail
 		 *
 		 * @access public
-		 * @return int
+		 * @return bool
 		 */
-	
-		public function get_enable() {
-	
+		public function get_enable()
+		{
 			return $this->enable;
 		}
 	
@@ -254,12 +236,11 @@
 		 * set enable of order_detail
 		 *
 		 * @access public
-		 * @param  int $enable enable of order_detail
+		 * @param  bool $enable enable of order_detail
 		 * @return \Venus\src\Helium\Entity\order_detail
 		 */
-	
-		public function set_enable($enable) {
-	
+		public function set_enable($enable) 
+		{
 			$this->enable = $enable;
 			return $this;
 		}

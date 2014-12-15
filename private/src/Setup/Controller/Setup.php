@@ -24,6 +24,8 @@ use \Venus\src\Helium\Entity\category as Category;
 use \Venus\src\Helium\Entity\country as Country;
 use \Venus\src\Helium\Entity\merchant as Merchant;
 use \Venus\src\Helium\Entity\product as Product;
+use \Venus\src\Helium\Entity\offer as Offer;
+use \Venus\src\Helium\Entity\offer_status as OfferStatus;
 use \Venus\src\Helium\Entity\right as Right;
 use \Venus\src\Helium\Entity\user as User;
 use \Venus\src\Helium\Entity\vat as Vat;
@@ -175,10 +177,10 @@ class Setup extends Controller {
 			
 			$oVat = new Vat;
 			
-			 $oVat->set_id_country($iIdCountry)
-				  ->set_name('Fr Normal')
-				  ->set_vat_percent(20)
-				  ->save();
+			$iIdVat = $oVat->set_id_country($iIdCountry)
+				           ->set_name('Fr Normal')
+				           ->set_vat_percent(20)
+				           ->save();
 			
 			$oVat = new Vat;
 			
@@ -1284,16 +1286,16 @@ class Setup extends Controller {
 			
 			$oMerchant = new Merchant;
 			
-			$oMerchant->set_contact_country('France')
-					  ->set_name('Helium')
-					  ->set_store_url('http://www.helium.fr')
-					  ->set_contact_firstname('Judicaël')
-					  ->set_contact_lastname('Paquet')
-					  ->set_contact_function('CEO')
-					  ->set_contact_city('Saint Ouen')
-					  ->set_contact_zip('93400')
-					  ->set_contact_email('helium@gmail.com')
-					  ->save();
+			$iIdMerchant = $oMerchant->set_contact_country('France')
+					                 ->set_name('Helium')
+					                 ->set_store_url('http://www.helium.fr')
+					                 ->set_contact_firstname('Judicaël')
+					                 ->set_contact_lastname('Paquet')
+					                 ->set_contact_function('CEO')
+					                 ->set_contact_city('Saint Ouen')
+					                 ->set_contact_zip('93400')
+					                 ->set_contact_email('helium@gmail.com')
+					                 ->save();
 			
 			$oCategory = new Category;
 				
@@ -1580,27 +1582,67 @@ class Setup extends Controller {
 			
 			$oBrand = new Brand;
 			
-			$iIdBrand = $oBrand->set_name('Samsung')
+			$iIdBrand = $oBrand->set_name('Asus')
 			                   ->save();
 		
 			$oProduct = new Product;
 			
-			$oProduct->set_name('Samsung HW-H450 Barre de son 2.1 Bluetooth 290 W Noir')
-			         ->set_description('Utilisez votre smartphone pour activer vos haut-parleurs à distance grâce à la compatibilité Bluetooth<br/>
-			             Le caisson de basse supersonique ajoute des basses dynamiques et riches à votre expérience auditive<br/>La fonctionnalité 
-			             3D SOUND ajoute de la profondeur et de la grandeur au son<br/>Vous avez le choix entre différents modes de son : MUSIC / 
-			             VOICE / SPORTS / CINEMA / STANDARD (Son Original)<br/>Connectez facilement votre télévision et votre barre de son par 
-			             Bluetooth ou HDMI')
-			         ->set_ean13('1234553')
-			         ->set_market_price(221.00)
-			         ->set_reference('B00JZRH6K6')
-			         ->set_short_description('Utilisez votre smartphone pour activer vos haut-parleurs à distance grâce à la compatibilité Bluetooth<br/>
-			             Le caisson de basse supersonique ajoute des basses dynamiques et riches à votre expérience auditive<br/>La fonctionnalité 
-			             3D SOUND ajoute de la profondeur et de la grandeur au son<br/>Vous avez le choix entre différents modes de son : MUSIC / 
-			             VOICE / SPORTS / CINEMA / STANDARD (Son Original)<br/>Connectez facilement votre télévision et votre barre de son par 
-			             Bluetooth ou HDMI')
-			         ->set_id_brand($iIdBrand)
-			         ->save();
+			$iIdProduct = $oProduct->set_name('Asus FonePad 7 ME372CL-1A006A Tablette tactile 7" 16 Go, Android, Wi-Fi, Blanc - Fonction téléphone (4G)')
+			                       ->set_description('<h3 class="a-spacing-small">ASUS Fonepad 7 ME372CL</h3>
+                                            <h5 class="a-spacing-mini a-color-secondary">Le meilleur des technologies mobiles</h5>
+                                            <p class="a-spacing-base">
+                                                D&eacute;couvrez le Fonepad 7, la combinaison astucieuse et innovante d&#39;un smartphone et d&#39;une tablette tactile, regroupant toutes les fonctionnalit&eacute;s que vous attendez de ces deux appareils dans un format 7&quot; pratique.
+                                            </p>
+                                                            <h5 class="a-spacing-mini a-color-secondary">Design ergonomique</h5>
+                                            <p class="a-spacing-base">
+                                                Le Fonepad 7 arbore des courbes agr&eacute;ables au toucher assurant une excellente prise en main.
+                                            </p
+                                                            <h5 class="a-spacing-mini a-color-secondary">Autonomie prolongée</h5>
+                                            <p class="a-spacing-base">
+                                                Le Fonepad 7 vous offre une autonomie pouvant aller jusqu&#39;&agrave; 28 heures de discussion en mode 3G et jusqu&#39;&agrave; 10 heures en lecture vid&eacute;o. Il pourra ainsi &ecirc;tre utilis&eacute; toute la journ&eacute;e.
+                                            </p>
+                                                            <h4 class="a-spacing-mini">L\'ASUS Fonepad 7 ME372CL en bref</h4>
+                                        <ul>
+                                            <li><span class="a-size-base a-color-secondary">Processeur Intel Atom pour une connexion internet et un chargement des applications rapides</span></li>
+                                            <li><span class="a-size-base a-color-secondary">Fonction téléphone avec connexion 3G intégrée</span></li>
+                                            <li><span class="a-size-base a-color-secondary">Ecran 7\'\' HD à technologie IPS offrant un angle de vision de 178°</span></li>
+                                            <li><span class="a-size-base a-color-secondary">Immersion audio parfaite avec la technologie ASUS SonicMaster</span></li>
+                                            <li><span class="a-size-base a-color-secondary">Des photos de grande qualité avec les capteurs de 1,2 et 5 mégapixels (avant et arrière)</span></li>
+                                        </ul>')
+			                         ->set_ean13('1234553')
+                			         ->set_market_price(249.00)
+                			         ->set_reference('B00JZRH6K6')
+                			         ->set_short_description('<ul><li>Ecran tactile 7 pouces</li>
+                                        </li>Fonction téléphone avec connexion 4G intégrée</li>
+                                        </li>Stockage et mémoire : disque dur 16 Go, RAM 1 Go</li>
+                                        </li>Processeur : Intel Clover Trail+ Z2560 1.6 Ghz</li>
+                                        </li>Connectique : Wifi 802.11a/b/g/n, Bluetooth 3.0</li>
+                                        </li>Système d\'exploitation : Android 4.3 Jelly Bean</li>
+                                        </li>Nombre de ports : 1 x micro USB ; 1 x Audio jack ; Micro-SD (jusqu\'à 64 Go)</li>
+                                        </li>Autonomie : 11 heures</li></ul>')
+                			         ->set_id_brand($iIdBrand)
+                			         ->save();
+
+			$oOfferStatus = new OfferStatus();
+				
+			$iIdStatus = $oOfferStatus->set_name('instock')
+			                          ->save();
+
+			$oOfferStatus = new OfferStatus();
+				
+			$iIdStatus = $oOfferStatus->set_name('restocking')
+			                          ->save();
+
+			$oOffer = new Offer;
+
+			$oOffer->set_enable(true)
+			       ->set_id_merchant($iIdMerchant)
+			       ->set_id_offer_status($iIdStatus)
+			       ->set_id_product($iIdProduct)
+			       ->set_id_vat($iIdVat)
+			       ->set_price(209.47)
+			       ->set_quantity_public(100)
+			       ->save();
 		}
 		else {
 			

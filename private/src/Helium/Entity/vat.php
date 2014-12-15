@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class vat extends Entity {
+	class vat extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_country = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $name = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    float
 		 *
 		 */
-	
 		private $vat_percent = null;
 	
 	
@@ -90,9 +85,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -103,9 +97,8 @@
 		 * @param  int $id id of vat
 		 * @return \Venus\src\Helium\Entity\vat
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -116,9 +109,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_country() {
-	
+		public function get_id_country()
+		{
 			return $this->id_country;
 		}
 	
@@ -129,9 +121,8 @@
 		 * @param  int $id_country id_country of vat
 		 * @return \Venus\src\Helium\Entity\vat
 		 */
-	
-		public function set_id_country($id_country) {
-	
+		public function set_id_country($id_country) 
+		{
 			$this->id_country = $id_country;
 			return $this;
 		}
@@ -142,9 +133,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_name() {
-	
+		public function get_name()
+		{
 			return $this->name;
 		}
 	
@@ -155,9 +145,8 @@
 		 * @param  string $name name of vat
 		 * @return \Venus\src\Helium\Entity\vat
 		 */
-	
-		public function set_name($name) {
-	
+		public function set_name($name) 
+		{
 			$this->name = $name;
 			return $this;
 		}
@@ -168,9 +157,8 @@
 		 * @access public
 		 * @return float
 		 */
-	
-		public function get_vat_percent() {
-	
+		public function get_vat_percent()
+		{
 			return $this->vat_percent;
 		}
 	
@@ -181,9 +169,8 @@
 		 * @param  float $vat_percent vat_percent of vat
 		 * @return \Venus\src\Helium\Entity\vat
 		 */
-	
-		public function set_vat_percent($vat_percent) {
-	
+		public function set_vat_percent($vat_percent) 
+		{
 			$this->vat_percent = $vat_percent;
 			return $this;
 		}

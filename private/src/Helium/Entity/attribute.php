@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class attribute extends Entity {
+	class attribute extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $name = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $type = null;
 	
 	
@@ -78,9 +74,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -91,9 +86,8 @@
 		 * @param  int $id id of attribute
 		 * @return \Venus\src\Helium\Entity\attribute
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -104,9 +98,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_name() {
-	
+		public function get_name()
+		{
 			return $this->name;
 		}
 	
@@ -117,9 +110,8 @@
 		 * @param  string $name name of attribute
 		 * @return \Venus\src\Helium\Entity\attribute
 		 */
-	
-		public function set_name($name) {
-	
+		public function set_name($name) 
+		{
 			$this->name = $name;
 			return $this;
 		}
@@ -130,9 +122,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_type() {
-	
+		public function get_type()
+		{
 			return $this->type;
 		}
 	
@@ -143,9 +134,8 @@
 		 * @param  string $type type of attribute
 		 * @return \Venus\src\Helium\Entity\attribute
 		 */
-	
-		public function set_type($type) {
-	
+		public function set_type($type) 
+		{
 			$this->type = $type;
 			return $this;
 		}

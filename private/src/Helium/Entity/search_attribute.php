@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class search_attribute extends Entity {
+	class search_attribute extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $name = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $label_for_all = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_category = null;
 	
 	
@@ -90,9 +85,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -103,9 +97,8 @@
 		 * @param  int $id id of search_attribute
 		 * @return \Venus\src\Helium\Entity\search_attribute
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -116,9 +109,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_name() {
-	
+		public function get_name()
+		{
 			return $this->name;
 		}
 	
@@ -129,9 +121,8 @@
 		 * @param  string $name name of search_attribute
 		 * @return \Venus\src\Helium\Entity\search_attribute
 		 */
-	
-		public function set_name($name) {
-	
+		public function set_name($name) 
+		{
 			$this->name = $name;
 			return $this;
 		}
@@ -142,9 +133,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_label_for_all() {
-	
+		public function get_label_for_all()
+		{
 			return $this->label_for_all;
 		}
 	
@@ -155,9 +145,8 @@
 		 * @param  string $label_for_all label_for_all of search_attribute
 		 * @return \Venus\src\Helium\Entity\search_attribute
 		 */
-	
-		public function set_label_for_all($label_for_all) {
-	
+		public function set_label_for_all($label_for_all) 
+		{
 			$this->label_for_all = $label_for_all;
 			return $this;
 		}
@@ -168,9 +157,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_category() {
-	
+		public function get_id_category()
+		{
 			return $this->id_category;
 		}
 	
@@ -181,9 +169,8 @@
 		 * @param  int $id_category id_category of search_attribute
 		 * @return \Venus\src\Helium\Entity\search_attribute
 		 */
-	
-		public function set_id_category($id_category) {
-	
+		public function set_id_category($id_category) 
+		{
 			$this->id_category = $id_category;
 			return $this;
 		}

@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class product extends Entity {
+	class product extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_brand = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_create = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_update = null;
 	
 	
@@ -91,7 +86,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $name = null;
 	
 	
@@ -103,7 +97,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $short_description = null;
 	
 	
@@ -115,7 +108,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $description = null;
 	
 	
@@ -127,7 +119,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $ean13 = null;
 	
 	
@@ -139,7 +130,6 @@
 		 * @var    float
 		 *
 		 */
-	
 		private $market_price = null;
 	
 	
@@ -151,7 +141,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $reference = null;
 	
 	
@@ -162,9 +151,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -175,9 +163,8 @@
 		 * @param  int $id id of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -188,9 +175,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_brand() {
-	
+		public function get_id_brand()
+		{
 			return $this->id_brand;
 		}
 	
@@ -201,9 +187,8 @@
 		 * @param  int $id_brand id_brand of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_id_brand($id_brand) {
-	
+		public function set_id_brand($id_brand) 
+		{
 			$this->id_brand = $id_brand;
 			return $this;
 		}
@@ -214,9 +199,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_create() {
-	
+		public function get_date_create()
+		{
 			return $this->date_create;
 		}
 	
@@ -227,9 +211,8 @@
 		 * @param  string $date_create date_create of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_date_create($date_create) {
-	
+		public function set_date_create($date_create) 
+		{
 			$this->date_create = $date_create;
 			return $this;
 		}
@@ -240,9 +223,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_update() {
-	
+		public function get_date_update()
+		{
 			return $this->date_update;
 		}
 	
@@ -253,9 +235,8 @@
 		 * @param  string $date_update date_update of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_date_update($date_update) {
-	
+		public function set_date_update($date_update) 
+		{
 			$this->date_update = $date_update;
 			return $this;
 		}
@@ -266,9 +247,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_name() {
-	
+		public function get_name()
+		{
 			return $this->name;
 		}
 	
@@ -279,9 +259,8 @@
 		 * @param  string $name name of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_name($name) {
-	
+		public function set_name($name) 
+		{
 			$this->name = $name;
 			return $this;
 		}
@@ -292,9 +271,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_short_description() {
-	
+		public function get_short_description()
+		{
 			return $this->short_description;
 		}
 	
@@ -305,9 +283,8 @@
 		 * @param  string $short_description short_description of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_short_description($short_description) {
-	
+		public function set_short_description($short_description) 
+		{
 			$this->short_description = $short_description;
 			return $this;
 		}
@@ -318,9 +295,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_description() {
-	
+		public function get_description()
+		{
 			return $this->description;
 		}
 	
@@ -331,9 +307,8 @@
 		 * @param  string $description description of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_description($description) {
-	
+		public function set_description($description) 
+		{
 			$this->description = $description;
 			return $this;
 		}
@@ -344,9 +319,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_ean13() {
-	
+		public function get_ean13()
+		{
 			return $this->ean13;
 		}
 	
@@ -357,9 +331,8 @@
 		 * @param  string $ean13 ean13 of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_ean13($ean13) {
-	
+		public function set_ean13($ean13) 
+		{
 			$this->ean13 = $ean13;
 			return $this;
 		}
@@ -370,9 +343,8 @@
 		 * @access public
 		 * @return float
 		 */
-	
-		public function get_market_price() {
-	
+		public function get_market_price()
+		{
 			return $this->market_price;
 		}
 	
@@ -383,9 +355,8 @@
 		 * @param  float $market_price market_price of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_market_price($market_price) {
-	
+		public function set_market_price($market_price) 
+		{
 			$this->market_price = $market_price;
 			return $this;
 		}
@@ -396,9 +367,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_reference() {
-	
+		public function get_reference()
+		{
 			return $this->reference;
 		}
 	
@@ -409,9 +379,8 @@
 		 * @param  string $reference reference of product
 		 * @return \Venus\src\Helium\Entity\product
 		 */
-	
-		public function set_reference($reference) {
-	
+		public function set_reference($reference) 
+		{
 			$this->reference = $reference;
 			return $this;
 		}

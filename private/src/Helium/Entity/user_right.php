@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class user_right extends Entity {
+	class user_right extends Entity 
+	{
 
 		/**
 		 * id_user
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_user = null;
 	
 	
@@ -56,7 +54,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id_right = null;
 	
 	
@@ -67,9 +64,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_user() {
-	
+		public function get_id_user()
+		{
 			return $this->id_user;
 		}
 	
@@ -80,9 +76,8 @@
 		 * @param  int $id_user id_user of user_right
 		 * @return \Venus\src\Helium\Entity\user_right
 		 */
-	
-		public function set_id_user($id_user) {
-	
+		public function set_id_user($id_user) 
+		{
 			$this->id_user = $id_user;
 			return $this;
 		}
@@ -93,9 +88,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_right() {
-	
+		public function get_id_right()
+		{
 			return $this->id_right;
 		}
 	
@@ -106,9 +100,8 @@
 		 * @param  int $id_right id_right of user_right
 		 * @return \Venus\src\Helium\Entity\user_right
 		 */
-	
-		public function set_id_right($id_right) {
-	
+		public function set_id_right($id_right) 
+		{
 			$this->id_right = $id_right;
 			return $this;
 		}

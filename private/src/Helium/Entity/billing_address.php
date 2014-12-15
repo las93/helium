@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class billing_address extends Entity {
+	class billing_address extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $user_id = null;
 	
 	
@@ -66,9 +63,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -79,9 +75,8 @@
 		 * @param  int $id id of billing_address
 		 * @return \Venus\src\Helium\Entity\billing_address
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -92,9 +87,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_user_id() {
-	
+		public function get_user_id()
+		{
 			return $this->user_id;
 		}
 	
@@ -105,9 +99,8 @@
 		 * @param  int $user_id user_id of billing_address
 		 * @return \Venus\src\Helium\Entity\billing_address
 		 */
-	
-		public function set_user_id($user_id) {
-	
+		public function set_user_id($user_id) 
+		{
 			$this->user_id = $user_id;
 			return $this;
 		}

@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class right extends Entity {
+	class right extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $name = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $description = null;
 	
 	
@@ -78,9 +74,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -91,9 +86,8 @@
 		 * @param  int $id id of right
 		 * @return \Venus\src\Helium\Entity\right
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -104,9 +98,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_name() {
-	
+		public function get_name()
+		{
 			return $this->name;
 		}
 	
@@ -117,9 +110,8 @@
 		 * @param  string $name name of right
 		 * @return \Venus\src\Helium\Entity\right
 		 */
-	
-		public function set_name($name) {
-	
+		public function set_name($name) 
+		{
 			$this->name = $name;
 			return $this;
 		}
@@ -130,9 +122,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_description() {
-	
+		public function get_description()
+		{
 			return $this->description;
 		}
 	
@@ -143,9 +134,8 @@
 		 * @param  string $description description of right
 		 * @return \Venus\src\Helium\Entity\right
 		 */
-	
-		public function set_description($description) {
-	
+		public function set_description($description) 
+		{
 			$this->description = $description;
 			return $this;
 		}

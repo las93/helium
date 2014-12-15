@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class review extends Entity {
+	class review extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_user = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $title = null;
 	
 	
@@ -79,7 +75,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $comment = null;
 	
 	
@@ -91,7 +86,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_create = null;
 	
 	
@@ -103,7 +97,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $enable = null;
 	
 	
@@ -114,9 +107,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -127,9 +119,8 @@
 		 * @param  int $id id of review
 		 * @return \Venus\src\Helium\Entity\review
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -140,9 +131,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_user() {
-	
+		public function get_id_user()
+		{
 			return $this->id_user;
 		}
 	
@@ -153,9 +143,8 @@
 		 * @param  int $id_user id_user of review
 		 * @return \Venus\src\Helium\Entity\review
 		 */
-	
-		public function set_id_user($id_user) {
-	
+		public function set_id_user($id_user) 
+		{
 			$this->id_user = $id_user;
 			return $this;
 		}
@@ -166,9 +155,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_title() {
-	
+		public function get_title()
+		{
 			return $this->title;
 		}
 	
@@ -179,9 +167,8 @@
 		 * @param  string $title title of review
 		 * @return \Venus\src\Helium\Entity\review
 		 */
-	
-		public function set_title($title) {
-	
+		public function set_title($title) 
+		{
 			$this->title = $title;
 			return $this;
 		}
@@ -192,9 +179,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_comment() {
-	
+		public function get_comment()
+		{
 			return $this->comment;
 		}
 	
@@ -205,9 +191,8 @@
 		 * @param  string $comment comment of review
 		 * @return \Venus\src\Helium\Entity\review
 		 */
-	
-		public function set_comment($comment) {
-	
+		public function set_comment($comment) 
+		{
 			$this->comment = $comment;
 			return $this;
 		}
@@ -218,9 +203,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_create() {
-	
+		public function get_date_create()
+		{
 			return $this->date_create;
 		}
 	
@@ -231,9 +215,8 @@
 		 * @param  string $date_create date_create of review
 		 * @return \Venus\src\Helium\Entity\review
 		 */
-	
-		public function set_date_create($date_create) {
-	
+		public function set_date_create($date_create) 
+		{
 			$this->date_create = $date_create;
 			return $this;
 		}
@@ -244,9 +227,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_enable() {
-	
+		public function get_enable()
+		{
 			return $this->enable;
 		}
 	
@@ -257,9 +239,8 @@
 		 * @param  int $enable enable of review
 		 * @return \Venus\src\Helium\Entity\review
 		 */
-	
-		public function set_enable($enable) {
-	
+		public function set_enable($enable) 
+		{
 			$this->enable = $enable;
 			return $this;
 		}

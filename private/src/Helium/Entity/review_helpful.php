@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class review_helpful extends Entity {
+	class review_helpful extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,7 +53,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_review = null;
 	
 	
@@ -67,7 +64,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $helpful = null;
 	
 	
@@ -78,9 +74,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -91,9 +86,8 @@
 		 * @param  int $id id of review_helpful
 		 * @return \Venus\src\Helium\Entity\review_helpful
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -104,9 +98,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_review() {
-	
+		public function get_id_review()
+		{
 			return $this->id_review;
 		}
 	
@@ -117,9 +110,8 @@
 		 * @param  int $id_review id_review of review_helpful
 		 * @return \Venus\src\Helium\Entity\review_helpful
 		 */
-	
-		public function set_id_review($id_review) {
-	
+		public function set_id_review($id_review) 
+		{
 			$this->id_review = $id_review;
 			return $this;
 		}
@@ -130,9 +122,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_helpful() {
-	
+		public function get_helpful()
+		{
 			return $this->helpful;
 		}
 	
@@ -143,9 +134,8 @@
 		 * @param  string $helpful helpful of review_helpful
 		 * @return \Venus\src\Helium\Entity\review_helpful
 		 */
-	
-		public function set_helpful($helpful) {
-	
+		public function set_helpful($helpful) 
+		{
 			$this->helpful = $helpful;
 			return $this;
 		}

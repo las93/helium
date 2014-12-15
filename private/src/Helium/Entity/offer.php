@@ -13,7 +13,6 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
 	namespace Venus\src\Helium\Entity;
 	
 	use \Venus\core\Entity as Entity;
@@ -32,8 +31,8 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	
-	class offer extends Entity {
+	class offer extends Entity 
+	{
 
 		/**
 		 * id
@@ -43,7 +42,6 @@
 		 *
 		 * @primary_key
 	 */
-	
 		private $id = null;
 	
 	
@@ -55,8 +53,18 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_product = null;
+	
+	
+	
+		/**
+		 * product Entity
+		 *
+		 * @access private
+		 * @var    product
+		 *
+		 */
+		private $product = null;
 	
 	
 	
@@ -67,7 +75,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_merchant = null;
 	
 	
@@ -79,7 +86,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_offer_status = null;
 	
 	
@@ -91,7 +97,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $id_vat = null;
 	
 	
@@ -100,10 +105,9 @@
 		 * enable
 		 *
 		 * @access private
-		 * @var    int
+		 * @var    bool
 		 *
 		 */
-	
 		private $enable = null;
 	
 	
@@ -115,7 +119,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_create = null;
 	
 	
@@ -127,7 +130,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $date_update = null;
 	
 	
@@ -139,7 +141,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $quantity_public = null;
 	
 	
@@ -151,7 +152,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $quantity_reserved = null;
 	
 	
@@ -163,7 +163,6 @@
 		 * @var    int
 		 *
 		 */
-	
 		private $quantity_confirmed = null;
 	
 	
@@ -175,8 +174,18 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $name = null;
+	
+	
+	
+		/**
+		 * short_description
+		 *
+		 * @access private
+		 * @var    string
+		 *
+		 */
+		private $short_description = null;
 	
 	
 	
@@ -187,7 +196,6 @@
 		 * @var    string
 		 *
 		 */
-	
 		private $description = null;
 	
 	
@@ -199,20 +207,7 @@
 		 * @var    float
 		 *
 		 */
-	
 		private $price = null;
-	
-	
-	
-		/**
-		 * market_price
-		 *
-		 * @access private
-		 * @var    float
-		 *
-		 */
-	
-		private $market_price = null;
 	
 	
 	
@@ -222,9 +217,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id() {
-	
+		public function get_id()
+		{
 			return $this->id;
 		}
 	
@@ -235,9 +229,8 @@
 		 * @param  int $id id of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_id($id) {
-	
+		public function set_id($id) 
+		{
 			$this->id = $id;
 			return $this;
 		}
@@ -248,9 +241,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_product() {
-	
+		public function get_id_product()
+		{
 			return $this->id_product;
 		}
 	
@@ -261,10 +253,44 @@
 		 * @param  int $id_product id_product of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_id_product($id_product) {
-	
+		public function set_id_product($id_product) 
+		{
 			$this->id_product = $id_product;
+			return $this;
+		}
+	
+		/**
+		 * get product entity join by id_product of offer
+		 *
+		 * @access public
+		 * @return \Venus\src\Helium\Entity\product
+		 */
+		public function get_product() 
+		{
+			if ($this->product === null) {
+	
+				$oOrm = new Orm;
+	
+				$this->product = $oOrm->select(array('*'))
+												->from('product')
+												->where(array('id' => $this->get_id_product()))
+												->limit(1)
+												->load();
+			}
+	
+			return $this->product;
+		}
+	
+		/**
+		 * set product entity join by id_product of offer
+		 *
+		 * @access public
+		 * @param  \Venus\src\Helium\Entity\product  $product product entity
+		 * @return \Venus\src\Helium\Entity\offer
+		 */
+		public function set_product(\src\Helium\Entity\product $product) 
+		{
+			$this->product = $product;
 			return $this;
 		}
 	
@@ -274,9 +300,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_merchant() {
-	
+		public function get_id_merchant()
+		{
 			return $this->id_merchant;
 		}
 	
@@ -287,9 +312,8 @@
 		 * @param  int $id_merchant id_merchant of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_id_merchant($id_merchant) {
-	
+		public function set_id_merchant($id_merchant) 
+		{
 			$this->id_merchant = $id_merchant;
 			return $this;
 		}
@@ -300,9 +324,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_offer_status() {
-	
+		public function get_id_offer_status()
+		{
 			return $this->id_offer_status;
 		}
 	
@@ -313,9 +336,8 @@
 		 * @param  int $id_offer_status id_offer_status of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_id_offer_status($id_offer_status) {
-	
+		public function set_id_offer_status($id_offer_status) 
+		{
 			$this->id_offer_status = $id_offer_status;
 			return $this;
 		}
@@ -326,9 +348,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_id_vat() {
-	
+		public function get_id_vat()
+		{
 			return $this->id_vat;
 		}
 	
@@ -339,9 +360,8 @@
 		 * @param  int $id_vat id_vat of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_id_vat($id_vat) {
-	
+		public function set_id_vat($id_vat) 
+		{
 			$this->id_vat = $id_vat;
 			return $this;
 		}
@@ -350,11 +370,10 @@
 		 * get enable of offer
 		 *
 		 * @access public
-		 * @return int
+		 * @return bool
 		 */
-	
-		public function get_enable() {
-	
+		public function get_enable()
+		{
 			return $this->enable;
 		}
 	
@@ -362,12 +381,11 @@
 		 * set enable of offer
 		 *
 		 * @access public
-		 * @param  int $enable enable of offer
+		 * @param  bool $enable enable of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_enable($enable) {
-	
+		public function set_enable($enable) 
+		{
 			$this->enable = $enable;
 			return $this;
 		}
@@ -378,9 +396,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_create() {
-	
+		public function get_date_create()
+		{
 			return $this->date_create;
 		}
 	
@@ -391,9 +408,8 @@
 		 * @param  string $date_create date_create of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_date_create($date_create) {
-	
+		public function set_date_create($date_create) 
+		{
 			$this->date_create = $date_create;
 			return $this;
 		}
@@ -404,9 +420,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_date_update() {
-	
+		public function get_date_update()
+		{
 			return $this->date_update;
 		}
 	
@@ -417,9 +432,8 @@
 		 * @param  string $date_update date_update of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_date_update($date_update) {
-	
+		public function set_date_update($date_update) 
+		{
 			$this->date_update = $date_update;
 			return $this;
 		}
@@ -430,9 +444,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_quantity_public() {
-	
+		public function get_quantity_public()
+		{
 			return $this->quantity_public;
 		}
 	
@@ -443,9 +456,8 @@
 		 * @param  int $quantity_public quantity_public of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_quantity_public($quantity_public) {
-	
+		public function set_quantity_public($quantity_public) 
+		{
 			$this->quantity_public = $quantity_public;
 			return $this;
 		}
@@ -456,9 +468,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_quantity_reserved() {
-	
+		public function get_quantity_reserved()
+		{
 			return $this->quantity_reserved;
 		}
 	
@@ -469,9 +480,8 @@
 		 * @param  int $quantity_reserved quantity_reserved of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_quantity_reserved($quantity_reserved) {
-	
+		public function set_quantity_reserved($quantity_reserved) 
+		{
 			$this->quantity_reserved = $quantity_reserved;
 			return $this;
 		}
@@ -482,9 +492,8 @@
 		 * @access public
 		 * @return int
 		 */
-	
-		public function get_quantity_confirmed() {
-	
+		public function get_quantity_confirmed()
+		{
 			return $this->quantity_confirmed;
 		}
 	
@@ -495,9 +504,8 @@
 		 * @param  int $quantity_confirmed quantity_confirmed of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_quantity_confirmed($quantity_confirmed) {
-	
+		public function set_quantity_confirmed($quantity_confirmed) 
+		{
 			$this->quantity_confirmed = $quantity_confirmed;
 			return $this;
 		}
@@ -508,9 +516,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_name() {
-	
+		public function get_name()
+		{
 			return $this->name;
 		}
 	
@@ -521,10 +528,33 @@
 		 * @param  string $name name of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_name($name) {
-	
+		public function set_name($name) 
+		{
 			$this->name = $name;
+			return $this;
+		}
+	
+		/**
+		 * get short_description of offer
+		 *
+		 * @access public
+		 * @return string
+		 */
+		public function get_short_description()
+		{
+			return $this->short_description;
+		}
+	
+		/**
+		 * set short_description of offer
+		 *
+		 * @access public
+		 * @param  string $short_description short_description of offer
+		 * @return \Venus\src\Helium\Entity\offer
+		 */
+		public function set_short_description($short_description) 
+		{
+			$this->short_description = $short_description;
 			return $this;
 		}
 	
@@ -534,9 +564,8 @@
 		 * @access public
 		 * @return string
 		 */
-	
-		public function get_description() {
-	
+		public function get_description()
+		{
 			return $this->description;
 		}
 	
@@ -547,9 +576,8 @@
 		 * @param  string $description description of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_description($description) {
-	
+		public function set_description($description) 
+		{
 			$this->description = $description;
 			return $this;
 		}
@@ -560,9 +588,8 @@
 		 * @access public
 		 * @return float
 		 */
-	
-		public function get_price() {
-	
+		public function get_price()
+		{
 			return $this->price;
 		}
 	
@@ -573,36 +600,9 @@
 		 * @param  float $price price of offer
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-	
-		public function set_price($price) {
-	
+		public function set_price($price) 
+		{
 			$this->price = $price;
-			return $this;
-		}
-	
-		/**
-		 * get market_price of offer
-		 *
-		 * @access public
-		 * @return float
-		 */
-	
-		public function get_market_price() {
-	
-			return $this->market_price;
-		}
-	
-		/**
-		 * set market_price of offer
-		 *
-		 * @access public
-		 * @param  float $market_price market_price of offer
-		 * @return \Venus\src\Helium\Entity\offer
-		 */
-	
-		public function set_market_price($market_price) {
-	
-			$this->market_price = $market_price;
 			return $this;
 		}
 	}
