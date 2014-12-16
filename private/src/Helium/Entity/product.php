@@ -47,6 +47,17 @@
 	
 	
 		/**
+		 * offer Entity
+		 *
+		 * @access private
+		 * @var    offer
+		 *
+		 */
+		private $offer = null;
+	
+	
+	
+		/**
 		 * id_brand
 		 *
 		 * @access private
@@ -166,6 +177,42 @@
 		public function set_id($id) 
 		{
 			$this->id = $id;
+			return $this;
+		}
+	
+		/**
+		 * get offer entity join by id of product
+		 *
+		 * @access public
+		 * @return array
+		 */
+		public function get_offer() 
+		{
+			if ($this->offer === null) {
+	
+				$oOrm = new Orm;
+	
+				$this->offer = $oOrm->select(array('*'))
+												->from('offer')
+												->where(array('id_product' => $this->get_id()))
+												->limit(1)
+												->load();
+			
+			}
+	
+			return $this->offer;
+		}
+	
+		/**
+		 * set offer entity join by id of product
+		 *
+		 * @access public
+		 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
+		 * @return \Venus\src\Helium\Entity\product
+		 */
+		public function set_offer(\Venus\src\Helium\Entity\offer $offer) 
+		{
+			$this->offer = $offer;
 			return $this;
 		}
 	

@@ -263,7 +263,7 @@
 		 * get product entity join by id_product of offer
 		 *
 		 * @access public
-		 * @return \Venus\src\Helium\Entity\product
+		 * @return \Venus\src\Helium\Entity\offer
 		 */
 		public function get_product() 
 		{
@@ -271,11 +271,12 @@
 	
 				$oOrm = new Orm;
 	
-				$this->product = $oOrm->select(array('*'))
+				$aResult = $oOrm->select(array('*'))
 												->from('product')
 												->where(array('id' => $this->get_id_product()))
 												->limit(1)
 												->load();
+			  $this->product = $aResult[0];
 			}
 	
 			return $this->product;
@@ -288,7 +289,7 @@
 		 * @param  \Venus\src\Helium\Entity\product  $product product entity
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-		public function set_product(\src\Helium\Entity\product $product) 
+		public function set_product(array $product) 
 		{
 			$this->product = $product;
 			return $this;

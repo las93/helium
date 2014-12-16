@@ -15,15 +15,15 @@
         <img src="/img/product/img1b.jpg"/>
     </div>
     <div class="a-center-line-description">
-        <h1>Asus FonePad 7 ME372CL-1A006A Tablette tactile 7" 16 Go, Android, Wi-Fi, Blanc - Fonction téléphone (4G)</h1>
+        <h1>{$offer->get_product()->get_name()}</h1>
         de <a href="#">Asus</a><br/>
         <i class="stars"></i>
         <a href="#">15 commentaires client</a>  | <a href="#">5 questions ayant reçu une réponse</a>
         <hr/>
-        Prix conseillé : &nbsp;&nbsp;<span class="price-strike"><strike>EUR 249,00</strike></span><br/>
+        Prix conseillé : &nbsp;&nbsp;<span class="price-strike"><strike>EUR {$offer->get_product()->get_market_price()}</strike></span><br/>
         Prix : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="price">EUR 218,10</span> <span class="free-shipping">LIVRAISON GRATUITE</span> <a href="#">Détails</a><br/>
-        Économisez : &nbsp;&nbsp;&nbsp;<span class="price-reduction">EUR 30,90 (12%)</span><br/>
+        <span class="price">EUR {$offer->get_price()}</span> <span class="free-shipping">LIVRAISON GRATUITE</span> <a href="#">Détails</a><br/>
+        Économisez : &nbsp;&nbsp;&nbsp;<span class="price-reduction">EUR {$offer->get_product()->get_market_price()-$offer->get_price()} ({round(100)-round($offer->get_price()/$offer->get_product()->get_market_price()*100)}%)</span><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Tous les prix incluent la TVA.<br/>
         <span class="price-status">En stock</span><br/>

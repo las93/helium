@@ -55,8 +55,13 @@ class Product extends Controller
 	{
 		$this->_loadLayout();
 		
+		$oOfferModel = new Offer;
+		$oOffer = $oOfferModel->findOneByid(1);
+
+		$oOffer->get_product();
+	
 		$this->layout
-			 ->assign('search_attributes', $aAttributesCategories)
+			 ->assign('offer', $oOffer)
 			 ->display();
 	}
 }
