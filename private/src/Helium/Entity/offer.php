@@ -91,6 +91,17 @@
 	
 	
 		/**
+		 * offer_status Entity
+		 *
+		 * @access private
+		 * @var    offer_status
+		 *
+		 */
+		private $offer_status = null;
+	
+	
+	
+		/**
 		 * id_vat
 		 *
 		 * @access private
@@ -208,6 +219,17 @@
 		 *
 		 */
 		private $price = null;
+	
+	
+	
+		/**
+		 * gift_possible
+		 *
+		 * @access private
+		 * @var    bool
+		 *
+		 */
+		private $gift_possible = null;
 	
 	
 	
@@ -340,6 +362,42 @@
 		public function set_id_offer_status($id_offer_status) 
 		{
 			$this->id_offer_status = $id_offer_status;
+			return $this;
+		}
+	
+		/**
+		 * get offer_status entity join by id_offer_status of offer
+		 *
+		 * @access public
+		 * @return \Venus\src\Helium\Entity\offer
+		 */
+		public function get_offer_status() 
+		{
+			if ($this->offer_status === null) {
+	
+				$oOrm = new Orm;
+	
+				$aResult = $oOrm->select(array('*'))
+												->from('offer_status')
+												->where(array('id' => $this->get_id_offer_status()))
+												->limit(1)
+												->load();
+			  $this->offer_status = $aResult[0];
+			}
+	
+			return $this->offer_status;
+		}
+	
+		/**
+		 * set offer_status entity join by id_offer_status of offer
+		 *
+		 * @access public
+		 * @param  \Venus\src\Helium\Entity\offer_status  $offer_status offer_status entity
+		 * @return \Venus\src\Helium\Entity\offer
+		 */
+		public function set_offer_status(array $offer_status) 
+		{
+			$this->offer_status = $offer_status;
 			return $this;
 		}
 	
@@ -604,6 +662,30 @@
 		public function set_price($price) 
 		{
 			$this->price = $price;
+			return $this;
+		}
+	
+		/**
+		 * get gift_possible of offer
+		 *
+		 * @access public
+		 * @return bool
+		 */
+		public function get_gift_possible()
+		{
+			return $this->gift_possible;
+		}
+	
+		/**
+		 * set gift_possible of offer
+		 *
+		 * @access public
+		 * @param  bool $gift_possible gift_possible of offer
+		 * @return \Venus\src\Helium\Entity\offer
+		 */
+		public function set_gift_possible($gift_possible) 
+		{
+			$this->gift_possible = $gift_possible;
 			return $this;
 		}
 	}

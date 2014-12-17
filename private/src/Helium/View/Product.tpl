@@ -26,21 +26,12 @@
         Économisez : &nbsp;&nbsp;&nbsp;<span class="price-reduction">EUR {$offer->get_product()->get_market_price()-$offer->get_price()} ({round(100)-round($offer->get_price()/$offer->get_product()->get_market_price()*100)}%)</span><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Tous les prix incluent la TVA.<br/>
-        <span class="price-status">En stock</span><br/>
-        Expédié et vendu par Hélium. Emballage cadeau disponible.<br/><br/>
+        <span class="price-status">{$offer->get_offer_status()->get_name()}</span><br/>
+        Expédié et vendu par Hélium. {if $offer->get_gift_possible()}Emballage cadeau disponible.{/if}<br/><br/>
         Voulez-vous le faire livrer le mardi 16 décembre ? Commandez-le dans les <span style="color:green;font-weight:bold;">3 h et 27 mins</span> et 
         choisissez la <b>Livraison en 1 jour ouvré</b> au cours de votre commande. <a href="#">En savoir plus</a>.
         <br/><br/>
-        <ul>     
-            <li>Ecran tactile 7 pouces
-            <li>Fonction téléphone avec connexion 4G intégrée
-            <li>Stockage et mémoire : disque dur 16 Go, RAM 1 Go
-            <li>Processeur : Intel Clover Trail+ Z2560 1.6 Ghz
-            <li>Connectique : Wifi 802.11a/b/g/n, Bluetooth 3.0
-            <li>Système d'exploitation : Android 4.3 Jelly Bean
-            <li>Nombre de ports : 1 x micro USB ; 1 x Audio jack ; Micro-SD (jusqu'à 64 Go)
-            <li>Autonomie : 11 heures
-        </ul>
+        {$offer->get_product()->get_short_description()}
         › <a href="#">Voir plus de détails</a>
         <hr/>
         Nos prix incluent l'éco-participation (<a href="#">de quoi s'agit-il ?</a>)<br/><br/>

@@ -1,7 +1,7 @@
 <?php
 	
 	/**
-	 * Entity to offer_status
+	 * Entity to service
 	 *
 	 * @category  	src
 	 * @package   	src\Helium\Entity
@@ -19,7 +19,7 @@
 	use \Venus\lib\Orm as Orm;
 	
 	/**
-	 * Entity to offer_status
+	 * Entity to service
 	 *
 	 * @category  	src
 	 * @package   	src\Helium\Entity
@@ -31,7 +31,7 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	class offer_status extends Entity 
+	class service extends Entity 
 	{
 
 		/**
@@ -47,17 +47,6 @@
 	
 	
 		/**
-		 * offer Entity
-		 *
-		 * @access private
-		 * @var    offer
-		 *
-		 */
-		private $offer = null;
-	
-	
-	
-		/**
 		 * name
 		 *
 		 * @access private
@@ -69,7 +58,7 @@
 	
 	
 		/**
-		 * get id of offer_status
+		 * get id of service
 		 *
 		 * @access public
 		 * @return int
@@ -80,11 +69,11 @@
 		}
 	
 		/**
-		 * set id of offer_status
+		 * set id of service
 		 *
 		 * @access public
-		 * @param  int $id id of offer_status
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  int $id id of service
+		 * @return \Venus\src\Helium\Entity\service
 		 */
 		public function set_id($id) 
 		{
@@ -93,43 +82,7 @@
 		}
 	
 		/**
-		 * get offer entity join by id of offer_status
-		 *
-		 * @access public
-		 * @return array
-		 */
-		public function get_offer() 
-		{
-			if ($this->offer === null) {
-	
-				$oOrm = new Orm;
-	
-				$this->offer = $oOrm->select(array('*'))
-												->from('offer')
-												->where(array('id_offer_status' => $this->get_id()))
-												->limit(1)
-												->load();
-			
-			}
-	
-			return $this->offer;
-		}
-	
-		/**
-		 * set offer entity join by id of offer_status
-		 *
-		 * @access public
-		 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
-		 * @return \Venus\src\Helium\Entity\offer_status
-		 */
-		public function set_offer(\Venus\src\Helium\Entity\offer $offer) 
-		{
-			$this->offer = $offer;
-			return $this;
-		}
-	
-		/**
-		 * get name of offer_status
+		 * get name of service
 		 *
 		 * @access public
 		 * @return string
@@ -140,11 +93,11 @@
 		}
 	
 		/**
-		 * set name of offer_status
+		 * set name of service
 		 *
 		 * @access public
-		 * @param  string $name name of offer_status
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  string $name name of service
+		 * @return \Venus\src\Helium\Entity\service
 		 */
 		public function set_name($name) 
 		{

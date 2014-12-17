@@ -58,8 +58,6 @@ class Product extends Controller
 		$oOfferModel = new Offer;
 		$oOffer = $oOfferModel->findOneByid(1);
 
-		$oOffer->get_product();
-	
 		$this->layout
 			 ->assign('offer', $oOffer)
 			 ->display();

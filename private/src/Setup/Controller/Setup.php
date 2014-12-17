@@ -1612,26 +1612,26 @@ class Setup extends Controller {
 			                         ->set_ean13('1234553')
                 			         ->set_market_price(249.00)
                 			         ->set_reference('B00JZRH6K6')
-                			         ->set_short_description('<ul><li>Ecran tactile 7 pouces</li>
-                                        </li>Fonction téléphone avec connexion 4G intégrée</li>
-                                        </li>Stockage et mémoire : disque dur 16 Go, RAM 1 Go</li>
-                                        </li>Processeur : Intel Clover Trail+ Z2560 1.6 Ghz</li>
-                                        </li>Connectique : Wifi 802.11a/b/g/n, Bluetooth 3.0</li>
-                                        </li>Système d\'exploitation : Android 4.3 Jelly Bean</li>
-                                        </li>Nombre de ports : 1 x micro USB ; 1 x Audio jack ; Micro-SD (jusqu\'à 64 Go)</li>
-                                        </li>Autonomie : 11 heures</li></ul>')
+                			         ->set_short_description('<ul><li>Ecran tactile 7 pouces
+                                        <li>Fonction téléphone avec connexion 4G intégrée</li>
+                                        <li>Stockage et mémoire : disque dur 16 Go, RAM 1 Go</li>
+                                        <li>Processeur : Intel Clover Trail+ Z2560 1.6 Ghz</li>
+                                        <li>Connectique : Wifi 802.11a/b/g/n, Bluetooth 3.0</li>
+                                        <li>Système d\'exploitation : Android 4.3 Jelly Bean</li>
+                                        <li>Nombre de ports : 1 x micro USB ; 1 x Audio jack ; Micro-SD (jusqu\'à 64 Go)</li>
+                                        <li>Autonomie : 11 heures</li></ul>')
                 			         ->set_id_brand($iIdBrand)
                 			         ->save();
 
 			$oOfferStatus = new OfferStatus();
 				
-			$iIdStatus = $oOfferStatus->set_name('instock')
+			$iIdStatus = $oOfferStatus->set_name('en stock')
 			                          ->save();
 
 			$oOfferStatus = new OfferStatus();
 				
-			$iIdStatus = $oOfferStatus->set_name('restocking')
-			                          ->save();
+			$oOfferStatus->set_name('restockage')
+			             ->save();
 
 			$oOffer = new Offer;
 
@@ -1642,6 +1642,7 @@ class Setup extends Controller {
 			       ->set_id_vat($iIdVat)
 			       ->set_price(209.47)
 			       ->set_quantity_public(100)
+			       ->set_gift_possible(true)
 			       ->save();
 		}
 		else {

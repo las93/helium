@@ -1,7 +1,7 @@
 <?php
 	
 	/**
-	 * Entity to offer_status
+	 * Entity to service_period
 	 *
 	 * @category  	src
 	 * @package   	src\Helium\Entity
@@ -19,7 +19,7 @@
 	use \Venus\lib\Orm as Orm;
 	
 	/**
-	 * Entity to offer_status
+	 * Entity to service_period
 	 *
 	 * @category  	src
 	 * @package   	src\Helium\Entity
@@ -31,7 +31,7 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	class offer_status extends Entity 
+	class service_period extends Entity 
 	{
 
 		/**
@@ -47,29 +47,40 @@
 	
 	
 		/**
-		 * offer Entity
+		 * id_service_association
 		 *
 		 * @access private
-		 * @var    offer
+		 * @var    int
 		 *
 		 */
-		private $offer = null;
+		private $id_service_association = null;
 	
 	
 	
 		/**
-		 * name
+		 * type
 		 *
 		 * @access private
 		 * @var    string
 		 *
 		 */
-		private $name = null;
+		private $type = null;
 	
 	
 	
 		/**
-		 * get id of offer_status
+		 * value
+		 *
+		 * @access private
+		 * @var    int
+		 *
+		 */
+		private $value = null;
+	
+	
+	
+		/**
+		 * get id of service_period
 		 *
 		 * @access public
 		 * @return int
@@ -80,11 +91,11 @@
 		}
 	
 		/**
-		 * set id of offer_status
+		 * set id of service_period
 		 *
 		 * @access public
-		 * @param  int $id id of offer_status
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  int $id id of service_period
+		 * @return \Venus\src\Helium\Entity\service_period
 		 */
 		public function set_id($id) 
 		{
@@ -93,62 +104,74 @@
 		}
 	
 		/**
-		 * get offer entity join by id of offer_status
+		 * get id_service_association of service_period
 		 *
 		 * @access public
-		 * @return array
+		 * @return int
 		 */
-		public function get_offer() 
+		public function get_id_service_association()
 		{
-			if ($this->offer === null) {
-	
-				$oOrm = new Orm;
-	
-				$this->offer = $oOrm->select(array('*'))
-												->from('offer')
-												->where(array('id_offer_status' => $this->get_id()))
-												->limit(1)
-												->load();
-			
-			}
-	
-			return $this->offer;
+			return $this->id_service_association;
 		}
 	
 		/**
-		 * set offer entity join by id of offer_status
+		 * set id_service_association of service_period
 		 *
 		 * @access public
-		 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  int $id_service_association id_service_association of service_period
+		 * @return \Venus\src\Helium\Entity\service_period
 		 */
-		public function set_offer(\Venus\src\Helium\Entity\offer $offer) 
+		public function set_id_service_association($id_service_association) 
 		{
-			$this->offer = $offer;
+			$this->id_service_association = $id_service_association;
 			return $this;
 		}
 	
 		/**
-		 * get name of offer_status
+		 * get type of service_period
 		 *
 		 * @access public
 		 * @return string
 		 */
-		public function get_name()
+		public function get_type()
 		{
-			return $this->name;
+			return $this->type;
 		}
 	
 		/**
-		 * set name of offer_status
+		 * set type of service_period
 		 *
 		 * @access public
-		 * @param  string $name name of offer_status
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  string $type type of service_period
+		 * @return \Venus\src\Helium\Entity\service_period
 		 */
-		public function set_name($name) 
+		public function set_type($type) 
 		{
-			$this->name = $name;
+			$this->type = $type;
+			return $this;
+		}
+	
+		/**
+		 * get value of service_period
+		 *
+		 * @access public
+		 * @return int
+		 */
+		public function get_value()
+		{
+			return $this->value;
+		}
+	
+		/**
+		 * set value of service_period
+		 *
+		 * @access public
+		 * @param  int $value value of service_period
+		 * @return \Venus\src\Helium\Entity\service_period
+		 */
+		public function set_value($value) 
+		{
+			$this->value = $value;
 			return $this;
 		}
 	}

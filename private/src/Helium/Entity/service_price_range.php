@@ -1,7 +1,7 @@
 <?php
 	
 	/**
-	 * Entity to offer_status
+	 * Entity to service_price_range
 	 *
 	 * @category  	src
 	 * @package   	src\Helium\Entity
@@ -19,7 +19,7 @@
 	use \Venus\lib\Orm as Orm;
 	
 	/**
-	 * Entity to offer_status
+	 * Entity to service_price_range
 	 *
 	 * @category  	src
 	 * @package   	src\Helium\Entity
@@ -31,7 +31,7 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	class offer_status extends Entity 
+	class service_price_range extends Entity 
 	{
 
 		/**
@@ -47,29 +47,40 @@
 	
 	
 		/**
-		 * offer Entity
+		 * min
 		 *
 		 * @access private
-		 * @var    offer
+		 * @var    float
 		 *
 		 */
-		private $offer = null;
+		private $min = null;
 	
 	
 	
 		/**
-		 * name
+		 * max
 		 *
 		 * @access private
-		 * @var    string
+		 * @var    float
 		 *
 		 */
-		private $name = null;
+		private $max = null;
 	
 	
 	
 		/**
-		 * get id of offer_status
+		 * cost
+		 *
+		 * @access private
+		 * @var    float
+		 *
+		 */
+		private $cost = null;
+	
+	
+	
+		/**
+		 * get id of service_price_range
 		 *
 		 * @access public
 		 * @return int
@@ -80,11 +91,11 @@
 		}
 	
 		/**
-		 * set id of offer_status
+		 * set id of service_price_range
 		 *
 		 * @access public
-		 * @param  int $id id of offer_status
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  int $id id of service_price_range
+		 * @return \Venus\src\Helium\Entity\service_price_range
 		 */
 		public function set_id($id) 
 		{
@@ -93,62 +104,74 @@
 		}
 	
 		/**
-		 * get offer entity join by id of offer_status
+		 * get min of service_price_range
 		 *
 		 * @access public
-		 * @return array
+		 * @return float
 		 */
-		public function get_offer() 
+		public function get_min()
 		{
-			if ($this->offer === null) {
-	
-				$oOrm = new Orm;
-	
-				$this->offer = $oOrm->select(array('*'))
-												->from('offer')
-												->where(array('id_offer_status' => $this->get_id()))
-												->limit(1)
-												->load();
-			
-			}
-	
-			return $this->offer;
+			return $this->min;
 		}
 	
 		/**
-		 * set offer entity join by id of offer_status
+		 * set min of service_price_range
 		 *
 		 * @access public
-		 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  float $min min of service_price_range
+		 * @return \Venus\src\Helium\Entity\service_price_range
 		 */
-		public function set_offer(\Venus\src\Helium\Entity\offer $offer) 
+		public function set_min($min) 
 		{
-			$this->offer = $offer;
+			$this->min = $min;
 			return $this;
 		}
 	
 		/**
-		 * get name of offer_status
+		 * get max of service_price_range
 		 *
 		 * @access public
-		 * @return string
+		 * @return float
 		 */
-		public function get_name()
+		public function get_max()
 		{
-			return $this->name;
+			return $this->max;
 		}
 	
 		/**
-		 * set name of offer_status
+		 * set max of service_price_range
 		 *
 		 * @access public
-		 * @param  string $name name of offer_status
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  float $max max of service_price_range
+		 * @return \Venus\src\Helium\Entity\service_price_range
 		 */
-		public function set_name($name) 
+		public function set_max($max) 
 		{
-			$this->name = $name;
+			$this->max = $max;
+			return $this;
+		}
+	
+		/**
+		 * get cost of service_price_range
+		 *
+		 * @access public
+		 * @return float
+		 */
+		public function get_cost()
+		{
+			return $this->cost;
+		}
+	
+		/**
+		 * set cost of service_price_range
+		 *
+		 * @access public
+		 * @param  float $cost cost of service_price_range
+		 * @return \Venus\src\Helium\Entity\service_price_range
+		 */
+		public function set_cost($cost) 
+		{
+			$this->cost = $cost;
 			return $this;
 		}
 	}

@@ -1,7 +1,7 @@
 <?php
 	
 	/**
-	 * Entity to offer_status
+	 * Entity to service_price
 	 *
 	 * @category  	src
 	 * @package   	src\Helium\Entity
@@ -19,7 +19,7 @@
 	use \Venus\lib\Orm as Orm;
 	
 	/**
-	 * Entity to offer_status
+	 * Entity to service_price
 	 *
 	 * @category  	src
 	 * @package   	src\Helium\Entity
@@ -31,7 +31,7 @@
 	 * @link      	https://github.com/las93
 	 * @since     	1.0
 	 */
-	class offer_status extends Entity 
+	class service_price extends Entity 
 	{
 
 		/**
@@ -47,29 +47,40 @@
 	
 	
 		/**
-		 * offer Entity
-		 *
-		 * @access private
-		 * @var    offer
-		 *
-		 */
-		private $offer = null;
-	
-	
-	
-		/**
-		 * name
+		 * price_type
 		 *
 		 * @access private
 		 * @var    string
 		 *
 		 */
-		private $name = null;
+		private $price_type = null;
 	
 	
 	
 		/**
-		 * get id of offer_status
+		 * price
+		 *
+		 * @access private
+		 * @var    float
+		 *
+		 */
+		private $price = null;
+	
+	
+	
+		/**
+		 * cost
+		 *
+		 * @access private
+		 * @var    float
+		 *
+		 */
+		private $cost = null;
+	
+	
+	
+		/**
+		 * get id of service_price
 		 *
 		 * @access public
 		 * @return int
@@ -80,11 +91,11 @@
 		}
 	
 		/**
-		 * set id of offer_status
+		 * set id of service_price
 		 *
 		 * @access public
-		 * @param  int $id id of offer_status
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  int $id id of service_price
+		 * @return \Venus\src\Helium\Entity\service_price
 		 */
 		public function set_id($id) 
 		{
@@ -93,62 +104,74 @@
 		}
 	
 		/**
-		 * get offer entity join by id of offer_status
-		 *
-		 * @access public
-		 * @return array
-		 */
-		public function get_offer() 
-		{
-			if ($this->offer === null) {
-	
-				$oOrm = new Orm;
-	
-				$this->offer = $oOrm->select(array('*'))
-												->from('offer')
-												->where(array('id_offer_status' => $this->get_id()))
-												->limit(1)
-												->load();
-			
-			}
-	
-			return $this->offer;
-		}
-	
-		/**
-		 * set offer entity join by id of offer_status
-		 *
-		 * @access public
-		 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
-		 * @return \Venus\src\Helium\Entity\offer_status
-		 */
-		public function set_offer(\Venus\src\Helium\Entity\offer $offer) 
-		{
-			$this->offer = $offer;
-			return $this;
-		}
-	
-		/**
-		 * get name of offer_status
+		 * get price_type of service_price
 		 *
 		 * @access public
 		 * @return string
 		 */
-		public function get_name()
+		public function get_price_type()
 		{
-			return $this->name;
+			return $this->price_type;
 		}
 	
 		/**
-		 * set name of offer_status
+		 * set price_type of service_price
 		 *
 		 * @access public
-		 * @param  string $name name of offer_status
-		 * @return \Venus\src\Helium\Entity\offer_status
+		 * @param  string $price_type price_type of service_price
+		 * @return \Venus\src\Helium\Entity\service_price
 		 */
-		public function set_name($name) 
+		public function set_price_type($price_type) 
 		{
-			$this->name = $name;
+			$this->price_type = $price_type;
+			return $this;
+		}
+	
+		/**
+		 * get price of service_price
+		 *
+		 * @access public
+		 * @return float
+		 */
+		public function get_price()
+		{
+			return $this->price;
+		}
+	
+		/**
+		 * set price of service_price
+		 *
+		 * @access public
+		 * @param  float $price price of service_price
+		 * @return \Venus\src\Helium\Entity\service_price
+		 */
+		public function set_price($price) 
+		{
+			$this->price = $price;
+			return $this;
+		}
+	
+		/**
+		 * get cost of service_price
+		 *
+		 * @access public
+		 * @return float
+		 */
+		public function get_cost()
+		{
+			return $this->cost;
+		}
+	
+		/**
+		 * set cost of service_price
+		 *
+		 * @access public
+		 * @param  float $cost cost of service_price
+		 * @return \Venus\src\Helium\Entity\service_price
+		 */
+		public function set_cost($cost) 
+		{
+			$this->cost = $cost;
 			return $this;
 		}
 	}
