@@ -17,7 +17,6 @@
 namespace Venus\src\Setup\Controller;
 
 use \Venus\src\Helium\Entity\attribute as Attribute;
-use \Venus\src\Helium\Entity\attribute_category as AttributeCategory;
 use \Venus\src\Helium\Entity\attribute_value as AttributeValue;
 use \Venus\src\Helium\Entity\brand as Brand;
 use \Venus\src\Helium\Entity\category as Category;
@@ -27,6 +26,12 @@ use \Venus\src\Helium\Entity\product as Product;
 use \Venus\src\Helium\Entity\offer as Offer;
 use \Venus\src\Helium\Entity\offer_status as OfferStatus;
 use \Venus\src\Helium\Entity\right as Right;
+use \Venus\src\Helium\Entity\service as Service;
+use \Venus\src\Helium\Entity\service_application as ServiceApplication;
+use \Venus\src\Helium\Entity\service_association as ServiceAssociation;
+use \Venus\src\Helium\Entity\service_period as ServicePeriod;
+use \Venus\src\Helium\Entity\service_price as ServicePrice;
+use \Venus\src\Helium\Entity\service_price_range as ServicePriceRange;
 use \Venus\src\Helium\Entity\user as User;
 use \Venus\src\Helium\Entity\vat as Vat;
 use \Venus\src\Helium\Entity\user_right as UserRight;
@@ -1635,15 +1640,197 @@ class Setup extends Controller {
 
 			$oOffer = new Offer;
 
-			$oOffer->set_enable(true)
-			       ->set_id_merchant($iIdMerchant)
-			       ->set_id_offer_status($iIdStatus)
-			       ->set_id_product($iIdProduct)
-			       ->set_id_vat($iIdVat)
-			       ->set_price(209.47)
-			       ->set_quantity_public(100)
-			       ->set_gift_possible(true)
-			       ->save();
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant)
+			                   ->set_id_offer_status($iIdStatus)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_id_vat($iIdVat)
+			                   ->set_price(209.47)
+			                   ->set_quantity_public(100)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oService = new Service;
+			
+			$iIdService = $oService->set_name('Helium Premium')
+			                      ->save();
+			
+			$oServiceApplication = new ServiceApplication;
+			
+			$iIdServiceApplication = $oServiceApplication->set_id_service($iIdService)
+			                                             ->set_auto_add('no')
+			                                             ->set_discount_authorized(true)
+			                                             ->set_enable(true)
+			                                             ->set_id_country($iIdCountry)
+			                                             ->set_id_vat($iIdVat)
+			                                             ->set_name('Helium Premium')
+			                                             ->set_type_selling('shipping')
+			                                             ->set_url_cgu('http://localhost:82/premium')
+			                                             ->save();
+			
+			$oServicePrice = new ServicePrice;
+			
+			$iIdServicePrice = $oServicePrice->set_cost(0)
+			                                 ->set_price(49.00)
+			                                 ->set_price_type('amount')
+			                                 ->save();
+			
+			$oServicePriceRange = new ServicePriceRange;
+			
+			$iIdServicePriceRange = $oServicePriceRange->set_min(0)
+			                                           ->set_max(120)
+			                                           ->save();
+			
+			$oServiceAssociation = new ServiceAssociation;
+			
+			$oServiceAssociation->set_id_service_application($iIdServiceApplication)
+			                    ->set_id_service_price($iIdServicePrice)
+			                    ->set_id_service_price_range($iIdServicePriceRange)
+			                    ->set_id_type($iIdOffer)
+			                    ->set_type('offer')
+			                    ->save();
+			
+			$oService = new Service;
+			
+			$iIdService = $oService->set_name('Garantie Panne')
+			                      ->save();
+			
+			$oServicePeriod = new ServicePeriod;
+			
+			$iIdServicePeriod1 = $oServicePeriod->set_type('year')
+			                                   ->set_value(1)
+			                                   ->save();
+			
+			$oServicePeriod = new ServicePeriod;
+			
+			$iIdServicePeriod2 = $oServicePeriod->set_type('year')
+			                                    ->set_value(2)
+			                                    ->save();
+			
+			$oServicePeriod = new ServicePeriod;
+			
+			$iIdServicePeriod3 = $oServicePeriod->set_type('year')
+			                                    ->set_value(3)
+			                                    ->save();
+			
+			$oServicePeriod = new ServicePeriod;
+			
+			$iIdServicePeriod5 = $oServicePeriod->set_type('year')
+			                                    ->set_value(5)
+			                                    ->save();
+			
+			$oServicePrice = new ServicePrice;
+			
+			$iIdServicePrice = $oServicePrice->set_cost(4.43)
+			                                 ->set_price(14.43)
+			                                 ->set_price_type('amount')
+			                                 ->save();
+			
+			$oServicePriceRange = new ServicePriceRange;
+			
+			$iIdServicePriceRange = $oServicePriceRange->set_min(200)
+			                                           ->set_max(249.99)
+			                                           ->save();
+			
+			$oServiceAssociation = new ServiceAssociation;
+			
+			$oServiceAssociation->set_id_service_application($iIdServiceApplication)
+			                    ->set_id_service_price($iIdServicePrice)
+			                    ->set_id_service_price_range($iIdServicePriceRange)
+			                    ->set_id_type($iIdOffer)
+			                    ->set_type('offer')
+			                    ->set_id_service_period($iIdServicePeriod1)
+			                    ->save();
+			
+			$oServicePrice = new ServicePrice;
+			
+			$iIdServicePrice = $oServicePrice->set_cost(17.08)
+			                                 ->set_price(27.08)
+			                                 ->set_price_type('amount')
+			                                 ->save();
+			
+			$oServiceAssociation = new ServiceAssociation;
+			
+			$oServiceAssociation->set_id_service_application($iIdServiceApplication)
+			                    ->set_id_service_price($iIdServicePrice)
+			                    ->set_id_service_price_range($iIdServicePriceRange)
+			                    ->set_id_type($iIdOffer)
+			                    ->set_type('offer')
+			                    ->set_id_service_period($iIdServicePeriod2)
+			                    ->save();
+			
+			$oServicePrice = new ServicePrice;
+			
+			$iIdServicePrice = $oServicePrice->set_cost(27.50)
+			                                 ->set_price(37.50)
+			                                 ->set_price_type('amount')
+			                                 ->save();
+			
+			$oServiceAssociation = new ServiceAssociation;
+			
+			$oServiceAssociation->set_id_service_application($iIdServiceApplication)
+			                    ->set_id_service_price($iIdServicePrice)
+			                    ->set_id_service_price_range($iIdServicePriceRange)
+			                    ->set_id_type($iIdOffer)
+			                    ->set_type('offer')
+			                    ->set_id_service_period($iIdServicePeriod3)
+			                    ->save();
+			
+			$oServicePrice = new ServicePrice;
+			
+			$iIdServicePrice = $oServicePrice->set_cost(37.92)
+			                                 ->set_price(47.92)
+			                                 ->set_price_type('amount')
+			                                 ->save();
+			
+			$oServiceAssociation = new ServiceAssociation;
+			
+			$oServiceAssociation->set_id_service_application($iIdServiceApplication)
+			                    ->set_id_service_price($iIdServicePrice)
+			                    ->set_id_service_price_range($iIdServicePriceRange)
+			                    ->set_id_type($iIdOffer)
+			                    ->set_type('offer')
+			                    ->set_id_service_period($iIdServicePeriod5)
+			                    ->save();
+			
+			$oService = new Service;
+			
+			$iIdService = $oService->set_name('Garantie Casse et Vol')
+			                      ->save();
+			
+			$oServicePrice = new ServicePrice;
+			
+			$iIdServicePrice = $oServicePrice->set_cost(9.15)
+			                                 ->set_price(19.15)
+			                                 ->set_price_type('amount')
+			                                 ->save();
+			
+			$oServiceAssociation = new ServiceAssociation;
+			
+			$oServiceAssociation->set_id_service_application($iIdServiceApplication)
+			                    ->set_id_service_price($iIdServicePrice)
+			                    ->set_id_service_price_range($iIdServicePriceRange)
+			                    ->set_id_type($iIdOffer)
+			                    ->set_type('offer')
+			                    ->set_id_service_period($iIdServicePeriod1)
+			                    ->save();
+			
+			$oServicePrice = new ServicePrice;
+			
+			$iIdServicePrice = $oServicePrice->set_cost(24.47)
+			                                 ->set_price(34.47)
+			                                 ->set_price_type('amount')
+			                                 ->save();
+			
+			$oServiceAssociation = new ServiceAssociation;
+			
+			$oServiceAssociation->set_id_service_application($iIdServiceApplication)
+			                    ->set_id_service_price($iIdServicePrice)
+			                    ->set_id_service_price_range($iIdServicePriceRange)
+			                    ->set_id_type($iIdOffer)
+			                    ->set_type('offer')
+			                    ->set_id_service_period($iIdServicePeriod2)
+			                    ->save();
 		}
 		else {
 			

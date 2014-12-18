@@ -69,6 +69,17 @@
 	
 	
 		/**
+		 * id_service_period
+		 *
+		 * @access private
+		 * @var    int
+		 *
+		 */
+		private $id_service_period = null;
+	
+	
+	
+		/**
 		 * type
 		 *
 		 * @access private
@@ -160,6 +171,30 @@
 		public function set_id_service_price_range($id_service_price_range) 
 		{
 			$this->id_service_price_range = $id_service_price_range;
+			return $this;
+		}
+	
+		/**
+		 * get id_service_period of service_association
+		 *
+		 * @access public
+		 * @return int
+		 */
+		public function get_id_service_period()
+		{
+			return $this->id_service_period;
+		}
+	
+		/**
+		 * set id_service_period of service_association
+		 *
+		 * @access public
+		 * @param  int $id_service_period id_service_period of service_association
+		 * @return \Venus\src\Helium\Entity\service_association
+		 */
+		public function set_id_service_period($id_service_period) 
+		{
+			$this->id_service_period = $id_service_period;
 			return $this;
 		}
 	

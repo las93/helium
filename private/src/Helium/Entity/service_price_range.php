@@ -69,17 +69,6 @@
 	
 	
 		/**
-		 * cost
-		 *
-		 * @access private
-		 * @var    float
-		 *
-		 */
-		private $cost = null;
-	
-	
-	
-		/**
 		 * get id of service_price_range
 		 *
 		 * @access public
@@ -148,30 +137,6 @@
 		public function set_max($max) 
 		{
 			$this->max = $max;
-			return $this;
-		}
-	
-		/**
-		 * get cost of service_price_range
-		 *
-		 * @access public
-		 * @return float
-		 */
-		public function get_cost()
-		{
-			return $this->cost;
-		}
-	
-		/**
-		 * set cost of service_price_range
-		 *
-		 * @access public
-		 * @param  float $cost cost of service_price_range
-		 * @return \Venus\src\Helium\Entity\service_price_range
-		 */
-		public function set_cost($cost) 
-		{
-			$this->cost = $cost;
 			return $this;
 		}
 	}

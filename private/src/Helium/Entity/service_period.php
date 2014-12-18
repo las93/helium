@@ -47,17 +47,6 @@
 	
 	
 		/**
-		 * id_service_association
-		 *
-		 * @access private
-		 * @var    int
-		 *
-		 */
-		private $id_service_association = null;
-	
-	
-	
-		/**
 		 * type
 		 *
 		 * @access private
@@ -100,30 +89,6 @@
 		public function set_id($id) 
 		{
 			$this->id = $id;
-			return $this;
-		}
-	
-		/**
-		 * get id_service_association of service_period
-		 *
-		 * @access public
-		 * @return int
-		 */
-		public function get_id_service_association()
-		{
-			return $this->id_service_association;
-		}
-	
-		/**
-		 * set id_service_association of service_period
-		 *
-		 * @access public
-		 * @param  int $id_service_association id_service_association of service_period
-		 * @return \Venus\src\Helium\Entity\service_period
-		 */
-		public function set_id_service_association($id_service_association) 
-		{
-			$this->id_service_association = $id_service_association;
 			return $this;
 		}
 	
