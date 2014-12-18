@@ -17,6 +17,7 @@ namespace Venus\src\Helium\Controller;
 
 use \Venus\src\Helium\common\Controller as Controller;
 use \Venus\src\Helium\Model\offer as Offer;
+use \Venus\src\Helium\Model\review as Review;
 use \Venus\src\Helium\Model\service_application as ServiceApplication;
 
 /**
@@ -66,7 +67,7 @@ class Product extends Controller
 		$aServicePremium = $oServiceApplication->getAssociation($oOffer->get_price(), 1, 1);
 		$oServicePanne = $oServiceApplication->getAssociation($oOffer->get_price(), 1, 2, 3);
 		$oServiceCasseVol = $oServiceApplication->getAssociation($oOffer->get_price(), 1, 3, 2);
-
+		
 		$this->layout
 			 ->assign('offer', $oOffer)
 			 ->assign('premium', $aServicePremium)

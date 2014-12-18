@@ -18,7 +18,7 @@
         <h1>{$offer->get_product()->get_name()}</h1>
         de <a href="#">Asus</a><br/>
         <i class="stars"></i>
-        <a href="#">15 commentaires client</a>  | <a href="#">5 questions ayant reçu une réponse</a>
+        <a href="#">{count($offer->get_product()->get_review())} commentaires client</a>  | <a href="#">5 questions ayant reçu une réponse</a>
         <hr/>
         Prix conseillé : &nbsp;&nbsp;<span class="price-strike"><strike>EUR {$offer->get_product()->get_market_price()}</strike></span><br/>
         Prix : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

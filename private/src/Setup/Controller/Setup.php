@@ -26,6 +26,7 @@ use \Venus\src\Helium\Entity\product as Product;
 use \Venus\src\Helium\Entity\offer as Offer;
 use \Venus\src\Helium\Entity\offer_category as OfferCategory;
 use \Venus\src\Helium\Entity\offer_status as OfferStatus;
+use \Venus\src\Helium\Entity\review as Review;
 use \Venus\src\Helium\Entity\right as Right;
 use \Venus\src\Helium\Entity\service as Service;
 use \Venus\src\Helium\Entity\service_application as ServiceApplication;
@@ -1880,6 +1881,21 @@ class Setup extends Controller {
 			                    ->set_type('offer')
 			                    ->set_id_service_period($iIdServicePeriod2)
 			                    ->save();
+			
+			$oReview = new Review;
+			
+			$oReview->set_comment('Formidable de combiner tablette et téléphone; le fonctionnement est très pratique, tout est à portée de main.
+le réseau est bon et capte bien, le wi-fi aussi.
+le prix est très raisonnable compte tenu des capacités générales de l\'appareil.
+Petite info importante: bien utiliser la micro carte sim et non pas la "Nano", comme je l\'avais fait.
+j\'ai eu d\'énormes difficultés à la récupérer, une fois insérée.
+Sinon, amazon toujours au top, livraison sans souci. bravo')
+			        ->set_enable(true)
+			        ->set_id_user($iIdUser)
+			        ->set_title('GENIAL')
+			        ->set_rate(4)
+			        ->set_id_product($iIdProduct)
+			        ->save();
 		}
 		else {
 			
