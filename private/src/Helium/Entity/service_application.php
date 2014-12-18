@@ -47,6 +47,17 @@
 	
 	
 		/**
+		 * service_association Entity
+		 *
+		 * @access private
+		 * @var    service_association
+		 *
+		 */
+		private $service_association = null;
+	
+	
+	
+		/**
 		 * id_service
 		 *
 		 * @access private
@@ -166,6 +177,46 @@
 		public function set_id($id) 
 		{
 			$this->id = $id;
+			return $this;
+		}
+	
+		/**
+		 * get service_association entity join by id of service_application
+		 *
+		 * @access public
+		   @param  array $aWhere
+		 * @return array
+		 */
+		public function get_service_association($aWhere = array()) 
+		{
+			if ($this->service_association === null) {
+	
+				$oOrm = new Orm;
+	
+				$oOrm->select(array('*'))
+					 ->from('service_association');
+													   
+		        $aWhere['id_service_application'] = $this->get_id();
+												$this->service_association = $oOrm->where($aWhere)
+								                ->limit(1)
+												->load();
+												    
+			
+			}
+	
+			return $this->service_association;
+		}
+	
+		/**
+		 * set service_association entity join by id of service_application
+		 *
+		 * @access public
+		 * @param  \Venus\src\Helium\Entity\service_association  $service_association service_association entity
+		 * @return \Venus\src\Helium\Entity\service_application
+		 */
+		public function set_service_association(\Venus\src\Helium\Entity\service_association $service_association) 
+		{
+			$this->service_association = $service_association;
 			return $this;
 		}
 	

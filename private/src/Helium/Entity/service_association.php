@@ -35,14 +35,36 @@
 	{
 
 		/**
-		 * id_service_application
+		 * id
 		 *
 		 * @access private
 		 * @var    int
 		 *
 		 * @primary_key
 	 */
+		private $id = null;
+	
+	
+	
+		/**
+		 * id_service_application
+		 *
+		 * @access private
+		 * @var    int
+		 *
+		 */
 		private $id_service_application = null;
+	
+	
+	
+		/**
+		 * service_application Entity
+		 *
+		 * @access private
+		 * @var    service_application
+		 *
+		 */
+		private $service_application = null;
 	
 	
 	
@@ -96,11 +118,34 @@
 		 * @access private
 		 * @var    int
 		 *
-		 * @primary_key
-	 */
+		 */
 		private $id_type = null;
 	
 	
+	
+		/**
+		 * get id of service_association
+		 *
+		 * @access public
+		 * @return int
+		 */
+		public function get_id()
+		{
+			return $this->id;
+		}
+	
+		/**
+		 * set id of service_association
+		 *
+		 * @access public
+		 * @param  int $id id of service_association
+		 * @return \Venus\src\Helium\Entity\service_association
+		 */
+		public function set_id($id) 
+		{
+			$this->id = $id;
+			return $this;
+		}
 	
 		/**
 		 * get id_service_application of service_association
@@ -123,6 +168,46 @@
 		public function set_id_service_application($id_service_application) 
 		{
 			$this->id_service_application = $id_service_application;
+			return $this;
+		}
+	
+		/**
+		 * get service_application entity join by id_service_application of service_association
+		 *
+		 * @access public
+		   @param  array $aWhere
+		 * @return \Venus\src\Helium\Entity\service_association
+		 */
+		public function get_service_application($aWhere = array()) 
+		{
+			if ($this->service_application === null) {
+	
+				$oOrm = new Orm;
+	
+				$oOrm->select(array('*'))
+					 ->from('service_application');
+													   
+		        $aWhere['id'] = $this->get_id_service_application();
+												$aResult = $oOrm->where($aWhere)
+								                ->limit(1)
+												->load();
+												    
+			    $this->service_application = $aResult[0];
+			}
+	
+			return $this->service_application;
+		}
+	
+		/**
+		 * set service_application entity join by id_service_application of service_association
+		 *
+		 * @access public
+		 * @param  \Venus\src\Helium\Entity\service_application  $service_application service_application entity
+		 * @return \Venus\src\Helium\Entity\service_association
+		 */
+		public function set_service_application(array $service_application) 
+		{
+			$this->service_application = $service_application;
 			return $this;
 		}
 	

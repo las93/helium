@@ -184,19 +184,23 @@
 		 * get offer entity join by id of product
 		 *
 		 * @access public
+		   @param  array $aWhere
 		 * @return array
 		 */
-		public function get_offer() 
+		public function get_offer($aWhere = array()) 
 		{
 			if ($this->offer === null) {
 	
 				$oOrm = new Orm;
 	
-				$this->offer = $oOrm->select(array('*'))
-												->from('offer')
-												->where(array('id_product' => $this->get_id()))
-												->limit(1)
+				$oOrm->select(array('*'))
+					 ->from('offer');
+													   
+		        $aWhere['id_product'] = $this->get_id();
+												$this->offer = $oOrm->where($aWhere)
+								                ->limit(1)
 												->load();
+												    
 			
 			}
 	

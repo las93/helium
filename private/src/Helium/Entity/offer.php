@@ -285,20 +285,24 @@
 		 * get product entity join by id_product of offer
 		 *
 		 * @access public
+		   @param  array $aWhere
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-		public function get_product() 
+		public function get_product($aWhere = array()) 
 		{
 			if ($this->product === null) {
 	
 				$oOrm = new Orm;
 	
-				$aResult = $oOrm->select(array('*'))
-												->from('product')
-												->where(array('id' => $this->get_id_product()))
-												->limit(1)
+				$oOrm->select(array('*'))
+					 ->from('product');
+													   
+		        $aWhere['id'] = $this->get_id_product();
+												$aResult = $oOrm->where($aWhere)
+								                ->limit(1)
 												->load();
-			  $this->product = $aResult[0];
+												    
+			    $this->product = $aResult[0];
 			}
 	
 			return $this->product;
@@ -369,20 +373,24 @@
 		 * get offer_status entity join by id_offer_status of offer
 		 *
 		 * @access public
+		   @param  array $aWhere
 		 * @return \Venus\src\Helium\Entity\offer
 		 */
-		public function get_offer_status() 
+		public function get_offer_status($aWhere = array()) 
 		{
 			if ($this->offer_status === null) {
 	
 				$oOrm = new Orm;
 	
-				$aResult = $oOrm->select(array('*'))
-												->from('offer_status')
-												->where(array('id' => $this->get_id_offer_status()))
-												->limit(1)
+				$oOrm->select(array('*'))
+					 ->from('offer_status');
+													   
+		        $aWhere['id'] = $this->get_id_offer_status();
+												$aResult = $oOrm->where($aWhere)
+								                ->limit(1)
 												->load();
-			  $this->offer_status = $aResult[0];
+												    
+			    $this->offer_status = $aResult[0];
 			}
 	
 			return $this->offer_status;

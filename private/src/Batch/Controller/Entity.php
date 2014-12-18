@@ -423,15 +423,35 @@ class Entity extends Controller {
 		 * get '.$oField->join_alias.' entity join by '.$sFieldName.' of '.$sTableName.'
 		 *
 		 * @access public
-		 * @return \Venus\src\\'.$sPortail.'\Entity\\'.$oField->join.'
+		   @param  array $aWhere
+		 * @return ';
+								
+								if (isset($oField->key) && $oField->key == 'primary') { 
+
+								    $sContentFile .= 'array';
+								}
+								else {
+								    
+								    $sContentFile .= '\Venus\src\\'.$sPortail.'\Entity\\'.$sTableName;
+								}
+			                     
+								$sContentFile .= '
 		 */
-		public function get_'.$oField->join_alias.'()
+		public function get_'.$oField->join_alias.'($aWhere = array())
 		{
 			if ($this->'.$oField->join_alias.' === null) {
 	
 				$oOrm = new Orm;
 	
-				';
+				$oOrm->select(array(\'*\'))
+					 ->from(\''.$oField->join.'\');
+													   
+		        $aWhere[\''.$sJoinByField.'\'] = $this->get_'.$sFieldName.'();
+												
+													  ';
+								
+								$sContentFile .= '
+													  ';
 		 
 								if (isset($oField->key) && $oField->key == 'primary') { 
 
@@ -442,16 +462,15 @@ class Entity extends Controller {
 								    $sContentFile .= '$aResult';
 								}
 			                     
-								$sContentFile .= ' = $oOrm->select(array(\'*\'))
-													  ->from(\''.$oField->join.'\')
-													  ->where(array(\''.$sJoinByField.'\' => $this->get_'.$sFieldName.'()))
-													  ->limit(1)
-													  ->load();
+								$sContentFile .= ' = $oOrm->where($aWhere)
+								                          ->limit(1)
+								                          ->load();
+													      
 			';
 		 
 								if (!isset($oField->key) || (isset($oField->key) && $oField->key == 'primary')) { 
 								    
-								    $sContentFile .= '  $this->'.$oField->join.' = $aResult[0];';
+								    $sContentFile .= '    $this->'.$oField->join.' = $aResult[0];';
 								}
 			                     
 								$sContentFile .= '
@@ -503,6 +522,7 @@ class Entity extends Controller {
 		 * get '.$oField->join.' entity join by '.$sFieldName.' of '.$sTableName.'
 		 *
 		 * @access public
+		   @param  array $aWhere
 		 * @return ';
 								
 								if (isset($oField->key) && $oField->key == 'primary') { 
@@ -516,14 +536,18 @@ class Entity extends Controller {
 			                     
 								$sContentFile .= '
 		 */
-		public function get_'.$oField->join.'() 
+		public function get_'.$oField->join.'($aWhere = array()) 
 		{
 			if ($this->'.$oField->join.' === null) {
 	
 				$oOrm = new Orm;
 	
-				';
-		 
+				$oOrm->select(array(\'*\'))
+					 ->from(\''.$oField->join.'\');
+													   
+		        $aWhere[\''.$sJoinByField.'\'] = $this->get_'.$sFieldName.'();
+												';
+												
 								if (isset($oField->key) && $oField->key == 'primary') { 
 
 								    $sContentFile .= '$this->'.$oField->join.'';
@@ -533,16 +557,15 @@ class Entity extends Controller {
 								    $sContentFile .= '$aResult';
 								}
 			                     
-								$sContentFile .= ' = $oOrm->select(array(\'*\'))
-												->from(\''.$oField->join.'\')
-												->where(array(\''.$sJoinByField.'\' => $this->get_'.$sFieldName.'()))
-												->limit(1)
+								$sContentFile .= ' = $oOrm->where($aWhere)
+								                ->limit(1)
 												->load();
+												    
 			';
 
 								if (!isset($oField->key) || (isset($oField->key) && $oField->key != 'primary')) { 
 								    
-								    $sContentFile .= '  $this->'.$oField->join.' = $aResult[0];';
+								    $sContentFile .= '    $this->'.$oField->join.' = $aResult[0];';
 								}
 			                     
 								$sContentFile .= '

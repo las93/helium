@@ -24,6 +24,7 @@ use \Venus\src\Helium\Entity\country as Country;
 use \Venus\src\Helium\Entity\merchant as Merchant;
 use \Venus\src\Helium\Entity\product as Product;
 use \Venus\src\Helium\Entity\offer as Offer;
+use \Venus\src\Helium\Entity\offer_category as OfferCategory;
 use \Venus\src\Helium\Entity\offer_status as OfferStatus;
 use \Venus\src\Helium\Entity\right as Right;
 use \Venus\src\Helium\Entity\service as Service;
@@ -713,13 +714,23 @@ class Setup extends Controller {
 			
 			$oCategory = new Category;
 			
-			$oCategory->set_enable(1)
-					  ->set_id_category(3)
-					  ->set_name('Ordinateurs portables & Tablettes')
-					  ->set_visible(1)
-					  ->set_order(10)
-					  ->set_section(2)
-					  ->save();
+			$iIdCategoryTabletteAndPortable = $oCategory->set_enable(1)
+					                                    ->set_id_category(3)
+					                                    ->set_name('Ordinateurs portables & Tablettes')
+					                                    ->set_visible(1)
+					                                    ->set_order(10)
+					                                    ->set_section(2)
+					                                    ->save();
+			
+			$oCategory = new Category;
+			
+			$iIdCategoryTablette = $oCategory->set_enable(1)
+				                             ->set_id_category($iIdCategoryTabletteAndPortable)
+					                         ->set_name('Tablettes')
+					                         ->set_visible(1)
+					                         ->set_order(1)
+					                         ->set_section(2)
+					                         ->save();
 			
 			$oCategory = new Category;
 			
@@ -1650,6 +1661,12 @@ class Setup extends Controller {
 			                   ->set_gift_possible(true)
 			                   ->save();
 			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save();
+			
 			$oService = new Service;
 			
 			$iIdService = $oService->set_name('Helium Premium')
@@ -1681,11 +1698,17 @@ class Setup extends Controller {
 			                                           ->set_max(120)
 			                                           ->save();
 			
+			$oServicePriceRange = new ServicePriceRange;
+			
+			$iIdServicePriceRangeTotal = $oServicePriceRange->set_min(0)
+			                                                ->set_max(999999)
+			                                                ->save();
+			
 			$oServiceAssociation = new ServiceAssociation;
 			
 			$oServiceAssociation->set_id_service_application($iIdServiceApplication)
 			                    ->set_id_service_price($iIdServicePrice)
-			                    ->set_id_service_price_range($iIdServicePriceRange)
+			                    ->set_id_service_price_range($iIdServicePriceRangeTotal)
 			                    ->set_id_type($iIdOffer)
 			                    ->set_type('offer')
 			                    ->save();
@@ -1694,6 +1717,19 @@ class Setup extends Controller {
 			
 			$iIdService = $oService->set_name('Garantie Panne')
 			                      ->save();
+			
+			$oServiceApplication = new ServiceApplication;
+			
+			$iIdServiceApplication = $oServiceApplication->set_id_service($iIdService)
+			                                             ->set_auto_add('no')    
+			                                             ->set_discount_authorized(false)
+			                                             ->set_enable(true)
+			                                             ->set_id_country($iIdCountry)
+			                                             ->set_id_vat($iIdVat)
+			                                             ->set_name('Garantie Panne')
+			                                             ->set_type_selling('cart')
+			                                             ->set_url_cgu('http://localhost:82/garantie-panne')
+			                                             ->save();
 			
 			$oServicePeriod = new ServicePeriod;
 			
@@ -1797,6 +1833,19 @@ class Setup extends Controller {
 			
 			$iIdService = $oService->set_name('Garantie Casse et Vol')
 			                      ->save();
+			
+			$oServiceApplication = new ServiceApplication;
+			
+			$iIdServiceApplication = $oServiceApplication->set_id_service($iIdService)
+			                                             ->set_auto_add('no')
+			                                             ->set_discount_authorized(false)
+			                                             ->set_enable(true)
+			                                             ->set_id_country($iIdCountry)
+			                                             ->set_id_vat($iIdVat)
+			                                             ->set_name('Garantie Casse et Vol')
+			                                             ->set_type_selling('cart')
+			                                             ->set_url_cgu('http://localhost:82/garantie-casse-et-vol')
+			                                             ->save();
 			
 			$oServicePrice = new ServicePrice;
 			
