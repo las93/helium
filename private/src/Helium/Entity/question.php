@@ -1,7 +1,7 @@
 <?php
 	
 /**
- * Entity to review
+ * Entity to question
  *
  * @category  	src
  * @package   	src\Helium\Entity
@@ -19,7 +19,7 @@ use \Venus\core\Entity as Entity;
 use \Venus\lib\Orm as Orm;
 
 /**
- * Entity to review
+ * Entity to question
  *
  * @category  	src
  * @package   	src\Helium\Entity
@@ -31,7 +31,7 @@ use \Venus\lib\Orm as Orm;
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-class review extends Entity 
+class question extends Entity 
 {
 	/**
 	 * id
@@ -42,6 +42,17 @@ class review extends Entity
 		 * @primary_key
 	 */
     private $id = null;
+	
+	
+	
+	/**
+	 * question Entity
+	 *
+	 * @access private
+	 * @var    question
+	 *
+	 */
+    private $question = null;
 	
 	
 	
@@ -79,13 +90,24 @@ class review extends Entity
 	
 	
 	/**
-	 * title
+	 * id_question
 	 *
 	 * @access private
-	 * @var    string
+	 * @var    int
 	 *
 		 */
-    private $title = null;
+    private $id_question = null;
+	
+	
+	
+	/**
+	 * response Entity
+	 *
+	 * @access private
+	 * @var    question
+	 *
+	 */
+    private $response = null;
 	
 	
 	
@@ -123,18 +145,7 @@ class review extends Entity
 	
 	
 	/**
-	 * rate
-	 *
-	 * @access private
-	 * @var    float
-	 *
-		 */
-    private $rate = null;
-	
-	
-	
-	/**
-	 * get id of review
+	 * get id of question
 	 *
 	 * @access public
 	 * @return int
@@ -145,11 +156,11 @@ class review extends Entity
 	}
 
 	/**
-	 * set id of review
+	 * set id of question
 	 *
 	 * @access public
-	 * @param  int $id id of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  int $id id of question
+	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_id($id) 
 	{
@@ -158,7 +169,47 @@ class review extends Entity
 	}
 	
 	/**
-	 * get id_user of review
+	 * get question entity join by id of question
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_question($aWhere = array())
+	{
+		if ($this->question === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('question');
+												   
+	        $aWhere['id_question'] = $this->get_id();
+											
+													  
+            $this->question = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->question;
+	}
+	
+	/**
+	 * set question entity join by id of question
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\question  $question question entity
+	 * @return array
+	 */
+	public function set_question(array $question)
+	{
+		$this->question = $question;
+		return $this;
+	}
+
+	/**
+	 * get id_user of question
 	 *
 	 * @access public
 	 * @return int
@@ -169,11 +220,11 @@ class review extends Entity
 	}
 
 	/**
-	 * set id_user of review
+	 * set id_user of question
 	 *
 	 * @access public
-	 * @param  int $id_user id_user of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  int $id_user id_user of question
+	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_id_user($id_user) 
 	{
@@ -182,7 +233,7 @@ class review extends Entity
 	}
 	
 	/**
-	 * get id_product of review
+	 * get id_product of question
 	 *
 	 * @access public
 	 * @return int
@@ -193,11 +244,11 @@ class review extends Entity
 	}
 
 	/**
-	 * set id_product of review
+	 * set id_product of question
 	 *
 	 * @access public
-	 * @param  int $id_product id_product of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  int $id_product id_product of question
+	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_id_product($id_product) 
 	{
@@ -206,11 +257,11 @@ class review extends Entity
 	}
 	
 	/**
-	 * get product entity join by id_product of review
+	 * get product entity join by id_product of question
 	 *
 	 * @access public
 	   @param  array $aWhere
-	 * @return \Venus\src\Helium\Entity\review
+	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function get_product($aWhere = array())
 	{
@@ -235,11 +286,11 @@ class review extends Entity
 	}
 	
 	/**
-	 * set product entity join by id_product of review
+	 * set product entity join by id_product of question
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\product  $product product entity
-	 * @return \Venus\src\Helium\Entity\review
+	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_product(\Venus\src\Helium\Entity\product $product)
 	{
@@ -248,31 +299,73 @@ class review extends Entity
 	}
 
 	/**
-	 * get title of review
+	 * get id_question of question
 	 *
 	 * @access public
-	 * @return string
+	 * @return int
 	 */
-	public function get_title()
+	public function get_id_question()
 	{
-		return $this->title;
+		return $this->id_question;
 	}
 
 	/**
-	 * set title of review
+	 * set id_question of question
 	 *
 	 * @access public
-	 * @param  string $title title of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  int $id_question id_question of question
+	 * @return \Venus\src\Helium\Entity\question
 	 */
-	public function set_title($title) 
+	public function set_id_question($id_question) 
 	{
-		$this->title = $title;
+		$this->id_question = $id_question;
 		return $this;
 	}
 	
 	/**
-	 * get comment of review
+	 * get response entity join by id_question of question
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return \Venus\src\Helium\Entity\question
+	 */
+	public function get_response($aWhere = array())
+	{
+		if ($this->response === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('question');
+												   
+	        $aWhere['id'] = $this->get_id_question();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+          if (count($aResult) > 0) { $this->question = $aResult[0]; }
+          else { $this->question = array(); }
+        }
+
+		return $this->response;
+	}
+	
+	/**
+	 * set response entity join by id_question of question
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\question  $response question entity
+	 * @return \Venus\src\Helium\Entity\question
+	 */
+	public function set_response(\Venus\src\Helium\Entity\question $response)
+	{
+		$this->response = $response;
+		return $this;
+	}
+
+	/**
+	 * get comment of question
 	 *
 	 * @access public
 	 * @return string
@@ -283,11 +376,11 @@ class review extends Entity
 	}
 
 	/**
-	 * set comment of review
+	 * set comment of question
 	 *
 	 * @access public
-	 * @param  string $comment comment of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  string $comment comment of question
+	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_comment($comment) 
 	{
@@ -296,7 +389,7 @@ class review extends Entity
 	}
 	
 	/**
-	 * get date_create of review
+	 * get date_create of question
 	 *
 	 * @access public
 	 * @return string
@@ -307,11 +400,11 @@ class review extends Entity
 	}
 
 	/**
-	 * set date_create of review
+	 * set date_create of question
 	 *
 	 * @access public
-	 * @param  string $date_create date_create of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  string $date_create date_create of question
+	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_date_create($date_create) 
 	{
@@ -320,7 +413,7 @@ class review extends Entity
 	}
 	
 	/**
-	 * get enable of review
+	 * get enable of question
 	 *
 	 * @access public
 	 * @return int
@@ -331,39 +424,15 @@ class review extends Entity
 	}
 
 	/**
-	 * set enable of review
+	 * set enable of question
 	 *
 	 * @access public
-	 * @param  int $enable enable of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  int $enable enable of question
+	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_enable($enable) 
 	{
 		$this->enable = $enable;
-		return $this;
-	}
-	
-	/**
-	 * get rate of review
-	 *
-	 * @access public
-	 * @return float
-	 */
-	public function get_rate()
-	{
-		return $this->rate;
-	}
-
-	/**
-	 * set rate of review
-	 *
-	 * @access public
-	 * @param  float $rate rate of review
-	 * @return \Venus\src\Helium\Entity\review
-	 */
-	public function set_rate($rate) 
-	{
-		$this->rate = $rate;
 		return $this;
 	}
 	}

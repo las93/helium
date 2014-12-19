@@ -1,7 +1,7 @@
 <?php
 	
 /**
- * Model to review
+ * Model to product_image
  *
  * @category  	src
  * @package   	src\Helium\Model
@@ -13,14 +13,12 @@
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\src\Helium\Model;
 
 use \Venus\core\Model as Model;
-use \Venus\lib\Orm\Where as Where;
-
+	
 /**
- * Model to review
+ * Model to product_image
  *
  * @category  	src
  * @package   	src\Helium\Model
@@ -32,30 +30,6 @@ use \Venus\lib\Orm\Where as Where;
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class review extends Model
+class product_image extends Model 
 {
-    /**
-     * count question which have response for one product
-     *
-     * @access public
-     * @param  int $iIdProduct
-     * @return int
-     */    
-    function getAvgRate($iIdProduct)
-    {        
-        $oWhere = new Where;
-        
-        $oWhere->whereEqual('r.id_product', $iIdProduct);
-
-        $aResult = array();
-        
-		$aResult = $this->orm
-		                ->select(array('sum(rate) AS sum_rate, count(rate) AS count_rate'))
-			            ->from($this->_sTableName, 'r')
-			            ->where($oWhere)
-			            ->load();
-
-		return round($aResult[0]->sum_rate/$aResult[0]->count_rate);
-    }
 }

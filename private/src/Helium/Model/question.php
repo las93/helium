@@ -1,7 +1,7 @@
 <?php
 	
 /**
- * Model to review
+ * Model to question
  *
  * @category  	src
  * @package   	src\Helium\Model
@@ -13,14 +13,13 @@
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\src\Helium\Model;
 
 use \Venus\core\Model as Model;
 use \Venus\lib\Orm\Where as Where;
-
+	
 /**
- * Model to review
+ * Model to question
  *
  * @category  	src
  * @package   	src\Helium\Model
@@ -32,30 +31,43 @@ use \Venus\lib\Orm\Where as Where;
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class review extends Model
+class question extends Model 
 {
     /**
      * count question which have response for one product
-     *
+     * 
      * @access public
      * @param  int $iIdProduct
      * @return int
-     */    
-    function getAvgRate($iIdProduct)
-    {        
+     */
+    public function countQuestionWithResponseForOneProduct($iIdProduct) 
+    {            
+        $aJoin = [
+            [
+			    'type' => 'right',
+				'table' => 'question',
+				'as' => 'q2',
+				'left_field' => 'q1.id',
+				'right_field' => 'q2.id_question'
+			]
+		];
+
         $oWhere = new Where;
         
-        $oWhere->whereEqual('r.id_product', $iIdProduct);
+        $oWhere->whereEqual('q1.id_product', $iIdProduct);
 
         $aResult = array();
         
-		$aResult = $this->orm
-		                ->select(array('sum(rate) AS sum_rate, count(rate) AS count_rate'))
-			            ->from($this->_sTableName, 'r')
-			            ->where($oWhere)
-			            ->load();
+		$this->orm
+		     ->select(array('SQL_CALC_FOUND_ROWS', '*'))
+			 ->from($this->_sTableName, 'q1')
+			 ->join($aJoin)
+			 ->where($oWhere)
+			 ->groupBy('q1.id')
+			 ->load();
 
-		return round($aResult[0]->sum_rate/$aResult[0]->count_rate);
+		return $this->orm
+					->select(array('FOUND_ROWS()'))
+					->load();
     }
 }

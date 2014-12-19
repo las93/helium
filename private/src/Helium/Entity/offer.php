@@ -302,7 +302,8 @@ class offer extends Entity
             $aResult = $oOrm->where($aWhere)
                                    ->limit(1)
 						           ->load();
-          $this->product = $aResult[0];
+          if (count($aResult) > 0) { $this->product = $aResult[0]; }
+          else { $this->product = array(); }
         }
 
 		return $this->product;
@@ -391,7 +392,8 @@ class offer extends Entity
             $aResult = $oOrm->where($aWhere)
                                    ->limit(1)
 						           ->load();
-          $this->offer_status = $aResult[0];
+          if (count($aResult) > 0) { $this->offer_status = $aResult[0]; }
+          else { $this->offer_status = array(); }
         }
 
 		return $this->offer_status;

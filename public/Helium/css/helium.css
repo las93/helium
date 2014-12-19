@@ -349,12 +349,44 @@ h1.category {
     margin-top:0px;	
 }
 
-.a-center-line-description .stars {
-    background-position: -5px -41px;
+.a-center-line-description .stars1 {
+    background-position: -5px -9px;
+    width: 90px;
+    height: 17px;
+    display: inline-block;
+    background-image: url("/img/product/stars.jpg");
+}
+
+.a-center-line-description .stars2 {
+    background-position: -5px -26px;
     width: 90px;
     height: 17px;
 	display: inline-block;
 	background-image: url("/img/product/stars.jpg");
+}
+
+.a-center-line-description .stars3 {
+    background-position: -5px -41px;
+    width: 90px;
+    height: 17px;
+    display: inline-block;
+    background-image: url("/img/product/stars.jpg");
+}
+
+.a-center-line-description .stars4 {
+    background-position: -5px -60px;
+    width: 90px;
+    height: 17px;
+    display: inline-block;
+    background-image: url("/img/product/stars.jpg");
+}
+
+.a-center-line-description .stars5 {
+    background-position: -5px -77px;
+    width: 90px;
+    height: 17px;
+    display: inline-block;
+    background-image: url("/img/product/stars.jpg");
 }
 
 .a-center-line-description hr {
@@ -383,4 +415,21 @@ h1.category {
 .a-center-line-description .price-status {
     font-size:18px; 
     color:green;
+}
+
+.cross-sell-image {
+	float:left;
+    margin-right:20px;	
+}
+
+.cross-sell-price {
+    float:left;
+	font-weight: bold;
+	font-size:14px;
+}
+
+.cross-sell-form {
+    float:left;
+    margin-top:20px;	
+	width:100%;
 }

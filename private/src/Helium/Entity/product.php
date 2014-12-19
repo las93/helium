@@ -46,6 +46,17 @@ class product extends Entity
 	
 	
 	/**
+	 * product_image Entity
+	 *
+	 * @access private
+	 * @var    product_image
+	 *
+	 */
+    private $product_image = null;
+	
+	
+	
+	/**
 	 * offer Entity
 	 *
 	 * @access private
@@ -53,6 +64,17 @@ class product extends Entity
 	 *
 	 */
     private $offer = null;
+	
+	
+	
+	/**
+	 * question Entity
+	 *
+	 * @access private
+	 * @var    question
+	 *
+	 */
+    private $question = null;
 	
 	
 	
@@ -191,6 +213,46 @@ class product extends Entity
 	}
 	
 	/**
+	 * get product_image entity join by id of product
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_product_image($aWhere = array())
+	{
+		if ($this->product_image === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('product_image');
+												   
+	        $aWhere['id_product'] = $this->get_id();
+											
+													  
+            $this->product_image = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->product_image;
+	}
+	
+	/**
+	 * set product_image entity join by id of product
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\product_image  $product_image product_image entity
+	 * @return array
+	 */
+	public function set_product_image(array $product_image)
+	{
+		$this->product_image = $product_image;
+		return $this;
+	}
+
+	/**
 	 * get offer entity join by id of product
 	 *
 	 * @access public
@@ -227,6 +289,46 @@ class product extends Entity
 	public function set_offer(array $offer)
 	{
 		$this->offer = $offer;
+		return $this;
+	}
+
+	/**
+	 * get question entity join by id of product
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_question($aWhere = array())
+	{
+		if ($this->question === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('question');
+												   
+	        $aWhere['id_product'] = $this->get_id();
+											
+													  
+            $this->question = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->question;
+	}
+	
+	/**
+	 * set question entity join by id of product
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\question  $question question entity
+	 * @return array
+	 */
+	public function set_question(array $question)
+	{
+		$this->question = $question;
 		return $this;
 	}
 

@@ -3,22 +3,19 @@
         Informatique &nbsp;&nbsp;› &nbsp;&nbsp;Tablettes tactiles
     </div>
     <div class="a-center-line-thumbs">
-        <img src="/img/product/img1.jpg" style="border:solid 1px orange;"/>
-        <img src="/img/product/img2.jpg"/>
-        <img src="/img/product/img3.jpg"/>
-        <img src="/img/product/img4.jpg"/>
-        <img src="/img/product/img5.jpg"/>
-        <img src="/img/product/img6.jpg"/>
-        <img src="/img/product/img7.jpg"/>
+        {foreach from=$images key=$iKey item=$oImage}
+            <img src="{url alias='product_img' iIdProductImg=$oImage->get_id() iWidth=50 iHeight=50}" {if $iKey == 0}style="border:solid 1px orange;"{/if}/>
+        {/foreach}
     </div>
     <div class="a-center-line-big-img">
-        <img src="/img/product/img1b.jpg"/>
+        <img src="{url alias='product_img' iIdProductImg=$images[0]->get_id()}"/>
     </div>
     <div class="a-center-line-description">
         <h1>{$offer->get_product()->get_name()}</h1>
         de <a href="#">Asus</a><br/>
-        <i class="stars"></i>
-        <a href="#">{count($offer->get_product()->get_review())} commentaires client</a>  | <a href="#">5 questions ayant reçu une réponse</a>
+        {$offer->get_product()->get_review()[0]}
+        <i class="stars{$reviews_rate}"></i>
+        <a href="#">{count($offer->get_product()->get_review())} commentaires client</a>  | <a href="#">{$count_question} questions ayant reçu une réponse</a>
         <hr/>
         Prix conseillé : &nbsp;&nbsp;<span class="price-strike"><strike>EUR {$offer->get_product()->get_market_price()}</strike></span><br/>
         Prix : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -55,10 +52,28 @@
 <div class="cadre_bottom_large">
     <hr/>
     <h3>Produits fréquemment achetés ensemble</h3>
-    <div><img src="/img/product/img1.jpg"/> + <img src="/img/product/imgp2_1.jpg"/></div>
-    <div>
-        <input type="checkbox"> Cet article : Asus FonePad 7 ME372CL-1A006A Tablette tactile 7" 16 Go, Android, Wi-Fi, Blanc - Fonction téléphone … EUR 209,47<br/><br/>
-        <input type="checkbox"> IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette (Noir) EUR 16,95
+    <div class="cross-sell-image"><img src="/img/product/img1.jpg"/> + <img src="/img/product/imgp2_1.jpg"/></div>
+    <div class="cross-sell-price">
+        Prix pour les deux : EUR 226,42<br/>
+        <input type="button" value="Ajouter les deux au panier" style="height:20px;font-size:10px;">
+    </div>
+    <div class="cross-sell-form">
+        <input type="checkbox" checked="checked" onclick="cross_sell();" name="cross1"> Cet article : {$offer->get_product()->get_name()} … <font color="red">EUR {$offer->get_price()}</font><br/><br/>
+        <input type="checkbox" checked="checked" onclick="cross_sell();" name="cross2"> IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette (Noir) EUR 16,95
+        <script>
+             function cross_sell() {
+                
+                if ($('input[name=cross1]').is(':checked') && $('input[name=cross2]').is(':checked')) {
+                    $('.cross-sell-price').html('Prix pour les deux : EUR '+({$offer->get_price()}+16.95)+'<br/><input type="button" value="Ajouter les deux au panier" style="height:20px;font-size:10px;">');
+                }
+                else if ($('input[name=cross1]').is(':checked') && !$('input[name=cross2]').is(':checked')) {
+                    $('.cross-sell-price').html('Prix : EUR '+({$offer->get_price()})+'<br/><input type="button" value="Ajouter au panier" style="height:20px;font-size:10px;">');
+                }
+                else if (!$('input[name=cross1]').is(':checked') && $('input[name=cross2]').is(':checked')) {
+                    $('.cross-sell-price').html('Prix : EUR '+(16.95)+'<br/><input type="button" value="Ajouter au panier" style="height:20px;font-size:10px;">');
+                }
+             }
+        </script>
         <hr/>
     </div>
 </div>

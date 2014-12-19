@@ -23,9 +23,11 @@ use \Venus\src\Helium\Entity\category as Category;
 use \Venus\src\Helium\Entity\country as Country;
 use \Venus\src\Helium\Entity\merchant as Merchant;
 use \Venus\src\Helium\Entity\product as Product;
+use \Venus\src\Helium\Entity\product_image as ProductImage;
 use \Venus\src\Helium\Entity\offer as Offer;
 use \Venus\src\Helium\Entity\offer_category as OfferCategory;
 use \Venus\src\Helium\Entity\offer_status as OfferStatus;
+use \Venus\src\Helium\Entity\question as Question;
 use \Venus\src\Helium\Entity\review as Review;
 use \Venus\src\Helium\Entity\right as Right;
 use \Venus\src\Helium\Entity\service as Service;
@@ -1896,6 +1898,65 @@ Sinon, amazon toujours au top, livraison sans souci. bravo')
 			        ->set_rate(4)
 			        ->set_id_product($iIdProduct)
 			        ->save();
+			
+			$oQuestion = new Question;
+			
+			$iIdQuestion = $oQuestion->set_comment('certains sites annoncent une connectivité 4G. Quand est-il ?')
+			                         ->set_enable(true)
+			                         ->set_id_user($iIdUser)
+			                         ->set_id_product($iIdProduct)
+			                         ->save();
+			
+			$oQuestion = new Question;
+			
+			$oQuestion->set_comment('Bonjour, je possède le fonepad depuis une semaine et dans mes déplacements dans le sud de la France j\'ai eu le plaisir de voir dans certaines villes apparaître le logo 4G. (Toulon et Marseille par exemple). Cordialement.')
+			          ->set_enable(true)
+			          ->set_id_user($iIdUser)
+			          ->set_id_product($iIdProduct)
+			          ->set_id_question($iIdQuestion)
+			          ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img1b.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img2b.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img3b.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img4b.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img5b.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6b.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img7b.jpg')
+			              ->save();
 		}
 		else {
 			

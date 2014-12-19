@@ -1,7 +1,7 @@
 <?php
 	
 /**
- * Entity to review
+ * Entity to product_image
  *
  * @category  	src
  * @package   	src\Helium\Entity
@@ -19,7 +19,7 @@ use \Venus\core\Entity as Entity;
 use \Venus\lib\Orm as Orm;
 
 /**
- * Entity to review
+ * Entity to product_image
  *
  * @category  	src
  * @package   	src\Helium\Entity
@@ -31,7 +31,7 @@ use \Venus\lib\Orm as Orm;
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-class review extends Entity 
+class product_image extends Entity 
 {
 	/**
 	 * id
@@ -42,17 +42,6 @@ class review extends Entity
 		 * @primary_key
 	 */
     private $id = null;
-	
-	
-	
-	/**
-	 * id_user
-	 *
-	 * @access private
-	 * @var    int
-	 *
-		 */
-    private $id_user = null;
 	
 	
 	
@@ -79,43 +68,10 @@ class review extends Entity
 	
 	
 	/**
-	 * title
-	 *
-	 * @access private
-	 * @var    string
-	 *
-		 */
-    private $title = null;
-	
-	
-	
-	/**
-	 * comment
-	 *
-	 * @access private
-	 * @var    string
-	 *
-		 */
-    private $comment = null;
-	
-	
-	
-	/**
-	 * date_create
-	 *
-	 * @access private
-	 * @var    string
-	 *
-		 */
-    private $date_create = null;
-	
-	
-	
-	/**
 	 * enable
 	 *
 	 * @access private
-	 * @var    int
+	 * @var    bool
 	 *
 		 */
     private $enable = null;
@@ -123,18 +79,18 @@ class review extends Entity
 	
 	
 	/**
-	 * rate
+	 * name
 	 *
 	 * @access private
-	 * @var    float
+	 * @var    string
 	 *
 		 */
-    private $rate = null;
+    private $name = null;
 	
 	
 	
 	/**
-	 * get id of review
+	 * get id of product_image
 	 *
 	 * @access public
 	 * @return int
@@ -145,11 +101,11 @@ class review extends Entity
 	}
 
 	/**
-	 * set id of review
+	 * set id of product_image
 	 *
 	 * @access public
-	 * @param  int $id id of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  int $id id of product_image
+	 * @return \Venus\src\Helium\Entity\product_image
 	 */
 	public function set_id($id) 
 	{
@@ -158,31 +114,7 @@ class review extends Entity
 	}
 	
 	/**
-	 * get id_user of review
-	 *
-	 * @access public
-	 * @return int
-	 */
-	public function get_id_user()
-	{
-		return $this->id_user;
-	}
-
-	/**
-	 * set id_user of review
-	 *
-	 * @access public
-	 * @param  int $id_user id_user of review
-	 * @return \Venus\src\Helium\Entity\review
-	 */
-	public function set_id_user($id_user) 
-	{
-		$this->id_user = $id_user;
-		return $this;
-	}
-	
-	/**
-	 * get id_product of review
+	 * get id_product of product_image
 	 *
 	 * @access public
 	 * @return int
@@ -193,11 +125,11 @@ class review extends Entity
 	}
 
 	/**
-	 * set id_product of review
+	 * set id_product of product_image
 	 *
 	 * @access public
-	 * @param  int $id_product id_product of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  int $id_product id_product of product_image
+	 * @return \Venus\src\Helium\Entity\product_image
 	 */
 	public function set_id_product($id_product) 
 	{
@@ -206,11 +138,11 @@ class review extends Entity
 	}
 	
 	/**
-	 * get product entity join by id_product of review
+	 * get product entity join by id_product of product_image
 	 *
 	 * @access public
 	   @param  array $aWhere
-	 * @return \Venus\src\Helium\Entity\review
+	 * @return \Venus\src\Helium\Entity\product_image
 	 */
 	public function get_product($aWhere = array())
 	{
@@ -235,11 +167,11 @@ class review extends Entity
 	}
 	
 	/**
-	 * set product entity join by id_product of review
+	 * set product entity join by id_product of product_image
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\product  $product product entity
-	 * @return \Venus\src\Helium\Entity\review
+	 * @return \Venus\src\Helium\Entity\product_image
 	 */
 	public function set_product(\Venus\src\Helium\Entity\product $product)
 	{
@@ -248,82 +180,10 @@ class review extends Entity
 	}
 
 	/**
-	 * get title of review
+	 * get enable of product_image
 	 *
 	 * @access public
-	 * @return string
-	 */
-	public function get_title()
-	{
-		return $this->title;
-	}
-
-	/**
-	 * set title of review
-	 *
-	 * @access public
-	 * @param  string $title title of review
-	 * @return \Venus\src\Helium\Entity\review
-	 */
-	public function set_title($title) 
-	{
-		$this->title = $title;
-		return $this;
-	}
-	
-	/**
-	 * get comment of review
-	 *
-	 * @access public
-	 * @return string
-	 */
-	public function get_comment()
-	{
-		return $this->comment;
-	}
-
-	/**
-	 * set comment of review
-	 *
-	 * @access public
-	 * @param  string $comment comment of review
-	 * @return \Venus\src\Helium\Entity\review
-	 */
-	public function set_comment($comment) 
-	{
-		$this->comment = $comment;
-		return $this;
-	}
-	
-	/**
-	 * get date_create of review
-	 *
-	 * @access public
-	 * @return string
-	 */
-	public function get_date_create()
-	{
-		return $this->date_create;
-	}
-
-	/**
-	 * set date_create of review
-	 *
-	 * @access public
-	 * @param  string $date_create date_create of review
-	 * @return \Venus\src\Helium\Entity\review
-	 */
-	public function set_date_create($date_create) 
-	{
-		$this->date_create = $date_create;
-		return $this;
-	}
-	
-	/**
-	 * get enable of review
-	 *
-	 * @access public
-	 * @return int
+	 * @return bool
 	 */
 	public function get_enable()
 	{
@@ -331,11 +191,11 @@ class review extends Entity
 	}
 
 	/**
-	 * set enable of review
+	 * set enable of product_image
 	 *
 	 * @access public
-	 * @param  int $enable enable of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  bool $enable enable of product_image
+	 * @return \Venus\src\Helium\Entity\product_image
 	 */
 	public function set_enable($enable) 
 	{
@@ -344,26 +204,26 @@ class review extends Entity
 	}
 	
 	/**
-	 * get rate of review
+	 * get name of product_image
 	 *
 	 * @access public
-	 * @return float
+	 * @return string
 	 */
-	public function get_rate()
+	public function get_name()
 	{
-		return $this->rate;
+		return $this->name;
 	}
 
 	/**
-	 * set rate of review
+	 * set name of product_image
 	 *
 	 * @access public
-	 * @param  float $rate rate of review
-	 * @return \Venus\src\Helium\Entity\review
+	 * @param  string $name name of product_image
+	 * @return \Venus\src\Helium\Entity\product_image
 	 */
-	public function set_rate($rate) 
+	public function set_name($name) 
 	{
-		$this->rate = $rate;
+		$this->name = $name;
 		return $this;
 	}
 	}
