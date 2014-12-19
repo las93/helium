@@ -78,4 +78,6 @@
 <div class="right-content">
     <h1 class="category">TV, Vidéo & Home cinéma</h1>
     TV TV jusqu'à 80 cm | TV 80-100 cm | TV 100-120 cm | TV 120 cm et plus | Video Lecteurs enregistreurs Blu-ray| Lecteurs 3D| DVD | Home Cinéma| Barre de son| Vidéoprojecteurs, 3D, Mini | Accessoires Câbles | Télécommandes | Lunettes 3D | Meubles et support TV | Marques Philips | Sony | Panasonic | Guide d'achat Guide d'achat Home Cinema | Livraison Livraison gratuite* | Pour les offres ci-dessous, voir conditions sur la page relayant l'offre.
+    <br/><br/>
+    <a href="{url alias='product' iIdOffer=1 sTitle='Asus-tablette'}">Fiche produit</a>
 </div>
