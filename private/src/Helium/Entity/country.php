@@ -46,6 +46,17 @@ class country extends Entity
 	
 	
 	/**
+	 * offer_vat_country Entity
+	 *
+	 * @access private
+	 * @var    offer_vat_country
+	 *
+	 */
+    private $offer_vat_country = null;
+	
+	
+	
+	/**
 	 * name
 	 *
 	 * @access private
@@ -80,6 +91,46 @@ class country extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get offer_vat_country entity join by id of country
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_offer_vat_country($aWhere = array())
+	{
+		if ($this->offer_vat_country === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('offer_vat_country');
+												   
+	        $aWhere['id_country'] = $this->get_id();
+											
+													  
+            $this->offer_vat_country = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->offer_vat_country;
+	}
+	
+	/**
+	 * set offer_vat_country entity join by id of country
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\offer_vat_country  $offer_vat_country offer_vat_country entity
+	 * @return array
+	 */
+	public function set_offer_vat_country(array $offer_vat_country)
+	{
+		$this->offer_vat_country = $offer_vat_country;
+		return $this;
+	}
+
 	/**
 	 * get name of country
 	 *

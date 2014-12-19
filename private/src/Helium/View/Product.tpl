@@ -17,10 +17,10 @@
         <i class="stars{$reviews_rate}"></i>
         <a href="#">{count($offer->get_product()->get_review())} commentaires client</a>  | <a href="#">{$count_question} questions ayant reçu une réponse</a>
         <hr/>
-        Prix conseillé : &nbsp;&nbsp;<span class="price-strike"><strike>EUR {$offer->get_product()->get_market_price()}</strike></span><br/>
+        Prix conseillé : &nbsp;&nbsp;<span class="price-strike"><strike>EUR {number_format($offer->get_product()->get_market_price()*$offer->get_offer_vat_country(array('id_country'=>$country))[0]->get_vat()->get_vat_percent(),2,',','.')}</strike></span><br/>
         Prix : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="price">EUR {$offer->get_price()}</span> <span class="free-shipping">LIVRAISON GRATUITE</span> <a href="#">Détails</a><br/>
-        Économisez : &nbsp;&nbsp;&nbsp;<span class="price-reduction">EUR {$offer->get_product()->get_market_price()-$offer->get_price()} ({round(100)-round($offer->get_price()/$offer->get_product()->get_market_price()*100)}%)</span><br/>
+        <span class="price">EUR {number_format($offer->get_price()*$offer->get_offer_vat_country(array('id_country'=>$country))[0]->get_vat()->get_vat_percent(),2,',','.')}</span> <span class="free-shipping">LIVRAISON GRATUITE</span> <a href="#">Détails</a><br/>
+        Économisez : &nbsp;&nbsp;&nbsp;<span class="price-reduction">EUR {number_format($offer->get_product()->get_market_price()*$offer->get_offer_vat_country(array('id_country'=>$country))[0]->get_vat()->get_vat_percent()-$offer->get_price()*$offer->get_offer_vat_country(array('id_country'=>$country))[0]->get_vat()->get_vat_percent(),2,',','.')} ({round(100)-round($offer->get_price()/$offer->get_product()->get_market_price()*100)}%)</span><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Tous les prix incluent la TVA.<br/>
         <span class="price-status">{$offer->get_offer_status()->get_name()}</span><br/>
@@ -39,8 +39,8 @@
 <div class="a-right-div" style="border:solid 1px gray;padding:10px;">
     <form>
         {if $premium.count > 0}<input type="checkbox"/> <b>Continuer avec la livraison en 1 jour ouvré GRATUITE avec <a href="#">Hélium Premium</a></b><br/><br/>{/if}
-        {if $panne.count > 0}<input type="checkbox"/> Inclure Garantie <a href="#">Panne 3 ans</a> pour <span class="price-reduction">EUR {if $panne.item[0]->service_price->get_price_type() == 'amount'}{number_format($panne.item[0]->service_price->get_price(),2,',','.')}{else}{round($offer->get_price()/100*$panne.item[0]->service_price->get_price(),2)}{/if}</span><br/><br/>{/if}
-        <input type="checkbox"/> Inclure Garantie <a href="#">Casse et Vol 2 ans</a> pour <span class="price-reduction">EUR {if $cassevol.item[0]->service_price->get_price_type() == 'amount'}{number_format($cassevol.item[0]->service_price->get_price(),2,',','.')}{else}{round($offer->get_price()/100*$cassevol.item[0]->service_price->get_price(),2)}{/if}</span><br/><br/>
+        {if $panne.count > 0}<input type="checkbox"/> Inclure Garantie <a href="#">Panne 3 ans</a> pour <span class="price-reduction">EUR {if $panne.item[0]->service_price->get_price_type() == 'amount'}{number_format($panne.item[0]->service_price->get_price()*$panne.item[0]->get_vat()->get_vat_percent(),2,',','.')}{else}{round($offer->get_price()/100*$panne.item[0]->service_price->get_price(),2)}{/if}</span><br/><br/>{/if}
+        {if $cassevol.count > 0}<input type="checkbox"/> Inclure Garantie <a href="#">Casse et Vol 2 ans</a> pour <span class="price-reduction">EUR {if $cassevol.item[0]->service_price->get_price_type() == 'amount'}{number_format($cassevol.item[0]->service_price->get_price()*$cassevol.item[0]->get_vat()->get_vat_percent(),2,',','.')}{else}{round($offer->get_price()/100*$cassevol.item[0]->service_price->get_price(),2)}{/if}</span><br/><br/>{/if}
         Quantité : <select name="quantity"/>{section name=$i loop=10 start=1}<option value="{$i}">{$i}</option>{/section}</select><br/><br/>
         <center><input type="button" value="Ajouter au panier" style="width:100%;height:30px;"></center>
         <hr/>
@@ -52,28 +52,62 @@
 <div class="cadre_bottom_large">
     <hr/>
     <h3>Produits fréquemment achetés ensemble</h3>
-    <div class="cross-sell-image"><img src="/img/product/img1.jpg"/> + <img src="/img/product/imgp2_1.jpg"/></div>
+    <div class="cross-sell-image"><img src="{url alias='product_img' iIdProductImg=$images[0]->get_id() iWidth=50 iHeight=50}"/> + <img src="/img/product/imgp2_1.jpg"/></div>
     <div class="cross-sell-price">
         Prix pour les deux : EUR 226,42<br/>
         <input type="button" value="Ajouter les deux au panier" style="height:20px;font-size:10px;">
     </div>
     <div class="cross-sell-form">
-        <input type="checkbox" checked="checked" onclick="cross_sell();" name="cross1"> Cet article : {$offer->get_product()->get_name()} … <font color="red">EUR {$offer->get_price()}</font><br/><br/>
-        <input type="checkbox" checked="checked" onclick="cross_sell();" name="cross2"> IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette (Noir) EUR 16,95
+        <input type="checkbox" checked="checked" onclick="cross_sell();" name="cross1"> Cet article : {$offer->get_product()->get_name()} … <font color="red">EUR {number_format($offer->get_price()*$offer->get_offer_vat_country(array('id_country'=>$country))[0]->get_vat()->get_vat_percent(),2,',','.')}</font><br/><br/>
+        <input type="checkbox" checked="checked" onclick="cross_sell();" name="cross2"> IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette (Noir) <font color="red">EUR 16,95</font>
         <script>
              function cross_sell() {
                 
                 if ($('input[name=cross1]').is(':checked') && $('input[name=cross2]').is(':checked')) {
-                    $('.cross-sell-price').html('Prix pour les deux : EUR '+({$offer->get_price()}+16.95)+'<br/><input type="button" value="Ajouter les deux au panier" style="height:20px;font-size:10px;">');
+                    $('.cross-sell-price').html('Prix pour les deux : EUR {number_format($offer->get_price()*$offer->get_offer_vat_country(array('id_country'=>$country))[0]->get_vat()->get_vat_percent()+$value_cross,2,',','.')}<br/><input type="button" value="Ajouter les deux au panier" style="height:20px;font-size:10px;">');
                 }
                 else if ($('input[name=cross1]').is(':checked') && !$('input[name=cross2]').is(':checked')) {
-                    $('.cross-sell-price').html('Prix : EUR '+({$offer->get_price()})+'<br/><input type="button" value="Ajouter au panier" style="height:20px;font-size:10px;">');
+                    $('.cross-sell-price').html('Prix : EUR {number_format($offer->get_price()*$offer->get_offer_vat_country(array('id_country'=>$country))[0]->get_vat()->get_vat_percent(),2,',','.')}<br/><input type="button" value="Ajouter au panier" style="height:20px;font-size:10px;">');
                 }
                 else if (!$('input[name=cross1]').is(':checked') && $('input[name=cross2]').is(':checked')) {
-                    $('.cross-sell-price').html('Prix : EUR '+(16.95)+'<br/><input type="button" value="Ajouter au panier" style="height:20px;font-size:10px;">');
+                    $('.cross-sell-price').html('Prix : EUR {number_format($value_cross,2,',','.')}<br/><input type="button" value="Ajouter au panier" style="height:20px;font-size:10px;">');
                 }
              }
         </script>
+        <hr style="margin-bottom:0px;"/>
+    </div>
+</div>
+<div class="cadre_bottom_large">
+    <h3>Les clients ayant consulté cet article ont également regardé</h3>
+    {foreach from=$other_offer item=$one_offer}
+        <div class="product-vertical">
+            <img src="/product/img/{$one_offer->get_user_visit_offer()->get_offer()[0]->get_product()->get_product_image()[0]->get_id()}/100/100.jpg"/><br/>
+            <a href="#">{$one_offer->get_user_visit_offer()->get_offer()[0]->get_product()->get_name()}</a><br/>
+            <font color="red">EUR {number_format($one_offer->get_user_visit_offer()->get_offer()[0]->get_price()*$one_offer->get_user_visit_offer()->get_offer()[0]->get_offer_vat_country()[0]->get_vat()->get_vat_percent(),2,',','.')}</font>
+        </div>
+    {/foreach}
+    <div class="cadre_bottom_large">
+        <hr/>
+    </div>
+</div>
+<div class="cadre_bottom_large">
+    <h3>Produits Sponsorisés similaires à cet article <span style="color:black;font-size:12px;">(<a href="#">De quoi s'agit-il ?</a>)</span></h3>
+    <div class="product-vertical">
+        <img src="/product/img/8/100/100.jpg"/><br/>
+        <a href="#">IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette (Noir)</a><br/>
+        <font color="red">EUR 9,90</font>
+    </div>
+    <div class="product-vertical">
+        <img src="/product/img/8/100/100.jpg"/><br/>
+        <a href="#">IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette (Noir)</a><br/>
+        <font color="red">EUR 9,90</font>
+    </div>
+    <div class="product-vertical">
+        <img src="/product/img/8/100/100.jpg"/><br/>
+        <a href="#">IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette (Noir)</a><br/>
+        <font color="red">EUR 9,90</font>
+    </div>
+    <div class="cadre_bottom_large">
         <hr/>
     </div>
 </div>

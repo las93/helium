@@ -46,6 +46,28 @@ class user extends Entity
 	
 	
 	/**
+	 * user_visit_offer Entity
+	 *
+	 * @access private
+	 * @var    user_visit_offer
+	 *
+	 */
+    private $user_visit_offer = null;
+	
+	
+	
+	/**
+	 * vat Entity
+	 *
+	 * @access private
+	 * @var    vat
+	 *
+	 */
+    private $vat = null;
+	
+	
+	
+	/**
 	 * name
 	 *
 	 * @access private
@@ -113,6 +135,86 @@ class user extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get user_visit_offer entity join by id of user
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_user_visit_offer($aWhere = array())
+	{
+		if ($this->user_visit_offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('user_visit_offer');
+												   
+	        $aWhere['id_user'] = $this->get_id();
+											
+													  
+            $this->user_visit_offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->user_visit_offer;
+	}
+	
+	/**
+	 * set user_visit_offer entity join by id of user
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\user_visit_offer  $user_visit_offer user_visit_offer entity
+	 * @return array
+	 */
+	public function set_user_visit_offer(array $user_visit_offer)
+	{
+		$this->user_visit_offer = $user_visit_offer;
+		return $this;
+	}
+
+	/**
+	 * get vat entity join by id of user
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_vat($aWhere = array())
+	{
+		if ($this->vat === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('vat');
+												   
+	        $aWhere['id'] = $this->get_id();
+											
+													  
+            $this->vat = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->vat;
+	}
+	
+	/**
+	 * set vat entity join by id of user
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\vat  $vat vat entity
+	 * @return array
+	 */
+	public function set_vat(array $vat)
+	{
+		$this->vat = $vat;
+		return $this;
+	}
+
 	/**
 	 * get name of user
 	 *

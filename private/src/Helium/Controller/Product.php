@@ -22,6 +22,7 @@ use \Venus\src\Helium\Model\product_image as ProductImage;
 use \Venus\src\Helium\Model\question as Question;
 use \Venus\src\Helium\Model\review as Review;
 use \Venus\src\Helium\Model\service_application as ServiceApplication;
+use \Venus\src\Helium\Model\user_visit_offer as UserVisitOffer;
 
 /**
  * Controller to Product
@@ -82,6 +83,9 @@ class Product extends Controller
 		$oProductImage = new ProductImage;
 		$aImages = $oProductImage->findByid_product($oOffer->get_id_product());
 		
+		$oUserVisitOffer = new UserVisitOffer;
+		$aUserVisitOffer = $oUserVisitOffer->getVisitOfferWithTheSameUser($iIdOffer);
+
 		$this->layout
 			 ->assign('offer', $oOffer)
 			 ->assign('premium', $aServicePremium)
@@ -90,6 +94,9 @@ class Product extends Controller
 			 ->assign('count_question', $iQuestion)
 			 ->assign('reviews_rate', $iReview)
 			 ->assign('images', $aImages)
+			 ->assign('country', 1)
+			 ->assign('value_cross', 16.95)
+			 ->assign('other_offer', $aUserVisitOffer)
 			 ->display();
 	}
 

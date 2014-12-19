@@ -46,6 +46,28 @@ class offer extends Entity
 	
 	
 	/**
+	 * offer_vat_country Entity
+	 *
+	 * @access private
+	 * @var    offer_vat_country
+	 *
+	 */
+    private $offer_vat_country = null;
+	
+	
+	
+	/**
+	 * user_visit_offer Entity
+	 *
+	 * @access private
+	 * @var    user_visit_offer
+	 *
+	 */
+    private $user_visit_offer = null;
+	
+	
+	
+	/**
 	 * id_product
 	 *
 	 * @access private
@@ -97,17 +119,6 @@ class offer extends Entity
 	 *
 	 */
     private $offer_status = null;
-	
-	
-	
-	/**
-	 * id_vat
-	 *
-	 * @access private
-	 * @var    int
-	 *
-		 */
-    private $id_vat = null;
 	
 	
 	
@@ -256,6 +267,86 @@ class offer extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get offer_vat_country entity join by id of offer
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_offer_vat_country($aWhere = array())
+	{
+		if ($this->offer_vat_country === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('offer_vat_country');
+												   
+	        $aWhere['id_offer'] = $this->get_id();
+											
+													  
+            $this->offer_vat_country = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->offer_vat_country;
+	}
+	
+	/**
+	 * set offer_vat_country entity join by id of offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\offer_vat_country  $offer_vat_country offer_vat_country entity
+	 * @return array
+	 */
+	public function set_offer_vat_country(array $offer_vat_country)
+	{
+		$this->offer_vat_country = $offer_vat_country;
+		return $this;
+	}
+
+	/**
+	 * get user_visit_offer entity join by id of offer
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_user_visit_offer($aWhere = array())
+	{
+		if ($this->user_visit_offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('user_visit_offer');
+												   
+	        $aWhere['id_offer'] = $this->get_id();
+											
+													  
+            $this->user_visit_offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->user_visit_offer;
+	}
+	
+	/**
+	 * set user_visit_offer entity join by id of offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\user_visit_offer  $user_visit_offer user_visit_offer entity
+	 * @return array
+	 */
+	public function set_user_visit_offer(array $user_visit_offer)
+	{
+		$this->user_visit_offer = $user_visit_offer;
+		return $this;
+	}
+
 	/**
 	 * get id_product of offer
 	 *
@@ -412,30 +503,6 @@ class offer extends Entity
 		return $this;
 	}
 
-	/**
-	 * get id_vat of offer
-	 *
-	 * @access public
-	 * @return int
-	 */
-	public function get_id_vat()
-	{
-		return $this->id_vat;
-	}
-
-	/**
-	 * set id_vat of offer
-	 *
-	 * @access public
-	 * @param  int $id_vat id_vat of offer
-	 * @return \Venus\src\Helium\Entity\offer
-	 */
-	public function set_id_vat($id_vat) 
-	{
-		$this->id_vat = $id_vat;
-		return $this;
-	}
-	
 	/**
 	 * get enable of offer
 	 *

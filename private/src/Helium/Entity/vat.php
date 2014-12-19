@@ -46,6 +46,28 @@ class vat extends Entity
 	
 	
 	/**
+	 * offer_vat_country Entity
+	 *
+	 * @access private
+	 * @var    offer_vat_country
+	 *
+	 */
+    private $offer_vat_country = null;
+	
+	
+	
+	/**
+	 * service_application Entity
+	 *
+	 * @access private
+	 * @var    service_application
+	 *
+	 */
+    private $service_application = null;
+	
+	
+	
+	/**
 	 * id_country
 	 *
 	 * @access private
@@ -102,6 +124,86 @@ class vat extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get offer_vat_country entity join by id of vat
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_offer_vat_country($aWhere = array())
+	{
+		if ($this->offer_vat_country === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('offer_vat_country');
+												   
+	        $aWhere['id_vat'] = $this->get_id();
+											
+													  
+            $this->offer_vat_country = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->offer_vat_country;
+	}
+	
+	/**
+	 * set offer_vat_country entity join by id of vat
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\offer_vat_country  $offer_vat_country offer_vat_country entity
+	 * @return array
+	 */
+	public function set_offer_vat_country(array $offer_vat_country)
+	{
+		$this->offer_vat_country = $offer_vat_country;
+		return $this;
+	}
+
+	/**
+	 * get service_application entity join by id of vat
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_service_application($aWhere = array())
+	{
+		if ($this->service_application === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('service_application');
+												   
+	        $aWhere['id_vat'] = $this->get_id();
+											
+													  
+            $this->service_application = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->service_application;
+	}
+	
+	/**
+	 * set service_application entity join by id of vat
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\service_application  $service_application service_application entity
+	 * @return array
+	 */
+	public function set_service_application(array $service_application)
+	{
+		$this->service_application = $service_application;
+		return $this;
+	}
+
 	/**
 	 * get id_country of vat
 	 *

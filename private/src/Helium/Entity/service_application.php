@@ -90,6 +90,17 @@ class service_application extends Entity
 	
 	
 	/**
+	 * vat Entity
+	 *
+	 * @access private
+	 * @var    vat
+	 *
+	 */
+    private $vat = null;
+	
+	
+	
+	/**
 	 * name
 	 *
 	 * @access private
@@ -291,6 +302,48 @@ class service_application extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get vat entity join by id_vat of service_application
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return \Venus\src\Helium\Entity\service_application
+	 */
+	public function get_vat($aWhere = array())
+	{
+		if ($this->vat === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('vat');
+												   
+	        $aWhere['id'] = $this->get_id_vat();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+          if (count($aResult) > 0) { $this->vat = $aResult[0]; }
+          else { $this->vat = array(); }
+        }
+
+		return $this->vat;
+	}
+	
+	/**
+	 * set vat entity join by id_vat of service_application
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\vat  $vat vat entity
+	 * @return \Venus\src\Helium\Entity\service_application
+	 */
+	public function set_vat(\Venus\src\Helium\Entity\vat $vat)
+	{
+		$this->vat = $vat;
+		return $this;
+	}
+
 	/**
 	 * get name of service_application
 	 *

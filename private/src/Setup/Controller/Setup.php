@@ -25,6 +25,7 @@ use \Venus\src\Helium\Entity\merchant as Merchant;
 use \Venus\src\Helium\Entity\product as Product;
 use \Venus\src\Helium\Entity\product_image as ProductImage;
 use \Venus\src\Helium\Entity\offer as Offer;
+use \Venus\src\Helium\Entity\offer_vat_country as OfferVatCountry;
 use \Venus\src\Helium\Entity\offer_category as OfferCategory;
 use \Venus\src\Helium\Entity\offer_status as OfferStatus;
 use \Venus\src\Helium\Entity\question as Question;
@@ -37,6 +38,7 @@ use \Venus\src\Helium\Entity\service_period as ServicePeriod;
 use \Venus\src\Helium\Entity\service_price as ServicePrice;
 use \Venus\src\Helium\Entity\service_price_range as ServicePriceRange;
 use \Venus\src\Helium\Entity\user as User;
+use \Venus\src\Helium\Entity\user_visit_offer as UserVisitOffer;
 use \Venus\src\Helium\Entity\vat as Vat;
 use \Venus\src\Helium\Entity\user_right as UserRight;
 use \Venus\src\Helium\Entity\search_attribute as SearchAttribute;
@@ -188,27 +190,27 @@ class Setup extends Controller {
 			
 			$iIdVat = $oVat->set_id_country($iIdCountry)
 				           ->set_name('Fr Normal')
-				           ->set_vat_percent(20)
+				           ->set_vat_percent(1.20)
 				           ->save();
 			
 			$oVat = new Vat;
 			
 			$oVat->set_id_country($iIdCountry)
 				 ->set_name('Fr Intermediaite')
-				 ->set_vat_percent(10)
+				 ->set_vat_percent(1.10)
 				  			->save();
 			$oVat = new Vat;
 			
 			$oVat->set_id_country($iIdCountry)
 				 ->set_name('Fr Reduce')
-				 ->set_vat_percent(5.5)
+				 ->set_vat_percent(1.055)
 				 ->save();
 			
 			$oVat = new Vat;
 			
 			$oVat->set_id_country($iIdCountry)
 				 ->set_name('Fr Medicinal')
-				 ->set_vat_percent(2.1)
+				 ->set_vat_percent(1.021)
 				 ->save();
 			
 			$oUser = new User;
@@ -1629,7 +1631,7 @@ class Setup extends Controller {
                                             <li><span class="a-size-base a-color-secondary">Des photos de grande qualité avec les capteurs de 1,2 et 5 mégapixels (avant et arrière)</span></li>
                                         </ul>')
 			                         ->set_ean13('1234553')
-                			         ->set_market_price(249.00)
+                			         ->set_market_price(207.5)
                 			         ->set_reference('B00JZRH6K6')
                 			         ->set_short_description('<ul><li>Ecran tactile 7 pouces
                                         <li>Fonction téléphone avec connexion 4G intégrée</li>
@@ -1658,11 +1660,23 @@ class Setup extends Controller {
 			                   ->set_id_merchant($iIdMerchant)
 			                   ->set_id_offer_status($iIdStatus)
 			                   ->set_id_product($iIdProduct)
-			                   ->set_id_vat($iIdVat)
-			                   ->set_price(209.47)
+			                   ->set_price(174.56)
 			                   ->set_quantity_public(100)
 			                   ->set_gift_possible(true)
 			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
 			
 			$oOfferCategory = new OfferCategory;
 			
@@ -1691,14 +1705,14 @@ class Setup extends Controller {
 			$oServicePrice = new ServicePrice;
 			
 			$iIdServicePrice = $oServicePrice->set_cost(0)
-			                                 ->set_price(49.00)
+			                                 ->set_price(40.83)
 			                                 ->set_price_type('amount')
 			                                 ->save();
 			
 			$oServicePriceRange = new ServicePriceRange;
 			
 			$iIdServicePriceRange = $oServicePriceRange->set_min(0)
-			                                           ->set_max(120)
+			                                           ->set_max(100)
 			                                           ->save();
 			
 			$oServicePriceRange = new ServicePriceRange;
@@ -1760,15 +1774,15 @@ class Setup extends Controller {
 			
 			$oServicePrice = new ServicePrice;
 			
-			$iIdServicePrice = $oServicePrice->set_cost(4.43)
-			                                 ->set_price(14.43)
+			$iIdServicePrice = $oServicePrice->set_cost(2.03)
+			                                 ->set_price(12.03)
 			                                 ->set_price_type('amount')
 			                                 ->save();
 			
 			$oServicePriceRange = new ServicePriceRange;
 			
-			$iIdServicePriceRange = $oServicePriceRange->set_min(200)
-			                                           ->set_max(249.99)
+			$iIdServicePriceRange = $oServicePriceRange->set_min(166.67)
+			                                           ->set_max(208.33)
 			                                           ->save();
 			
 			$oServiceAssociation = new ServiceAssociation;
@@ -1783,8 +1797,8 @@ class Setup extends Controller {
 			
 			$oServicePrice = new ServicePrice;
 			
-			$iIdServicePrice = $oServicePrice->set_cost(17.08)
-			                                 ->set_price(27.08)
+			$iIdServicePrice = $oServicePrice->set_cost(12.57)
+			                                 ->set_price(22.57)
 			                                 ->set_price_type('amount')
 			                                 ->save();
 			
@@ -1800,8 +1814,8 @@ class Setup extends Controller {
 			
 			$oServicePrice = new ServicePrice;
 			
-			$iIdServicePrice = $oServicePrice->set_cost(27.50)
-			                                 ->set_price(37.50)
+			$iIdServicePrice = $oServicePrice->set_cost(21.25)
+			                                 ->set_price(31.25)
 			                                 ->set_price_type('amount')
 			                                 ->save();
 			
@@ -1817,8 +1831,8 @@ class Setup extends Controller {
 			
 			$oServicePrice = new ServicePrice;
 			
-			$iIdServicePrice = $oServicePrice->set_cost(37.92)
-			                                 ->set_price(47.92)
+			$iIdServicePrice = $oServicePrice->set_cost(29.93)
+			                                 ->set_price(39.93)
 			                                 ->set_price_type('amount')
 			                                 ->save();
 			
@@ -1852,8 +1866,8 @@ class Setup extends Controller {
 			
 			$oServicePrice = new ServicePrice;
 			
-			$iIdServicePrice = $oServicePrice->set_cost(9.15)
-			                                 ->set_price(19.15)
+			$iIdServicePrice = $oServicePrice->set_cost(5.96)
+			                                 ->set_price(15.96)
 			                                 ->set_price_type('amount')
 			                                 ->save();
 			
@@ -1869,8 +1883,8 @@ class Setup extends Controller {
 			
 			$oServicePrice = new ServicePrice;
 			
-			$iIdServicePrice = $oServicePrice->set_cost(24.47)
-			                                 ->set_price(34.47)
+			$iIdServicePrice = $oServicePrice->set_cost(18.73)
+			                                 ->set_price(28.73)
 			                                 ->set_price_type('amount')
 			                                 ->save();
 			
@@ -1956,6 +1970,113 @@ Sinon, amazon toujours au top, livraison sans souci. bravo')
 			
 			$oProductImage->set_id_product($iIdProduct)
 			              ->set_name('product/img7b.jpg')
+			              ->save();
+			
+			$oBrand = new Brand;
+			
+			$iIdBrand = $oBrand->set_name('Gambolex')
+			                   ->save();
+		
+			$oProduct = new Product;
+			
+			$iIdProduct = $oProduct->set_name('IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette (Noir)')
+			                       ->set_description('IVSO Slim Smart Cover Housse pour ASUS Fonepad 7 LTE ME372CL Tablette<br/><br/>
+                                        Fabriqué spécialement pour votre ASUS Fonepad 7 LTE ME372CL tablette, cet étui unit la praticabilité à la beauté. C\'est un produit élaboré en cuir de qualité. Sa doublure en microfibre vous assure le confort et vous offre une protection additionelle. Les entailles taillées précisement sont à votre disposition pour tous les contrôles et fonctions necessaires. Cet étui housse est capable de protéger durablement votre ASUS Fonepad 7 LTE ME372CL tablette.')
+			                         ->set_ean13('1234553')
+                			         ->set_market_price(24.99)
+                			         ->set_reference('JID00DZA8')
+                			         ->set_short_description('Taille: Pour ASUS Fonepad 7 LTE ME372CL<br/><br/>
+                                        Couleur: Noir<br/><br/>
+                			            <ul>
+                                            <li>Fabriqué Spécialement pour ASUS Fonepad 7 LTE ME372CL tablette</li>
+                                            <li>Etui Housse en Cuir Ultra-mince, avec Support de Multi-angle destiné à la vision la plus confortable</li>
+                                            <li>Etui Housse en cuir de qualité avec la doublure en microfibre</li>
+                                            <li>Entailles taillées précisement pour tous les contrôles et fonctions necessaires</li>
+                                            <li>Protéger complètement votre ASUS Fonepad 7 LTE ME372CL tablette contre les pousières, les rayures et les chocs</li>
+				                        </ul>')
+                			         ->set_id_brand($iIdBrand)
+                			         ->save();
+
+			$oOfferStatus = new OfferStatus();
+				
+			$iIdStatus = $oOfferStatus->set_name('en stock')
+			                          ->save();
+
+			$oOfferStatus = new OfferStatus();
+				
+			$oOfferStatus->set_name('restockage')
+			             ->save();
+
+			$oOffer = new Offer;
+
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant)
+			                   ->set_id_offer_status($iIdStatus)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_price(14.13)
+			                   ->set_quantity_public(100)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
+			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img2_1.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img2_2.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img2_3.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img2_4.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img2_5.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img2_6.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img2_7.jpg')
 			              ->save();
 		}
 		else {

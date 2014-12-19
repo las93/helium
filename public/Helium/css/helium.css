@@ -433,3 +433,10 @@ h1.category {
     margin-top:20px;	
 	width:100%;
 }
+
+.product-vertical {
+	width:120px;
+	margin-left:10px;
+    margin-right:10px;
+	float:left;
+}
