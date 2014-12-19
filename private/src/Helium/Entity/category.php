@@ -46,6 +46,28 @@ class category extends Entity
 	
 	
 	/**
+	 * product Entity
+	 *
+	 * @access private
+	 * @var    product
+	 *
+	 */
+    private $product = null;
+	
+	
+	
+	/**
+	 * sponsored_offer Entity
+	 *
+	 * @access private
+	 * @var    sponsored_offer
+	 *
+	 */
+    private $sponsored_offer = null;
+	
+	
+	
+	/**
 	 * id_category
 	 *
 	 * @access private
@@ -157,6 +179,86 @@ class category extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get product entity join by id of category
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_product($aWhere = array())
+	{
+		if ($this->product === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('product');
+												   
+	        $aWhere['id_main_category'] = $this->get_id();
+											
+													  
+            $this->product = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->product;
+	}
+	
+	/**
+	 * set product entity join by id of category
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\product  $product product entity
+	 * @return array
+	 */
+	public function set_product(array $product)
+	{
+		$this->product = $product;
+		return $this;
+	}
+
+	/**
+	 * get sponsored_offer entity join by id of category
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_sponsored_offer($aWhere = array())
+	{
+		if ($this->sponsored_offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('sponsored_offer');
+												   
+	        $aWhere['id_category'] = $this->get_id();
+											
+													  
+            $this->sponsored_offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->sponsored_offer;
+	}
+	
+	/**
+	 * set sponsored_offer entity join by id of category
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\sponsored_offer  $sponsored_offer sponsored_offer entity
+	 * @return array
+	 */
+	public function set_sponsored_offer(array $sponsored_offer)
+	{
+		$this->sponsored_offer = $sponsored_offer;
+		return $this;
+	}
+
 	/**
 	 * get id_category of category
 	 *

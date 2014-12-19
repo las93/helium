@@ -349,6 +349,14 @@ h1.category {
     margin-top:0px;	
 }
 
+.a-center-line-description .stars0 {
+    background-position: -5px -9px;
+    width: 90px;
+    height: 17px;
+    display: inline-block;
+    background-image: url("/img/product/stars.jpg");
+}
+
 .a-center-line-description .stars1 {
     background-position: -5px -9px;
     width: 90px;

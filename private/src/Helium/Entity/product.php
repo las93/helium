@@ -101,6 +101,28 @@ class product extends Entity
 	
 	
 	/**
+	 * id_main_category
+	 *
+	 * @access private
+	 * @var    int
+	 *
+		 */
+    private $id_main_category = null;
+	
+	
+	
+	/**
+	 * category Entity
+	 *
+	 * @access private
+	 * @var    category
+	 *
+	 */
+    private $category = null;
+	
+	
+	
+	/**
 	 * date_create
 	 *
 	 * @access private
@@ -396,6 +418,72 @@ class product extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get id_main_category of product
+	 *
+	 * @access public
+	 * @return int
+	 */
+	public function get_id_main_category()
+	{
+		return $this->id_main_category;
+	}
+
+	/**
+	 * set id_main_category of product
+	 *
+	 * @access public
+	 * @param  int $id_main_category id_main_category of product
+	 * @return \Venus\src\Helium\Entity\product
+	 */
+	public function set_id_main_category($id_main_category) 
+	{
+		$this->id_main_category = $id_main_category;
+		return $this;
+	}
+	
+	/**
+	 * get category entity join by id_main_category of product
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return \Venus\src\Helium\Entity\product
+	 */
+	public function get_category($aWhere = array())
+	{
+		if ($this->category === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('category');
+												   
+	        $aWhere['id'] = $this->get_id_main_category();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+          if (count($aResult) > 0) { $this->category = $aResult[0]; }
+          else { $this->category = array(); }
+        }
+
+		return $this->category;
+	}
+	
+	/**
+	 * set category entity join by id_main_category of product
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\category  $category category entity
+	 * @return \Venus\src\Helium\Entity\product
+	 */
+	public function set_category(\Venus\src\Helium\Entity\category $category)
+	{
+		$this->category = $category;
+		return $this;
+	}
+
 	/**
 	 * get date_create of product
 	 *

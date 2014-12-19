@@ -23,6 +23,7 @@ use \Venus\src\Helium\Model\question as Question;
 use \Venus\src\Helium\Model\review as Review;
 use \Venus\src\Helium\Model\service_application as ServiceApplication;
 use \Venus\src\Helium\Model\user_visit_offer as UserVisitOffer;
+use \Venus\src\Helium\Model\sponsored_offer as SponsoredOffer;
 
 /**
  * Controller to Product
@@ -61,7 +62,7 @@ class Product extends Controller
 	{
 		$this->_loadLayout();
 		
-		$iIdOffer = 1;
+		//$iIdOffer = 1;
 		
 		$oOfferModel = new Offer;
 		$oOffer = $oOfferModel->findOneByid($iIdOffer);
@@ -85,6 +86,9 @@ class Product extends Controller
 		
 		$oUserVisitOffer = new UserVisitOffer;
 		$aUserVisitOffer = $oUserVisitOffer->getVisitOfferWithTheSameUser($iIdOffer);
+		
+		$oSponsoredOffer = new SponsoredOffer;
+		$aSponsoredOffer = $oSponsoredOffer->findByid_category($oOffer->get_product()->get_id_main_category());
 
 		$this->layout
 			 ->assign('offer', $oOffer)
@@ -97,6 +101,7 @@ class Product extends Controller
 			 ->assign('country', 1)
 			 ->assign('value_cross', 16.95)
 			 ->assign('other_offer', $aUserVisitOffer)
+			 ->assign('sponsored_offer', $aSponsoredOffer)
 			 ->display();
 	}
 

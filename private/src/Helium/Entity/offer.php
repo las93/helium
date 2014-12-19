@@ -57,6 +57,28 @@ class offer extends Entity
 	
 	
 	/**
+	 * refund_offer_by_offer Entity
+	 *
+	 * @access private
+	 * @var    refund_offer_by_offer
+	 *
+	 */
+    private $refund_offer_by_offer = null;
+	
+	
+	
+	/**
+	 * sponsored_offer Entity
+	 *
+	 * @access private
+	 * @var    sponsored_offer
+	 *
+	 */
+    private $sponsored_offer = null;
+	
+	
+	
+	/**
 	 * user_visit_offer Entity
 	 *
 	 * @access private
@@ -304,6 +326,86 @@ class offer extends Entity
 	public function set_offer_vat_country(array $offer_vat_country)
 	{
 		$this->offer_vat_country = $offer_vat_country;
+		return $this;
+	}
+
+	/**
+	 * get refund_offer_by_offer entity join by id of offer
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_refund_offer_by_offer($aWhere = array())
+	{
+		if ($this->refund_offer_by_offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('refund_offer_by_offer');
+												   
+	        $aWhere['id_offer'] = $this->get_id();
+											
+													  
+            $this->refund_offer_by_offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->refund_offer_by_offer;
+	}
+	
+	/**
+	 * set refund_offer_by_offer entity join by id of offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\refund_offer_by_offer  $refund_offer_by_offer refund_offer_by_offer entity
+	 * @return array
+	 */
+	public function set_refund_offer_by_offer(array $refund_offer_by_offer)
+	{
+		$this->refund_offer_by_offer = $refund_offer_by_offer;
+		return $this;
+	}
+
+	/**
+	 * get sponsored_offer entity join by id of offer
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_sponsored_offer($aWhere = array())
+	{
+		if ($this->sponsored_offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('sponsored_offer');
+												   
+	        $aWhere['id_offer'] = $this->get_id();
+											
+													  
+            $this->sponsored_offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->sponsored_offer;
+	}
+	
+	/**
+	 * set sponsored_offer entity join by id of offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\sponsored_offer  $sponsored_offer sponsored_offer entity
+	 * @return array
+	 */
+	public function set_sponsored_offer(array $sponsored_offer)
+	{
+		$this->sponsored_offer = $sponsored_offer;
 		return $this;
 	}
 

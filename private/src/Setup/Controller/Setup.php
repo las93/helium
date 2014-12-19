@@ -29,6 +29,8 @@ use \Venus\src\Helium\Entity\offer_vat_country as OfferVatCountry;
 use \Venus\src\Helium\Entity\offer_category as OfferCategory;
 use \Venus\src\Helium\Entity\offer_status as OfferStatus;
 use \Venus\src\Helium\Entity\question as Question;
+use \Venus\src\Helium\Entity\refund_offer as RefundOffer;
+use \Venus\src\Helium\Entity\refund_offer_by_offer as RefundOfferByOffer;
 use \Venus\src\Helium\Entity\review as Review;
 use \Venus\src\Helium\Entity\right as Right;
 use \Venus\src\Helium\Entity\service as Service;
@@ -43,6 +45,7 @@ use \Venus\src\Helium\Entity\vat as Vat;
 use \Venus\src\Helium\Entity\user_right as UserRight;
 use \Venus\src\Helium\Entity\search_attribute as SearchAttribute;
 use \Venus\src\Helium\Entity\search_attribute_rule as SearchAttributeRule;
+use \Venus\src\Helium\Entity\sponsored_offer as SponsoredOffer;
 use \Venus\src\Setup\common\Controller as Controller;
 
 /**
@@ -1603,8 +1606,8 @@ class Setup extends Controller {
 			
 			$oBrand = new Brand;
 			
-			$iIdBrand = $oBrand->set_name('Asus')
-			                   ->save();
+			$iIdBrandAsus = $oBrand->set_name('Asus')
+			                       ->save();
 		
 			$oProduct = new Product;
 			
@@ -1641,7 +1644,8 @@ class Setup extends Controller {
                                         <li>Système d\'exploitation : Android 4.3 Jelly Bean</li>
                                         <li>Nombre de ports : 1 x micro USB ; 1 x Audio jack ; Micro-SD (jusqu\'à 64 Go)</li>
                                         <li>Autonomie : 11 heures</li></ul>')
-                			         ->set_id_brand($iIdBrand)
+                			         ->set_id_brand($iIdBrandAsus)
+			                         ->set_id_main_category($iIdCategoryTablette)
                 			         ->save();
 
 			$oOfferStatus = new OfferStatus();
@@ -1651,8 +1655,8 @@ class Setup extends Controller {
 
 			$oOfferStatus = new OfferStatus();
 				
-			$oOfferStatus->set_name('restockage')
-			             ->save();
+			$iIdStatusRestock = $oOfferStatus->set_name('restockage')
+			                                 ->save();
 
 			$oOffer = new Offer;
 
@@ -1669,6 +1673,12 @@ class Setup extends Controller {
 			
 			$oUserVisitOffer->set_id_offer($iIdOffer)
 			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
 			                ->save();
 			
 			$oOfferVatCountry = new OfferVatCountry;
@@ -1995,17 +2005,8 @@ Sinon, amazon toujours au top, livraison sans souci. bravo')
                                             <li>Protéger complètement votre ASUS Fonepad 7 LTE ME372CL tablette contre les pousières, les rayures et les chocs</li>
 				                        </ul>')
                 			         ->set_id_brand($iIdBrand)
+			                         ->set_id_main_category($iIdCategoryTablette)
                 			         ->save();
-
-			$oOfferStatus = new OfferStatus();
-				
-			$iIdStatus = $oOfferStatus->set_name('en stock')
-			                          ->save();
-
-			$oOfferStatus = new OfferStatus();
-				
-			$oOfferStatus->set_name('restockage')
-			             ->save();
 
 			$oOffer = new Offer;
 
@@ -2022,6 +2023,12 @@ Sinon, amazon toujours au top, livraison sans souci. bravo')
 			
 			$oUserVisitOffer->set_id_offer($iIdOffer)
 			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
 			                ->save();
 			
 			$oOfferVatCountry = new OfferVatCountry;
@@ -2078,6 +2085,584 @@ Sinon, amazon toujours au top, livraison sans souci. bravo')
 			$oProductImage->set_id_product($iIdProduct)
 			              ->set_name('product/img2_7.jpg')
 			              ->save();
+		
+			$oProduct = new Product;
+			
+			$iIdProduct = $oProduct->set_name('Asus Fonepad 7 LTE ME372CL-1B020A 17,8 cm (7\'\') Tablette Tactile (Intel Atom Z2560, 1,6GHz, 1Go RAM, 8Go HDD, SGX544MP2 Grafikkarte, Ecran tactile, Android) Noir (Import Europe)')
+			                       ->set_description('')
+			                         ->set_ean13('84934')
+                			         ->set_reference('BDLKSD99S')
+                			         ->set_short_description('')
+                			         ->set_id_brand($iIdBrandAsus)
+			                         ->set_id_main_category($iIdCategoryTablette)
+                			         ->save();
+
+			$oOffer = new Offer;
+
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant)
+			                   ->set_id_offer_status($iIdStatus)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_price(165.83)
+			                   ->set_quantity_public(15)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
+			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img3_1.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img3_2.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img3_3.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img3_4.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img3_5.jpg')
+			              ->save();
+		
+			$oProduct = new Product;
+			
+			$iIdProduct = $oProduct->set_name('Asus MeMO Pad 8 ME181CX-1B018A Tablette tactile 8" 16 Go, Android, Wi-Fi, Blanc')
+			                       ->set_description('ASUS MeMO Pad 8 ME181CX<br/><br/>
+                                                        Design et simplicité d\'utilisation<br/>
+                                                        La tablette ASUS MeMO Pad 8 ME181CX est pensée pour les personnes exigeantes. Son châssis 8" est étonnamment léger, et elle intègre des fonctionnalités et technologies habituellement retrouvées sur des tablettes haut de gamme. La tablette ASUS MeMO Pad 8 ME181CX combine un châssis glossy élégant à un écran HD 1280 x 800.<br/><br/>
+                                                        Autonomie prolongée<br/>
+                                                        Avec une autonomie pouvant aller jusqu\'à 9 heures, la tablette ASUS MeMO Pad 8 ME181CX vous permet de vous divertir tout au long de la journée. Vous pourrez surfer sur internet, jouer à des jeux ou encore regarder des vidéos.<br/><br/>
+                                                        Angle panoramique<br/>
+                                                        L\'écran de la tablette ASUS MeMO Pad 8 ME181CX dispose de la technologie IPS qui assure un angle de vision panoramique de 178°. Grâce à lui, les personnes légèrement excentrées pourront parfaitement profiter de la même qualité d\'images et de couleurs que les personnes en face de la tablette.')
+			                         ->set_ean13('8493445')
+                			         ->set_market_price(149.17)
+                			         ->set_reference('DSSS890Q')
+                			         ->set_short_description('<ul>
+                			                 <li>Ecran tactile 8 pouces
+                			                 <li>Stockage et mémoire : disque dur 16 Go, RAM 1 Go
+                			                 <li>Processeur : Intel Bay Trail T Z3745 1.33 Ghz
+                			                 <li>Connectique : Wifi 802.11b/g/n, Bluetooth 4.0
+                			                 <li>Système d\'exploitation : Android 4.4 Kit Kat
+                			                 <li>Nombre de ports : 1 x micro USB ; 1 x Audio jack
+                			                 <li>Autonomie : 9 heures
+                			             </ul>')
+                			         ->set_id_brand($iIdBrandAsus)
+			                         ->set_id_main_category($iIdCategoryTablette)
+                			         ->save();
+
+			$oOffer = new Offer;
+
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant)
+			                   ->set_id_offer_status($iIdStatus)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_price(134.99)
+			                   ->set_quantity_public(15)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
+			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img4_1.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img4_2.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img4_3.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img4_4.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img4_5.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img4_6.jpg')
+			              ->save();
+			
+			$oBrand = new Brand;
+			
+			$iIdBrandTime2 = $oBrand->set_name('Time2')
+			                        ->save();
+		
+			$oProduct = new Product;
+			
+			$iIdProduct = $oProduct->set_name('Asus MeMO Pad 8 ME181CX-1B018A Tablette tactile 8" 16 Go, Android, Wi-Fi, Blanc')
+			                       ->set_description('Présentation de la nouvelle Time2Touch 7" Dual Core Android PC tablette avec Bluetooth<br/><br/>
+
+                                            Le plus récent ajout à notre "collection tablette 7 est notre meilleur modèle pour l\'instant.<br/>
+                                            Avec son processeur Dual Core 1,2 GHz ultra-rapide et massif de 512 Mo de RAM, 8 Go de stockage interne et sur le stockage de 32 Go extensible, la connectivité Bluetooth, un gameplay brillant, écran haute définition magnifiquement magnifique, et avec le Google Playstore les possibilités sont infinies - parfait pour toute la famille<br/><br/>
+                                            
+                                            Afficher<br/> 
+                                            Le super sensible 7 "tactile capacitif vous donne la liberté de naviguer sur la tablette avec facilité, rendant le visionnement de vos médias rapide et facile. L\'brillamment coloré résolution de 800 x 480 permet à vos photos et des films à plus nette et plus brillante que jamais. <br/><br/>
+                                            
+                                            Applications <br/>
+                                            Exécution de la toute dernière 4.4 Kitkat Système d\'exploitation Android, vous pouvez télécharger le 1000s d\'applications disponibles pour vous sur le Play Store de Google, vous aurez l\'embarras du choix et avec le processeur de 1,2 GHz, il n\'a jamais été plus rapide! Jeux fonctionnent mieux que jamais, vous donnant un gameplay vraiment immersive.<br/><br/> 
+                                            
+                                            connectivité <br/>
+                                            Ne jamais être en contact à nouveau avec la tablette Time2Touch avec son, capacité 3G WiFi intégré via un dongle externe, et maintenant pour la première fois la technologie Bluetooth inclus pour vous donner le plus de couverture pour vous garder de parler, de socialiser et jouer partout où vous allez.<br/><br/> 
+                                            
+                                            Le forfait comprend: <br/>
+                                            Time2Touch SC744B 7 "Android 4.4 Tablet PC <br/>
+                                            Adaptateur secteur <br/>
+                                            Câble USB <br/>
+                                            Manuel d\'instruction en Français en format PDF envoyé par e-mail le jour de l\'expédition <br/>
+                                            12 mois de garantie
+			                         ')
+			                         ->set_ean13('278392')
+                			         ->set_market_price(99.99)
+                			         ->set_reference('IOIOO989')
+                			         ->set_short_description('<ul>
+                			                 <li>A23 1,2 GHz Dual Core. Google Android 4.4 du système d\'exploitation. 800 x 480 16:9 écran tactile capacitif.
+                                             <li>512 Mo de RAM. 8 Go de stockage interne (env. 5 Go de stockage utilisable) extensible jusqu\'à 32 Go
+                                             <li>Compatibilité WiFi. Bluetooth. Compatibilité 3G (dongle externe requise).
+                                             <li>Prise en charge des jeux 3D avec G Capteurs
+                                             <li>Caméras double (avant face à la caméra - face 0.3MP caméra de recul - 0.3MP)
+                			             </ul>')
+                			         ->set_id_brand($iIdBrandTime2)
+			                         ->set_id_main_category($iIdCategoryTablette)
+                			         ->save();
+
+			$oOffer = new Offer;
+
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant)
+			                   ->set_id_offer_status($iIdStatus)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_price(58.33)
+			                   ->set_quantity_public(100)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
+			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img5_1.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img5_2.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img5_3.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img5_4.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img5_5.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img5_6.jpg')
+			              ->save();
+		
+			$oProduct = new Product;
+			
+			$iIdProduct = $oProduct->set_name('Pack complet Tablette + Housse + Carte Micro SD 16 Go : Asus MeMO Pad 7 ME176CX-1B057A Tablette tactile 7" Blanc (Intel Atom, 8 Go, Android, WiFi)')
+			                       ->set_description('ME176CX-1B057A/Android 1GB 8GB 7" Red')
+			                         ->set_ean13('98654')
+                			         ->set_market_price(149.00)
+                			         ->set_reference('SIO893')
+                			         ->set_short_description('<ul>
+                			                 <li>Ecran tactile 7 pouces - 1280 X 800
+                                             <li>Stockage et mémoire : disque dur 8 Go, RAM 1 Go
+                                             <li>Intel Bay Trail T Z3745 1.33 Ghz
+                                             <li>Carte Graphique : Non
+                			             </ul>')
+                			         ->set_id_brand($iIdBrandAsus)
+			                         ->set_id_main_category($iIdCategoryTablette)
+                			         ->save();
+
+			$oOffer = new Offer;
+
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant)
+			                   ->set_id_offer_status($iIdStatus)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_price(108.33)
+			                   ->set_quantity_public(100)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
+			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6_1.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6_2.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6_3.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6_4.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6_5.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6_6.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6_7.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img6_8.jpg')
+			              ->save();
+			
+			$oBrand = new Brand;
+			
+			$iIdBrandLg = $oBrand->set_name('LG')
+			                     ->save();
+		
+			$oProduct = new Product;
+			
+			$iIdProduct = $oProduct->set_name('LG Gpad V480 Tablette tactile 8" Blanc (16 Go, Android, WiFi)')
+			                       ->set_description('<b>Description du produit</b><br/>
+                                        Tablette Tactile 8" Android 16Gb<br/>
+                                        <b>Points forts</b><br/>
+                                        <ul><li> 16Gb de mémoire<li>Android KitKat 4.4.2</li><li>Ecran Multipoint</li><li>Appareil photo 5mp</li><li>Knock Code</li><li>Bluetooth 4.0</li><li>MicroSD jusqu\'à 64Gb</li><li>Caméra HD</li><li>Lecteur MP3</li><li>Formats supportés:MP3, AAC, AAC+, eAAC+, AMR, WAV, OGG, WMA</li><li>GPS / AGPS</li><li>Sortie TV : Slimport / Miracast</li></ul>')
+			                         ->set_ean13('89237908')
+                			         ->set_market_price(141.58)
+                			         ->set_reference('LGJSD23')
+                			         ->set_short_description('<ul>
+                			                 <li>Ecran tactile 8 pouces
+                                             <li>Stockage et mémoire : disque dur 16 Go, RAM 16 Go
+                                             <li>Processeur Quad Core 1,2 Ghz
+                                             <li>Carte Graphique : WXGA
+                                             <li>1 port(s) USB 2.0; 1 prise(s) jack
+                			             </ul>')
+                			         ->set_id_brand($iIdBrandLg)
+			                         ->set_id_main_category($iIdCategoryTablette)
+                			         ->save();
+
+			$oOffer = new Offer;
+
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant)
+			                   ->set_id_offer_status($iIdStatusRestock)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_price(137.49)
+			                   ->set_quantity_public(7)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
+			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img7_1.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img7_2.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img7_3.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img7_4.jpg')
+			              ->save();
+			
+			$oRefundOffer = new RefundOffer;
+			
+			$iIdRefundOffer = $oRefundOffer->set_name('30 euros remboursés pour l\'achat d\'une tablette LG GPad')
+			                               ->set_amount(30.00)
+			                               ->save();
+			
+			$oRefundOfferByOffer = new RefundOfferByOffer;
+			
+			$oRefundOfferByOffer->set_id_refund_offer($iIdRefundOffer)
+		                        ->set_id_offer($iIdOffer)
+		                        ->save();	
+		
+			$oProduct = new Product;
+			
+			$iIdProduct = $oProduct->set_name('Asus MeMO Pad 7 ME572C-1A013A Tablette tactile 7" Noir (Intel Moorefield, 16 Go, Android, WiFi)')
+			                       ->set_description('Tablette Asus ME572C-1A013A 7" Tactile Noire')
+			                         ->set_ean13('98898976')
+                			         ->set_market_price(0)
+                			         ->set_reference('ASMEMO7')
+                			         ->set_short_description('<ul>
+                			                 <li>Ecran tactile 7 pouces - 1920 X 1200
+                			                 <li>Stockage et mémoire : disque dur 16 Go, RAM 2 Go
+                			                 <li>Intel Moorefield 1.8 Ghz
+                			                 <li>Carte Graphique : Non
+                			             </ul>')
+                			         ->set_id_brand($iIdBrandAsus)
+			                         ->set_id_main_category($iIdCategoryTablette)
+                			         ->save();
+
+			$oOffer = new Offer;
+
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant)
+			                   ->set_id_offer_status($iIdStatus)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_price(189.83)
+			                   ->set_quantity_public(100)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
+			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img8_1.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img8_2.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img8_3.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img8_4.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img8_5.jpg')
+			              ->save();
+			
+			$oProductImage = new ProductImage;
+			
+			$oProductImage->set_id_product($iIdProduct)
+			              ->set_name('product/img8_6.jpg')
+			              ->save();                     
 		}
 		else {
 			
