@@ -62,8 +62,6 @@ class Product extends Controller
 	{
 		$this->_loadLayout();
 		
-		//$iIdOffer = 1;
-		
 		$oOfferModel = new Offer;
 		$oOffer = $oOfferModel->findOneByid($iIdOffer);
 		
@@ -88,8 +86,21 @@ class Product extends Controller
 		$aUserVisitOffer = $oUserVisitOffer->getVisitOfferWithTheSameUser($iIdOffer);
 		
 		$oSponsoredOffer = new SponsoredOffer;
-		$aSponsoredOffer = $oSponsoredOffer->findByid_category($oOffer->get_product()->get_id_main_category());
+		$aSponsoredOffer = $oSponsoredOffer->getSponsoredOffer($oOffer->get_product()->get_id_main_category());
+		
+		$oOfferModel = new Offer;
+		$aOffers = $oOfferModel->findByid_product($oOffer->get_id_product());
 
+		foreach ($aOffers as $iKey => &$oOneOffer) {
+
+		    if ($oOneOffer->get_id() == $iIdOffer) {
+		        
+		       unset($aOffers[$iKey]);
+		    }
+		}
+
+		var_dump(count($aOffers));
+		
 		$this->layout
 			 ->assign('offer', $oOffer)
 			 ->assign('premium', $aServicePremium)
@@ -102,6 +113,7 @@ class Product extends Controller
 			 ->assign('value_cross', 16.95)
 			 ->assign('other_offer', $aUserVisitOffer)
 			 ->assign('sponsored_offer', $aSponsoredOffer)
+			 ->assign('all_offers', $aOffers)
 			 ->display();
 	}
 

@@ -2537,7 +2537,56 @@ Sinon, amazon toujours au top, livraison sans souci. bravo')
 			
 			$oOfferCategory->set_id_offer($iIdOffer)
 			               ->set_id_category($iIdCategoryTablette)
-			               ->save();
+			               ->save();  
+			
+			$oMerchant = new Merchant;
+			
+			$iIdMerchant2 = $oMerchant->set_contact_country('France')
+					                 ->set_name('Maily')
+					                 ->set_store_url('http://www.maily.fr')
+					                 ->set_contact_firstname('Maily')
+					                 ->set_contact_lastname('Huynh')
+					                 ->set_contact_function('CEO')
+					                 ->set_contact_city('Paris')
+					                 ->set_contact_zip('75015')
+					                 ->set_contact_email('maily@gmail.com')
+					                 ->save();
+
+			$oOffer = new Offer;
+
+			$iIdOffer = $oOffer->set_enable(true)
+			                   ->set_id_merchant($iIdMerchant2)
+			                   ->set_id_offer_status($iIdStatusRestock)
+			                   ->set_id_product($iIdProduct)
+			                   ->set_price(143.11)
+			                   ->set_quantity_public(100)
+			                   ->set_gift_possible(true)
+			                   ->save();
+			
+			$oUserVisitOffer = new UserVisitOffer;
+			
+			$oUserVisitOffer->set_id_offer($iIdOffer)
+			                ->set_id_user($iIdUser)
+			                ->save();
+			
+			$oSponsoredOffer = new SponsoredOffer;
+			
+			$oSponsoredOffer->set_id_offer($iIdOffer)
+			                ->set_id_category($iIdCategoryTablette)
+			                ->save();
+			
+			$oOfferVatCountry = new OfferVatCountry;
+			
+			$oOfferVatCountry->set_id_country($iIdCountry)
+			                 ->set_id_vat($iIdVat)
+			                 ->set_id_offer($iIdOffer)
+			                 ->save();
+			
+			$oOfferCategory = new OfferCategory;
+			
+			$oOfferCategory->set_id_offer($iIdOffer)
+			               ->set_id_category($iIdCategoryTablette)
+			               ->save(); 
 			
 			$oProductImage = new ProductImage;
 			
@@ -2662,7 +2711,7 @@ Sinon, amazon toujours au top, livraison sans souci. bravo')
 			
 			$oProductImage->set_id_product($iIdProduct)
 			              ->set_name('product/img8_6.jpg')
-			              ->save();                     
+			              ->save();        
 		}
 		else {
 			

@@ -50,6 +50,27 @@
         <center><input type="button" value="Ajouter à votre liste d'envies" style="width:100%;height:30px;"></center>
     </form>
 </div>
+{if count($all_offers) > 0}
+<div class="a-right-div" style="border:solid 1px gray;padding:10px;">
+    <center><b>Autres vendeurs sur Helium</b></center>
+    {foreach item=$one_offer from=$all_offers}
+        <hr/>
+    <div style="width:50%;float:left;">
+        <span class="price">EUR {number_format($one_offer->get_price()*$one_offer->get_offer_vat_country(array('id_country'=>$country))[0]->get_vat()->get_vat_percent(),2,',','.')}</span><br/>
+        + Livraison gratuite<br/>
+        Vendu par : {$one_offer->get_merchant()->get_name()}
+    </div>
+    <div style="width:50%;float:left;">
+        <input type="button" value="Ajouter au panier" style="width:100%;height:30px;">
+    </div>
+     {/foreach}
+</div>
+{/if}
+<div class="a-right-div">
+    <center>Vous l'avez déjà ? <input type="button" value="Vendez sur Helium" style="height:30px;"></center>
+    <br/>
+    <center>Partager : Facebook Twitter Pinterest</center>
+</div>
 <div class="cadre_bottom_large">
     <hr/>
     <h3>Produits fréquemment achetés ensemble</h3>

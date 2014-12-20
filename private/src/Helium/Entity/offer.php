@@ -123,6 +123,17 @@ class offer extends Entity
 	
 	
 	/**
+	 * merchant Entity
+	 *
+	 * @access private
+	 * @var    merchant
+	 *
+	 */
+    private $merchant = null;
+	
+	
+	
+	/**
 	 * id_offer_status
 	 *
 	 * @access private
@@ -539,6 +550,48 @@ class offer extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get merchant entity join by id_merchant of offer
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return \Venus\src\Helium\Entity\offer
+	 */
+	public function get_merchant($aWhere = array())
+	{
+		if ($this->merchant === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('merchant');
+												   
+	        $aWhere['id'] = $this->get_id_merchant();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+          if (count($aResult) > 0) { $this->merchant = $aResult[0]; }
+          else { $this->merchant = array(); }
+        }
+
+		return $this->merchant;
+	}
+	
+	/**
+	 * set merchant entity join by id_merchant of offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\merchant  $merchant merchant entity
+	 * @return \Venus\src\Helium\Entity\offer
+	 */
+	public function set_merchant(\Venus\src\Helium\Entity\merchant $merchant)
+	{
+		$this->merchant = $merchant;
+		return $this;
+	}
+
 	/**
 	 * get id_offer_status of offer
 	 *

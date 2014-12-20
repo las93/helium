@@ -16,6 +16,7 @@
 namespace Venus\src\Helium\Model;
 
 use \Venus\core\Model as Model;
+use \Venus\lib\Orm\Where as Where;
 	
 /**
  * Model to sponsored_offer
@@ -32,4 +33,36 @@ use \Venus\core\Model as Model;
  */
 class sponsored_offer extends Model 
 {
+    /**
+     * get offer
+     * 
+     * @access public
+     * @param  int $iIdOffer
+     * @return 
+     */
+    public function getSponsoredOffer($iIdCategory)
+    {
+        $aJoin = [
+            [
+			    'type' => 'right',
+				'table' => 'offer',
+				'as' => 'o',
+				'left_field' => 'o.id',
+				'right_field' => 'so.id_offer'
+			]
+		];
+        
+        $oWhere = new Where;
+        
+        $oWhere->whereEqual('so.id_category', $iIdCategory);
+
+		return $this->orm
+				    ->select(array('so.*'))
+				    ->from($this->_sTableName, 'so')
+				    ->join($aJoin)
+				    ->where($oWhere)
+				    ->groupBy(array('o.id_product'))
+				    ->limit(8)
+				    ->load();
+    }
 }

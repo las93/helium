@@ -49,6 +49,13 @@ class user_visit_offer extends Model
 				'as' => 'uvo2',
 				'left_field' => 'uvo2.id_user',
 				'right_field' => 'uvo1.id_user'
+			],
+            [
+			    'type' => 'right',
+				'table' => 'offer',
+				'as' => 'o',
+				'left_field' => 'o.id',
+				'right_field' => 'uvo2.id_offer'
 			]
 		];
 
@@ -61,7 +68,7 @@ class user_visit_offer extends Model
 				    ->from($this->_sTableName, 'uvo1')
 				    ->join($aJoin)
 				    ->where($oWhere)
-				    ->groupBy(array('uvo2.id_offer'))
+				    ->groupBy(array('o.id_product'))
 				    ->limit(8)
 				    ->load();
     }

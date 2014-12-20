@@ -46,6 +46,17 @@ class merchant extends Entity
 	
 	
 	/**
+	 * offer Entity
+	 *
+	 * @access private
+	 * @var    offer
+	 *
+	 */
+    private $offer = null;
+	
+	
+	
+	/**
 	 * name
 	 *
 	 * @access private
@@ -300,6 +311,46 @@ class merchant extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get offer entity join by id of merchant
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_offer($aWhere = array())
+	{
+		if ($this->offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('offer');
+												   
+	        $aWhere['id_merchant'] = $this->get_id();
+											
+													  
+            $this->offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->offer;
+	}
+	
+	/**
+	 * set offer entity join by id of merchant
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
+	 * @return array
+	 */
+	public function set_offer(array $offer)
+	{
+		$this->offer = $offer;
+		return $this;
+	}
+
 	/**
 	 * get name of merchant
 	 *
