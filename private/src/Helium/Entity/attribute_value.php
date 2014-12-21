@@ -46,6 +46,28 @@ class attribute_value extends Entity
 	
 	
 	/**
+	 * attribute_offer Entity
+	 *
+	 * @access private
+	 * @var    attribute_offer
+	 *
+	 */
+    private $attribute_offer = null;
+	
+	
+	
+	/**
+	 * attribute_value Entity
+	 *
+	 * @access private
+	 * @var    attribute_value
+	 *
+	 */
+    private $attribute_value = null;
+	
+	
+	
+	/**
 	 * id_attribute
 	 *
 	 * @access private
@@ -91,6 +113,86 @@ class attribute_value extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get attribute_offer entity join by id of attribute_value
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_attribute_offer($aWhere = array())
+	{
+		if ($this->attribute_offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('attribute_offer');
+												   
+	        $aWhere['id_attribute_value'] = $this->get_id();
+											
+													  
+            $this->attribute_offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->attribute_offer;
+	}
+	
+	/**
+	 * set attribute_offer entity join by id of attribute_value
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\attribute_offer  $attribute_offer attribute_offer entity
+	 * @return array
+	 */
+	public function set_attribute_offer(array $attribute_offer)
+	{
+		$this->attribute_offer = $attribute_offer;
+		return $this;
+	}
+
+	/**
+	 * get attribute_value entity join by id of attribute_value
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_attribute_value($aWhere = array())
+	{
+		if ($this->attribute_value === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('attribute_value');
+												   
+	        $aWhere['id'] = $this->get_id();
+											
+													  
+            $this->attribute_value = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->attribute_value;
+	}
+	
+	/**
+	 * set attribute_value entity join by id of attribute_value
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\attribute_value  $attribute_value attribute_value entity
+	 * @return array
+	 */
+	public function set_attribute_value(array $attribute_value)
+	{
+		$this->attribute_value = $attribute_value;
+		return $this;
+	}
+
 	/**
 	 * get id_attribute of attribute_value
 	 *

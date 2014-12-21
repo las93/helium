@@ -17,6 +17,7 @@ namespace Venus\src\Helium\Controller;
 
 use \Venus\lib\Image as Image;
 use \Venus\src\Helium\common\Controller as Controller;
+use \Venus\src\Helium\Model\attribute_offer as AttributeOffer;
 use \Venus\src\Helium\Model\offer as Offer;
 use \Venus\src\Helium\Model\product_image as ProductImage;
 use \Venus\src\Helium\Model\question as Question;
@@ -98,9 +99,11 @@ class Product extends Controller
 		       unset($aOffers[$iKey]);
 		    }
 		}
-
-		var_dump(count($aOffers));
 		
+		$oAttributeOffer = new AttributeOffer;
+		
+		$aAttributesOffers = $oAttributeOffer->findByid_offer($iIdOffer);
+
 		$this->layout
 			 ->assign('offer', $oOffer)
 			 ->assign('premium', $aServicePremium)
@@ -114,6 +117,7 @@ class Product extends Controller
 			 ->assign('other_offer', $aUserVisitOffer)
 			 ->assign('sponsored_offer', $aSponsoredOffer)
 			 ->assign('all_offers', $aOffers)
+			 ->assign('attributes', $aAttributesOffers)
 			 ->display();
 	}
 

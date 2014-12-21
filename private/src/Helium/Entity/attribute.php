@@ -46,6 +46,17 @@ class attribute extends Entity
 	
 	
 	/**
+	 * attribute_offer Entity
+	 *
+	 * @access private
+	 * @var    attribute_offer
+	 *
+	 */
+    private $attribute_offer = null;
+	
+	
+	
+	/**
 	 * name
 	 *
 	 * @access private
@@ -91,6 +102,46 @@ class attribute extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get attribute_offer entity join by id of attribute
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_attribute_offer($aWhere = array())
+	{
+		if ($this->attribute_offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('attribute_offer');
+												   
+	        $aWhere['id_attribute'] = $this->get_id();
+											
+													  
+            $this->attribute_offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->attribute_offer;
+	}
+	
+	/**
+	 * set attribute_offer entity join by id of attribute
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\attribute_offer  $attribute_offer attribute_offer entity
+	 * @return array
+	 */
+	public function set_attribute_offer(array $attribute_offer)
+	{
+		$this->attribute_offer = $attribute_offer;
+		return $this;
+	}
+
 	/**
 	 * get name of attribute
 	 *

@@ -18,6 +18,7 @@ namespace Venus\src\Setup\Controller;
 
 use \Venus\src\Helium\Entity\attribute as Attribute;
 use \Venus\src\Helium\Entity\attribute_value as AttributeValue;
+use \Venus\src\Helium\Entity\attribute_offer as AttributeOffer;
 use \Venus\src\Helium\Entity\brand as Brand;
 use \Venus\src\Helium\Entity\category as Category;
 use \Venus\src\Helium\Entity\country as Country;
@@ -1333,39 +1334,33 @@ class Setup extends Controller {
 			
 			$oAttribute = new Attribute;
 			
-			$iAttributeId = $oAttribute->set_name('Taille de l\'écran')
-					   				   ->set_type('predefined')
-					   				   ->save();
+			$iAttributeIdScreen = $oAttribute->set_name('Taille de l\'écran')
+					   				         ->set_type('predefined')
+					   				         ->save();
 			
 			$oAttributeValue = new AttributeValue;
 			
-			$oAttributeValue->set_id_attribute($iAttributeId)
-							->set_value('7')
+			$iIdAttribut7Pouces = $oAttributeValue->set_id_attribute($iAttributeIdScreen)
+							                      ->set_value('7 pouces')
+							                      ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$oAttributeValue->set_id_attribute($iAttributeIdScreen)
+							->set_value('9 pouces')
 							->save();
 			
 			$oAttributeValue = new AttributeValue;
 			
-			$oAttributeValue->set_id_attribute($iAttributeId)
-							->set_value('9')
+			$oAttributeValue->set_id_attribute($iAttributeIdScreen)
+							->set_value('10 pouces')
 							->save();
 			
 			$oAttributeValue = new AttributeValue;
 			
-			$oAttributeValue->set_id_attribute($iAttributeId)
-							->set_value('10')
+			$oAttributeValue->set_id_attribute($iAttributeIdScreen)
+							->set_value('19 pouces')
 							->save();
-			
-			$oAttributeValue = new AttributeValue;
-			
-			$oAttributeValue->set_id_attribute($iAttributeId)
-							->set_value('19')
-							->save();
-			
-			$oAttribute = new Attribute;
-			
-			$iAttributeIdHighScreen = $oAttribute->set_name('Taille de l\'écran')
-					   				   			 ->set_type('predefined')
-					   				   			 ->save();
 			
 			$oSearchAttribute = new SearchAttribute;
 			
@@ -1379,9 +1374,8 @@ class Setup extends Controller {
 			$oSearchAttributeRule->set_id_search_attribute($iIdSearchAttribute)
 								 ->set_name('Moins de 30"')
 								 ->set_type('attribute')
-								 ->set_id_by_type($iAttributeIdHighScreen)
-								 ->set_value_min(0)
-								 ->set_value_max(30)
+								 ->set_id_by_type($iAttributeIdScreen)
+								 ->set_value('a:4:{i:0;s:8:"7 pouces";i:1;s:8:"9 pouces";i:2;s:9:"10 pouces";i:3;s:8:"7 pouces";}')
 								 ->save();
 
 			$oSearchAttributeRule = new SearchAttributeRule;
@@ -1389,9 +1383,8 @@ class Setup extends Controller {
 			$oSearchAttributeRule->set_id_search_attribute($iIdSearchAttribute)
 								 ->set_name('De 31" à 45"')
 								 ->set_type('attribute')
-								 ->set_id_by_type($iAttributeId)
-								 ->set_value_min(31)
-								 ->set_value_max(45)
+								 ->set_id_by_type($iAttributeIdScreen)
+								 ->set_value('a:0:{}')
 								 ->save();
 
 			$oSearchAttributeRule = new SearchAttributeRule;
@@ -1399,9 +1392,8 @@ class Setup extends Controller {
 			$oSearchAttributeRule->set_id_search_attribute($iIdSearchAttribute)
 								 ->set_name('De 46" à 55"')
 								 ->set_type('attribute')
-								 ->set_id_by_type($iAttributeId)
-								 ->set_value_min(46)
-								 ->set_value_max(55)
+								 ->set_id_by_type($iAttributeIdScreen)
+								 ->set_value('a:0:{}')
 								 ->save();
 
 			$oSearchAttributeRule = new SearchAttributeRule;
@@ -1409,9 +1401,8 @@ class Setup extends Controller {
 			$oSearchAttributeRule->set_id_search_attribute($iIdSearchAttribute)
 								 ->set_name('56" et plus')
 								 ->set_type('attribute')
-								 ->set_id_by_type($iAttributeId)
-								 ->set_value_min(56)
-								 ->set_value_max(1000)
+								 ->set_id_by_type($iAttributeIdScreen)
+								 ->set_value('a:0:{}')
 								 ->save();
 			
 			$oCategory = new Category;
@@ -1668,6 +1659,431 @@ class Setup extends Controller {
 			                   ->set_quantity_public(100)
 			                   ->set_gift_possible(true)
 			                   ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeIdScreen)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttribut7Pouces)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Marque')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Asus')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Numéro du modèle de l\'article')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('ME372CL-1A006A')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Séries')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Tablette')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Couleur')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Blanc')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Garantie constructeur')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Garantie Fabricant : 1 an(s)')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Système d\'exploitation')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Android')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Plate-forme du matériel informatique')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Tablette tactile')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Description du clavier')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('AZERTY')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Marque du processeur')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Intel')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Vitesse du processeur')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('1.6 GHz')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Nombre de coeurs')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('2')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Taille de la mémoire vive')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('1024 MB')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Taille du disque dur')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('16 GB')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Type d\'écran')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Ecran tactile')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Description de la carte graphique')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('NON')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Type de connectivité')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Bluetooth, Wifi 802.11 b/g/n')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Type de technologie sans fil')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('802.11B, 802.11G, 802.11n')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Bluetooth')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('Oui')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Interface du matériel informatique')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('USB 2.0')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Durée de vie moyenne (en heures)')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('11 heures')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Item dimensions L x W x H')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('12 x 19.8 x 1 millimeters')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
+			
+			$oAttribute = new Attribute;
+			
+			$iAttributeId = $oAttribute->set_name('Poids du produit')
+					   		           ->set_type('predefined')
+					   		           ->save();
+			
+			$oAttributeValue = new AttributeValue;
+			
+			$iIdAttributeValue = $oAttributeValue->set_id_attribute($iAttributeId)
+				                                 ->set_value('340 grammes')
+                                                 ->save();
+
+			$oAttributeOffer = new AttributeOffer;
+			
+			$oAttributeOffer->set_id_attribute($iAttributeId)
+			                ->set_id_offer($iIdOffer)
+			                ->set_id_attribute_value($iIdAttributeValue)
+			                ->save();
 			
 			$oUserVisitOffer = new UserVisitOffer;
 			
@@ -2711,7 +3127,7 @@ Sinon, amazon toujours au top, livraison sans souci. bravo')
 			
 			$oProductImage->set_id_product($iIdProduct)
 			              ->set_name('product/img8_6.jpg')
-			              ->save();        
+			              ->save();     
 		}
 		else {
 			

@@ -290,7 +290,7 @@ class product extends Entity
 			$oOrm->select(array('*'))
 				 ->from('offer');
 												   
-	        $aWhere['id_product'] = $this->get_id();
+	        $aWhere['id'] = $this->get_id();
 											
 													  
             $this->offer = $oOrm->where($aWhere)

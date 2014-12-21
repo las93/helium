@@ -46,6 +46,17 @@ class attribute_offer extends Entity
 	
 	
 	/**
+	 * attribute Entity
+	 *
+	 * @access private
+	 * @var    attribute
+	 *
+	 */
+    private $attribute = null;
+	
+	
+	
+	/**
 	 * id_offer
 	 *
 	 * @access private
@@ -58,13 +69,35 @@ class attribute_offer extends Entity
 	
 	
 	/**
-	 * value
+	 * offer Entity
 	 *
 	 * @access private
-	 * @var    string
+	 * @var    offer
+	 *
+	 */
+    private $offer = null;
+	
+	
+	
+	/**
+	 * id_attribute_value
+	 *
+	 * @access private
+	 * @var    int
 	 *
 		 */
-    private $value = null;
+    private $id_attribute_value = null;
+	
+	
+	
+	/**
+	 * attribute_value Entity
+	 *
+	 * @access private
+	 * @var    attribute_value
+	 *
+	 */
+    private $attribute_value = null;
 	
 	
 	
@@ -93,6 +126,46 @@ class attribute_offer extends Entity
 	}
 	
 	/**
+	 * get attribute entity join by id_attribute of attribute_offer
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_attribute($aWhere = array())
+	{
+		if ($this->attribute === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('attribute');
+												   
+	        $aWhere['id'] = $this->get_id_attribute();
+											
+													  
+            $this->attribute = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->attribute;
+	}
+	
+	/**
+	 * set attribute entity join by id_attribute of attribute_offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\attribute  $attribute attribute entity
+	 * @return array
+	 */
+	public function set_attribute(array $attribute)
+	{
+		$this->attribute = $attribute;
+		return $this;
+	}
+
+	/**
 	 * get id_offer of attribute_offer
 	 *
 	 * @access public
@@ -117,26 +190,108 @@ class attribute_offer extends Entity
 	}
 	
 	/**
-	 * get value of attribute_offer
+	 * get offer entity join by id_offer of attribute_offer
 	 *
 	 * @access public
-	 * @return string
+	   @param  array $aWhere
+	 * @return array
 	 */
-	public function get_value()
+	public function get_offer($aWhere = array())
 	{
-		return $this->value;
+		if ($this->offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('offer');
+												   
+	        $aWhere['id'] = $this->get_id_offer();
+											
+													  
+            $this->offer = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->offer;
+	}
+	
+	/**
+	 * set offer entity join by id_offer of attribute_offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
+	 * @return array
+	 */
+	public function set_offer(array $offer)
+	{
+		$this->offer = $offer;
+		return $this;
 	}
 
 	/**
-	 * set value of attribute_offer
+	 * get id_attribute_value of attribute_offer
 	 *
 	 * @access public
-	 * @param  string $value value of attribute_offer
+	 * @return int
+	 */
+	public function get_id_attribute_value()
+	{
+		return $this->id_attribute_value;
+	}
+
+	/**
+	 * set id_attribute_value of attribute_offer
+	 *
+	 * @access public
+	 * @param  int $id_attribute_value id_attribute_value of attribute_offer
 	 * @return \Venus\src\Helium\Entity\attribute_offer
 	 */
-	public function set_value($value) 
+	public function set_id_attribute_value($id_attribute_value) 
 	{
-		$this->value = $value;
+		$this->id_attribute_value = $id_attribute_value;
 		return $this;
 	}
+	
+	/**
+	 * get attribute_value entity join by id_attribute_value of attribute_offer
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return \Venus\src\Helium\Entity\attribute_offer
+	 */
+	public function get_attribute_value($aWhere = array())
+	{
+		if ($this->attribute_value === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('attribute_value');
+												   
+	        $aWhere['id'] = $this->get_id_attribute_value();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+          if (count($aResult) > 0) { $this->attribute_value = $aResult[0]; }
+          else { $this->attribute_value = array(); }
+        }
+
+		return $this->attribute_value;
 	}
+	
+	/**
+	 * set attribute_value entity join by id_attribute_value of attribute_offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\attribute_value  $attribute_value attribute_value entity
+	 * @return \Venus\src\Helium\Entity\attribute_offer
+	 */
+	public function set_attribute_value(\Venus\src\Helium\Entity\attribute_value $attribute_value)
+	{
+		$this->attribute_value = $attribute_value;
+		return $this;
+	}
+}

@@ -143,3 +143,109 @@
         <hr/>
     </div>
 </div>
+<div class="cadre_bottom_large">
+    <h3 style="margin-top:0px;">Quels sont les autres articles que les clients achètent après avoir regardé cet article ?</h3>
+    <div class="cadre_bottom_large">
+        <hr/>
+    </div>
+</div>
+<div class="cadre_bottom_large">
+    <h3 style="margin-top:0px;">Informations sur le produit</h3>
+    <div style="width:50%;float:left;">  
+        <h4 style="margin-top:0px;">Descriptif technique</h4>
+        <table style="background-color:#BBBBBB;border-spacing:1px;border-collapse:separate;width:95%" align="center">
+            {foreach from=$attributes item=$attribute}
+            <tr>
+                <td style="background-color:#DDDDDD;padding:5px;">{$attribute->get_attribute()[0]->get_name()}</td>
+                <td style="background-color:#FFFFFF;padding:5px;">{$attribute->get_attribute_value()->get_value()}</td>
+            </tr>
+            {/foreach}
+        </table>
+    </div>
+    <div style="width:50%;float:left;">
+         <h4 style="margin-top:0px;">Informations complémentaires</h4>
+        <table style="background-color:#BBBBBB;border-spacing:1px;border-collapse:separate;width:95%;" align="center">
+            <tr>
+                <td style="background-color:#DDDDDD;padding:5px;">ASIN</td>
+                <td style="background-color:#FFFFFF;padding:5px;">{$offer->get_product()->get_reference()}</td>
+            </tr>
+            <tr>
+                <td style="background-color:#DDDDDD;padding:5px;vertical-align:top;">Moyenne des commentaires clients</td>
+                <td style="background-color:#FFFFFF;padding:5px"><i class="stars{$reviews_rate}"></i> {count($offer->get_product()->get_review())} commentaires<br/>{round($reviews_rate,1)} étoiles sur 5</td>
+            </tr>
+            <tr>
+                <td style="background-color:#DDDDDD;padding:5px;vertical-align:top;">Classement des meilleures ventes d'Helium</td>
+                <td style="background-color:#FFFFFF;padding:5px;">524 en Informatique (Voir les 100 premiers)<br/>n°71 dans Informatique > Tablettes PC</td>
+            </tr>
+            <tr>
+                <td style="background-color:#DDDDDD;padding:5px;">Date de mise en ligne sur Helium.fr</td>
+                <td style="background-color:#FFFFFF;padding:5px;">{$offer->get_date_create()}</td>
+            </tr>
+        </table>   
+    </div>
+    <div style="width:50%;float:left;">
+         <h4 style="margin-top:20px;">Politique de retour</h4>
+            Politique de retour Helium.fr: Si pour une raison ou pour une autre vous n'étiez pas satisfait d'un produit que vous avez commandé 
+            auprès d'Helium.fr, vous pouvez nous le retourner sous 30 jours suivant la date de livraison, et nous vous rembourserons l'intégralité 
+            du montant de l'article. Pour que votre retour soit accepté, vous devez vous assurer des conditions suivantes : (i) le produit est dans 
+            son état d'origine, (ii) l'emballage original du produit est intégralement présent (y compris le code barre), (iii) tous les composants,… 
+            En savoir plus
+    </div>
+    <div style="width:50%;float:left;">
+         <h4 style="margin-top:20px;">Votre avis</h4>
+            Voulez-vous <a href="#">faire un commentaire sur des images</a> ou <a href="#">nous signaler un prix inférieur</a> ?
+    </div>
+    <div class="cadre_bottom_large">
+        <hr/>
+    </div>
+</div>
+<div class="cadre_bottom_large">
+    <h3 style="margin-top:0px;">Les clients ayant vu cette page peuvent être intéressés par ces liens sponsorisés <span style="font-size:12px;">(<a href="#">De quoi s'agit-il ?</a>)</a></h3>
+    <div style="width:100%;float:left;">   
+        <ul>
+            <li>Acer - Iconia Tab 8  opens new browser window  -  Découvrez la Nouvelle Tablette Acer Iconia Tab 8 avec Ecran Full HD! www.acer.fr/iconiatab8
+            <li>Microsoft Surface™ Pro 3  opens new browser window - -100€* jusqu'au 31 décembre. La tablette qui remplace votre PC. www.microsoft.com/Surface 
+            <li>Tablette Tactile Android  opens new browser window - 50€ remboursés pour l'Achat d'une Tablette Asus Transormer Pad TF103 www.take-off.fr/Tablette-Android
+        </ul>  
+    </div>
+    <div class="cadre_bottom_large">
+        <hr/>
+    </div>
+</div>
+<div class="cadre_bottom_large">
+    <h3 style="margin-top:0px;">Descriptions du produit</h3>
+    <div style="width:100%;float:left;">   
+        {$offer->get_product()->get_description()} 
+    </div>
+    <div class="cadre_bottom_large">
+        <hr/>
+    </div>
+</div>
+<div class="cadre_bottom_large">
+    <h3 style="margin-top:0px;color:black;">Questions et réponses du client</h3>
+    <div style="width:100%;float:left;">   
+        <input type="text" style="width:300px"> <input type="button" value="Posez vos questions"/><br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Questions typiques posées sur les produits :<br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Cet appareil photo fonctionne-t-il bien en faible luminosité ?<br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Combien de temps la batterie de cet ordinateur portable peut-elle tenir lors du visionnement des films ?<br/><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Ma HDTV fonctionnera-t-elle avec un système home cinéma 5.1 ?
+    </div>
+    <div class="cadre_bottom_large">
+        <hr/>
+    </div>
+</div>
+<div class="cadre_bottom_large">
+    <h3 style="margin-top:0px;">Commentaires en ligne</h3>
+    <div style="width:100%;float:left;">   
+      <i class="stars{$reviews_rate}"></i> (<a href="#">{count($offer->get_product()->get_review())}</a>)<br/>{round($reviews_rate,1)} étoiles sur 5
+      <br/><br/>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">5 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">4 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">3 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">2 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">1 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
+    </div>
+    <div class="cadre_bottom_large">
+        <hr/>
+    </div>
+</div>
