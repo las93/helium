@@ -68,6 +68,17 @@ class category extends Entity
 	
 	
 	/**
+	 * user Entity
+	 *
+	 * @access private
+	 * @var    user
+	 *
+	 */
+    private $user = null;
+	
+	
+	
+	/**
 	 * id_category
 	 *
 	 * @access private
@@ -256,6 +267,46 @@ class category extends Entity
 	public function set_sponsored_offer(array $sponsored_offer)
 	{
 		$this->sponsored_offer = $sponsored_offer;
+		return $this;
+	}
+
+	/**
+	 * get user entity join by id of category
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_user($aWhere = array())
+	{
+		if ($this->user === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('user');
+												   
+	        $aWhere['id'] = $this->get_id();
+											
+													  
+            $this->user = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->user;
+	}
+	
+	/**
+	 * set user entity join by id of category
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\user  $user user entity
+	 * @return array
+	 */
+	public function set_user(array $user)
+	{
+		$this->user = $user;
 		return $this;
 	}
 

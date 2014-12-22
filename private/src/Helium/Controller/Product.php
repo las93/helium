@@ -79,7 +79,27 @@ class Product extends Controller
 		
 		$oReview = new Review;
 		$iReview = $oReview->getAvgRate($oOffer->get_id_product());
+		$aReviews = $oReview->findByid_product($oOffer->get_id_product());
 		
+		$aRates = array(0,0,0,0,0,0);
+		$iCountRate = 0;
+		
+		foreach($aReviews as $oOneReview) {
+		    
+		    $aRates[(int)$oOneReview->get_rate()]++;
+		    $iCountRate++;
+		}
+		
+		$aPercentRates = array();
+		
+		if ($iCountRate > 0) {
+		
+		    foreach($aRates as $iKey => $aOnePercentRates) {
+		    
+		      $aPercentRates[$iKey] = $aOnePercentRates / $iCountRate * 100;
+		    }
+		}
+
 		$oProductImage = new ProductImage;
 		$aImages = $oProductImage->findByid_product($oOffer->get_id_product());
 		
@@ -118,6 +138,9 @@ class Product extends Controller
 			 ->assign('sponsored_offer', $aSponsoredOffer)
 			 ->assign('all_offers', $aOffers)
 			 ->assign('attributes', $aAttributesOffers)
+			 ->assign('rates', $aRates)
+			 ->assign('rates_percent', $aPercentRates)
+			 ->assign('reviews', $aReviews)
 			 ->display();
 	}
 

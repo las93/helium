@@ -46,6 +46,17 @@ class review extends Entity
 	
 	
 	/**
+	 * review_helpful Entity
+	 *
+	 * @access private
+	 * @var    review_helpful
+	 *
+	 */
+    private $review_helpful = null;
+	
+	
+	
+	/**
 	 * id_user
 	 *
 	 * @access private
@@ -53,6 +64,17 @@ class review extends Entity
 	 *
 		 */
     private $id_user = null;
+	
+	
+	
+	/**
+	 * user Entity
+	 *
+	 * @access private
+	 * @var    user
+	 *
+	 */
+    private $user = null;
 	
 	
 	
@@ -158,6 +180,46 @@ class review extends Entity
 	}
 	
 	/**
+	 * get review_helpful entity join by id of review
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_review_helpful($aWhere = array())
+	{
+		if ($this->review_helpful === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('review_helpful');
+												   
+	        $aWhere['id_review'] = $this->get_id();
+											
+													  
+            $this->review_helpful = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->review_helpful;
+	}
+	
+	/**
+	 * set review_helpful entity join by id of review
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\review_helpful  $review_helpful review_helpful entity
+	 * @return array
+	 */
+	public function set_review_helpful(array $review_helpful)
+	{
+		$this->review_helpful = $review_helpful;
+		return $this;
+	}
+
+	/**
 	 * get id_user of review
 	 *
 	 * @access public
@@ -181,6 +243,48 @@ class review extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get user entity join by id_user of review
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return \Venus\src\Helium\Entity\review
+	 */
+	public function get_user($aWhere = array())
+	{
+		if ($this->user === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('user');
+												   
+	        $aWhere['id'] = $this->get_id_user();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+          if (count($aResult) > 0) { $this->user = $aResult[0]; }
+          else { $this->user = array(); }
+        }
+
+		return $this->user;
+	}
+	
+	/**
+	 * set user entity join by id_user of review
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\user  $user user entity
+	 * @return \Venus\src\Helium\Entity\review
+	 */
+	public function set_user(\Venus\src\Helium\Entity\user $user)
+	{
+		$this->user = $user;
+		return $this;
+	}
+
 	/**
 	 * get id_product of review
 	 *

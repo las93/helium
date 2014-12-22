@@ -21,6 +21,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   </head>
 
   <body>
@@ -62,7 +66,66 @@
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-
+<div id="tabs">
+  <ul>
+    <li><a href="#fragment-1"><span>Catalog</span></a></li>
+    <li><a href="#fragment-2"><span>User</span></a></li>
+    <li><a href="#fragment-3"><span>Orders</span></a></li>
+    <li><a href="#fragment-4"><span>Setup</span></a></li>
+    <li><a href="#fragment-5"><span>Content</span></a></li>
+  </ul>
+  <div id="fragment-1">
+    <div style="float:left;width:100%">
+        <a href="{url alias='brands'}">Brand</a>
+        &nbsp;
+        <a href="{url alias='products'}">Products</a>
+        &nbsp;
+        <a href="{url alias='offers'}">Offers</a>
+        &nbsp;
+        <a href="{url alias='vat'}">Vat</a>
+        &nbsp;
+        <a href="{url alias='categories'}">Categories</a>
+        &nbsp;
+        <a href="{url alias='attribute'}">Attributes</a>
+        &nbsp;
+        <a href="{url alias='merchants'}">Merchants</a>
+    </div>
+    <br/>&nbsp;<br/>
+  </div>
+  <div id="fragment-2">
+    <div style="float:left;width:100%">
+        <a href="{url alias='users'}">Users</a>
+    </div>
+    <br/>&nbsp;<br/>
+  </div>
+  <div id="fragment-3">
+     Orders
+  </div>
+  <div id="fragment-4">
+        <a href="{url alias='setup'}">Main</a>
+        &nbsp;
+        <a href="{url alias='countries'}">Countries</a>
+        &nbsp;
+        <a href="{url alias='offers'}">Offers</a>
+        &nbsp;
+        <a href="{url alias='vat'}">Vat</a>
+        &nbsp;
+        <a href="{url alias='categories'}">Categories</a>
+        &nbsp;
+        <a href="{url alias='attribute'}">Attributes</a>
+    <br/>&nbsp;<br/>
+  </div>
+  <div id="fragment-5">
+  <div style="float:left;width:100%">
+        <a href="{url alias='search_attribute'}">Search attributes</a>
+    </div>
+    <br/>&nbsp;<br/>
+  </div>
+</div>
+ 
+<script>
+$( "#tabs" ).tabs();
+</script>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">

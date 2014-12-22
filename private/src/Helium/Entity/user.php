@@ -46,6 +46,17 @@ class user extends Entity
 	
 	
 	/**
+	 * review Entity
+	 *
+	 * @access private
+	 * @var    review
+	 *
+	 */
+    private $review = null;
+	
+	
+	
+	/**
 	 * user_visit_offer Entity
 	 *
 	 * @access private
@@ -135,6 +146,46 @@ class user extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get review entity join by id of user
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return array
+	 */
+	public function get_review($aWhere = array())
+	{
+		if ($this->review === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('review');
+												   
+	        $aWhere['id_user'] = $this->get_id();
+											
+													  
+            $this->review = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+        }
+
+		return $this->review;
+	}
+	
+	/**
+	 * set review entity join by id of user
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\review  $review review entity
+	 * @return array
+	 */
+	public function set_review(array $review)
+	{
+		$this->review = $review;
+		return $this;
+	}
+
 	/**
 	 * get user_visit_offer entity join by id of user
 	 *

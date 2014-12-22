@@ -123,10 +123,17 @@ class Vat extends Controller {
 		$oCountries = new CountriesModel;
 		$aCountries = $oCountries->findAll();
 		
+		$aFinalCountries = array();
+		
+		foreach ($aCountries as $mKey => $oCountry) {
+			
+			$aFinalCountries[$oCountry->get_id()] = $oCountry->get_name();
+		}
+		
 		$sForm = $this->form
 					  ->add('name', 'text', 'Name')
 					  ->add('vat_percent', 'text', 'Percent')
-					  ->add('id_country', 'select', 'Country', $aCountries)
+					  ->add('id_country', 'select', 'Country', null, $aFinalCountries)
 					  ->add('validate', 'submit')
 					  ->synchronizeEntity('Venus\src\Helium\Entity\vat', $_GET['update'])
 					  ->getForm();

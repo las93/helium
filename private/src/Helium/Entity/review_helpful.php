@@ -57,6 +57,17 @@ class review_helpful extends Entity
 	
 	
 	/**
+	 * review Entity
+	 *
+	 * @access private
+	 * @var    review
+	 *
+	 */
+    private $review = null;
+	
+	
+	
+	/**
 	 * helpful
 	 *
 	 * @access private
@@ -115,6 +126,48 @@ class review_helpful extends Entity
 		return $this;
 	}
 	
+	/**
+	 * get review entity join by id_review of review_helpful
+	 *
+	 * @access public
+	   @param  array $aWhere
+	 * @return \Venus\src\Helium\Entity\review_helpful
+	 */
+	public function get_review($aWhere = array())
+	{
+		if ($this->review === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('review');
+												   
+	        $aWhere['id'] = $this->get_id_review();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+                                   ->limit(1)
+						           ->load();
+          if (count($aResult) > 0) { $this->review = $aResult[0]; }
+          else { $this->review = array(); }
+        }
+
+		return $this->review;
+	}
+	
+	/**
+	 * set review entity join by id_review of review_helpful
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\review  $review review entity
+	 * @return \Venus\src\Helium\Entity\review_helpful
+	 */
+	public function set_review(\Venus\src\Helium\Entity\review $review)
+	{
+		$this->review = $review;
+		return $this;
+	}
+
 	/**
 	 * get helpful of review_helpful
 	 *

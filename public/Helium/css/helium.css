@@ -448,3 +448,7 @@ h1.category {
     margin-right:10px;
 	float:left;
 }
+
+td {
+    font-size:12px;	
+}

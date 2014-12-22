@@ -236,16 +236,53 @@
 </div>
 <div class="cadre_bottom_large">
     <h3 style="margin-top:0px;">Commentaires en ligne</h3>
-    <div style="width:100%;float:left;">   
+    <div style="width:300px;float:left;">   
       <i class="stars{$reviews_rate}"></i> (<a href="#">{count($offer->get_product()->get_review())}</a>)<br/>{round($reviews_rate,1)} étoiles sur 5
       <br/><br/>
-      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">5 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
-      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">4 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
-      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">3 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
-      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">2 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
-      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">1 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"></div><div style="width:20px;float:left;">&nbsp;&nbsp;0</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">5 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"><div style="background: linear-gradient(to bottom,#FE9A2E,#F5D0A9);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:{$rates_percent[5]}px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: orange;"></div></div><div style="width:20px;float:left;">&nbsp;&nbsp;{$rates[5]}</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">4 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"><div style="background: linear-gradient(to bottom,#FE9A2E,#F5D0A9);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:{$rates_percent[4]}px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: orange;"></div></div><div style="width:20px;float:left;">&nbsp;&nbsp;{$rates[4]}</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">3 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"><div style="background: linear-gradient(to bottom,#FE9A2E,#F5D0A9);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:{$rates_percent[3]}px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: orange;"></div></div><div style="width:20px;float:left;">&nbsp;&nbsp;{$rates[3]}</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">2 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"><div style="background: linear-gradient(to bottom,#FE9A2E,#F5D0A9);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:{$rates_percent[2]}px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: orange;"></div></div><div style="width:20px;float:left;">&nbsp;&nbsp;{$rates[2]}</div></div>
+      <div style="width:100%;height:25px;"><div style="width:70px;float:left;">1 étoiles</div><div style="background: linear-gradient(to bottom,#eee,#f6f6f6);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:100px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: gray;"><div style="background: linear-gradient(to bottom,#FE9A2E,#F5D0A9);box-sizing: border-box;border-radius: 1px;overflow: hidden;display: block;height: 17px;width:{$rates_percent[1]}px;float:left;box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(0,0,0,0.1);border-color: orange;"></div></div><div style="width:20px;float:left;">&nbsp;&nbsp;{$rates[1]}</div></div>
+        <br/>Voir le commentaire client &gt;
+    </div>
+    <div style="width:400px;float:left;">  
+        <br/><br/><br/> 
+        Partagez votre opinion avec les autres clients<br/><br/>
+        <input type="submit" value="Ecrire un commentaire client >"/>
+    </div>
+    <div style="width:300px;float:right;">
+        {include file='src/Helium/View/BlockFree/Pub300X250.tpl'} 
+        <br/><br/>
+        Rechercher des commentaires<br/>
+        <div style="float:left;">
+            <input type="search" style="position:absolute;width:200px;height:35px;padding-left:35px;"/>
+            <i style="background-image: url('/img/loupe.png');width:25px;height:25px;position:absolute;margin-top:5px;margin-left:5px;"></i>
+            <input type="submit" value="Rechercher" style="position:absolute;margin-left:205px;height:35px;"/>
+        </div>
+        <div style="float:left;">
+             <br/><br/><input type="checkbox" checked="checked"> Rechercher uniquement parmi les commentaires portant sur ce produit
+        </div>
+    </div>
+    <div style="width:700px;float:left;">  
+      <h3 style="color:black;">Commentaires client les plus utiles</h3>
+      {foreach from=$reviews item=$review}
+            {count($review->get_review_helpful(array('helpful' => 'yes')))} internautes sur {count($review->get_review_helpful())} ont trouvé ce commentaire utile <br/>
+            <i class="stars{round($review->get_rate())}"></i> <span style="font-size:14px;font-weight:bold;">{$review->get_title()}</span><br/>
+            {$review->get_user()->get_name()} {$review->get_user()->get_firstname()} le {$review->get_date_create()}<br/>
+            <span style="color:red">Achat vérifié</span><br/><br/>
+            {$review->get_comment()}<br/><br/>
+            <a href="#">Remarque sur ce commentaire</a> | Avez-vous trouvé ce commentaire utile ?  <input type="submit" value="Oui"/> <input type="submit" value="Non"/><br/><br/>
+      {/foreach}
+      <a href="#">Voir le commentaire client &gt;</a><br/><br/>
+      <input type="submit" value="Ecrire un commentaire client"/>
     </div>
     <div class="cadre_bottom_large">
         <hr/>
+    </div>
+</div>
+<div class="cadre_bottom_large">
+    <h3 style="margin-top:0px;">Rechercher des articles similaires par rubrique</h3>
+    <div style="width:100%;float:left;"> 
     </div>
 </div>
