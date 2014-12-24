@@ -18,7 +18,9 @@ namespace Venus\src\Admin\Controller;
 
 use \Venus\src\Admin\common\Controller as Controller;
 use \Venus\src\Helium\Model\brand as Brand;
+use \Venus\src\Helium\Model\category as Category;
 use \Venus\src\Helium\Model\product as Product;
+use \Venus\src\Helium\Controller\Product as ProductFront;
 
 /**
  * Controller to Products
@@ -69,8 +71,11 @@ class Products extends Controller {
 		$oProduct = new Product;
 		$aProducts = $oProduct->findAll();
 		
+		$oProductFront = new ProductFront;
+		
 		$this->layout
 			 ->assign('products', $aProducts)
+			 ->assign('product_front', $oProductFront)
 			 ->display();
 	}
 
@@ -85,8 +90,18 @@ class Products extends Controller {
 	
 		$this->_checkRight(4);
 
+		$oCategory = new Category;
+		$aCategories = $oCategory->findAll();
+		$aFinalCategories = array();
+		
+		foreach ($aCategories as $oOneCategory) {
+		
+		    $aFinalCategories[$oOneCategory->get_id()] = $oOneCategory->get_name();
+		}
+
 		$oBrand = new Brand;
 		$aBrands = $oBrand->findAll();
+		$aFinalBrands = array();
 		
 		foreach ($aBrands as $oOneBrand) {
 
@@ -96,6 +111,7 @@ class Products extends Controller {
 		$sForm = $this->form
 					  ->add('name', 'text', 'Name')
 					  ->add('id_brand', 'select', 'Brand', null, $aFinalBrands)
+					  ->add('id_category', 'select', 'Main category', null, $aFinalCategories)
 					  ->add('short_description', 'textarea', 'Description')
 					  ->add('description', 'textarea', 'Full Description')
 					  ->add('ean13', 'text', 'Ean13')
@@ -122,8 +138,18 @@ class Products extends Controller {
 	
 		$this->_checkRight(4);
 
+		$oCategory = new Category;
+		$aCategories = $oCategory->findAll();
+		$aFinalCategories = array();
+		
+		foreach ($aCategories as $oOneCategory) {
+		
+		    $aFinalCategories[$oOneCategory->get_id()] = $oOneCategory->get_name();
+		}
+
 		$oBrand = new Brand;
 		$aBrands = $oBrand->findAll();
+		$aFinalBrands = array();
 		
 		foreach ($aBrands as $oOneBrand) {
 		
@@ -133,6 +159,7 @@ class Products extends Controller {
 		$sForm = $this->form
 		              ->add('name', 'text', 'Name')
 		              ->add('id_brand', 'select', 'Brand', null, $aFinalBrands)
+					  ->add('id_category', 'select', 'Main category', null, $aFinalCategories)
 		              ->add('short_description', 'textarea', 'Description')
 		              ->add('description', 'textarea', 'Full Description')
 		              ->add('ean13', 'text', 'Ean13')

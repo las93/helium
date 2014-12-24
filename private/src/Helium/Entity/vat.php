@@ -50,6 +50,7 @@ class vat extends Entity
 	 *
 	 * @access private
 	 * @var    offer_vat_country
+	 * @join
 	 *
 	 */
     private $offer_vat_country = null;
@@ -61,6 +62,7 @@ class vat extends Entity
 	 *
 	 * @access private
 	 * @var    service_application
+	 * @join
 	 *
 	 */
     private $service_application = null;
@@ -128,7 +130,8 @@ class vat extends Entity
 	 * get offer_vat_country entity join by id of vat
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_offer_vat_country($aWhere = array())
@@ -144,8 +147,7 @@ class vat extends Entity
 											
 													  
             $this->offer_vat_country = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->offer_vat_country;
@@ -156,6 +158,7 @@ class vat extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\offer_vat_country  $offer_vat_country offer_vat_country entity
+	 * @join
 	 * @return array
 	 */
 	public function set_offer_vat_country(array $offer_vat_country)
@@ -168,7 +171,8 @@ class vat extends Entity
 	 * get service_application entity join by id of vat
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_service_application($aWhere = array())
@@ -184,8 +188,7 @@ class vat extends Entity
 											
 													  
             $this->service_application = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->service_application;
@@ -196,6 +199,7 @@ class vat extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\service_application  $service_application service_application entity
+	 * @join
 	 * @return array
 	 */
 	public function set_service_application(array $service_application)

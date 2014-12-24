@@ -50,6 +50,7 @@ class product extends Entity
 	 *
 	 * @access private
 	 * @var    product_image
+	 * @join
 	 *
 	 */
     private $product_image = null;
@@ -61,6 +62,7 @@ class product extends Entity
 	 *
 	 * @access private
 	 * @var    offer
+	 * @join
 	 *
 	 */
     private $offer = null;
@@ -72,6 +74,7 @@ class product extends Entity
 	 *
 	 * @access private
 	 * @var    question
+	 * @join
 	 *
 	 */
     private $question = null;
@@ -83,6 +86,7 @@ class product extends Entity
 	 *
 	 * @access private
 	 * @var    review
+	 * @join
 	 *
 	 */
     private $review = null;
@@ -116,6 +120,7 @@ class product extends Entity
 	 *
 	 * @access private
 	 * @var    category
+	 * @join
 	 *
 	 */
     private $category = null;
@@ -238,7 +243,8 @@ class product extends Entity
 	 * get product_image entity join by id of product
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_product_image($aWhere = array())
@@ -254,8 +260,7 @@ class product extends Entity
 											
 													  
             $this->product_image = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->product_image;
@@ -266,6 +271,7 @@ class product extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\product_image  $product_image product_image entity
+	 * @join
 	 * @return array
 	 */
 	public function set_product_image(array $product_image)
@@ -278,7 +284,8 @@ class product extends Entity
 	 * get offer entity join by id of product
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_offer($aWhere = array())
@@ -294,8 +301,7 @@ class product extends Entity
 											
 													  
             $this->offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->offer;
@@ -306,6 +312,7 @@ class product extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_offer(array $offer)
@@ -318,7 +325,8 @@ class product extends Entity
 	 * get question entity join by id of product
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_question($aWhere = array())
@@ -334,8 +342,7 @@ class product extends Entity
 											
 													  
             $this->question = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->question;
@@ -346,6 +353,7 @@ class product extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\question  $question question entity
+	 * @join
 	 * @return array
 	 */
 	public function set_question(array $question)
@@ -358,7 +366,8 @@ class product extends Entity
 	 * get review entity join by id of product
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_review($aWhere = array())
@@ -374,8 +383,7 @@ class product extends Entity
 											
 													  
             $this->review = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->review;
@@ -386,6 +394,7 @@ class product extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\review  $review review entity
+	 * @join
 	 * @return array
 	 */
 	public function set_review(array $review)
@@ -446,7 +455,8 @@ class product extends Entity
 	 * get category entity join by id_main_category of product
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\product
 	 */
 	public function get_category($aWhere = array())
@@ -462,8 +472,7 @@ class product extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->category = $aResult[0]; }
           else { $this->category = array(); }
         }
@@ -476,6 +485,7 @@ class product extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\category  $category category entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\product
 	 */
 	public function set_category(\Venus\src\Helium\Entity\category $category)

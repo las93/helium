@@ -50,6 +50,7 @@ class user_visit_offer extends Entity
 	 *
 	 * @access private
 	 * @var    offer
+	 * @join
 	 *
 	 */
     private $offer = null;
@@ -73,6 +74,7 @@ class user_visit_offer extends Entity
 	 *
 	 * @access private
 	 * @var    user
+	 * @join
 	 *
 	 */
     private $user = null;
@@ -107,7 +109,8 @@ class user_visit_offer extends Entity
 	 * get offer entity join by id_offer of user_visit_offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_offer($aWhere = array())
@@ -123,8 +126,7 @@ class user_visit_offer extends Entity
 											
 													  
             $this->offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->offer;
@@ -135,6 +137,7 @@ class user_visit_offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_offer(array $offer)
@@ -171,7 +174,8 @@ class user_visit_offer extends Entity
 	 * get user entity join by id_user of user_visit_offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_user($aWhere = array())
@@ -187,8 +191,7 @@ class user_visit_offer extends Entity
 											
 													  
             $this->user = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->user;
@@ -199,6 +202,7 @@ class user_visit_offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\user  $user user entity
+	 * @join
 	 * @return array
 	 */
 	public function set_user(array $user)

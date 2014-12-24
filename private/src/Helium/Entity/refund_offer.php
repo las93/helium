@@ -50,6 +50,7 @@ class refund_offer extends Entity
 	 *
 	 * @access private
 	 * @var    refund_offer_by_offer
+	 * @join
 	 *
 	 */
     private $refund_offer_by_offer = null;
@@ -117,7 +118,8 @@ class refund_offer extends Entity
 	 * get refund_offer_by_offer entity join by id of refund_offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_refund_offer_by_offer($aWhere = array())
@@ -133,8 +135,7 @@ class refund_offer extends Entity
 											
 													  
             $this->refund_offer_by_offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->refund_offer_by_offer;
@@ -145,6 +146,7 @@ class refund_offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\refund_offer_by_offer  $refund_offer_by_offer refund_offer_by_offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_refund_offer_by_offer(array $refund_offer_by_offer)

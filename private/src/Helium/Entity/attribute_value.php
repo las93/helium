@@ -50,6 +50,7 @@ class attribute_value extends Entity
 	 *
 	 * @access private
 	 * @var    attribute_offer
+	 * @join
 	 *
 	 */
     private $attribute_offer = null;
@@ -61,6 +62,7 @@ class attribute_value extends Entity
 	 *
 	 * @access private
 	 * @var    attribute_value
+	 * @join
 	 *
 	 */
     private $attribute_value = null;
@@ -117,7 +119,8 @@ class attribute_value extends Entity
 	 * get attribute_offer entity join by id of attribute_value
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_attribute_offer($aWhere = array())
@@ -133,8 +136,7 @@ class attribute_value extends Entity
 											
 													  
             $this->attribute_offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->attribute_offer;
@@ -145,6 +147,7 @@ class attribute_value extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\attribute_offer  $attribute_offer attribute_offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_attribute_offer(array $attribute_offer)
@@ -157,7 +160,8 @@ class attribute_value extends Entity
 	 * get attribute_value entity join by id of attribute_value
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_attribute_value($aWhere = array())
@@ -173,8 +177,7 @@ class attribute_value extends Entity
 											
 													  
             $this->attribute_value = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->attribute_value;
@@ -185,6 +188,7 @@ class attribute_value extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\attribute_value  $attribute_value attribute_value entity
+	 * @join
 	 * @return array
 	 */
 	public function set_attribute_value(array $attribute_value)

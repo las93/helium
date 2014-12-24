@@ -50,6 +50,7 @@ class user extends Entity
 	 *
 	 * @access private
 	 * @var    review
+	 * @join
 	 *
 	 */
     private $review = null;
@@ -61,6 +62,7 @@ class user extends Entity
 	 *
 	 * @access private
 	 * @var    user_visit_offer
+	 * @join
 	 *
 	 */
     private $user_visit_offer = null;
@@ -72,6 +74,7 @@ class user extends Entity
 	 *
 	 * @access private
 	 * @var    vat
+	 * @join
 	 *
 	 */
     private $vat = null;
@@ -150,7 +153,8 @@ class user extends Entity
 	 * get review entity join by id of user
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_review($aWhere = array())
@@ -166,8 +170,7 @@ class user extends Entity
 											
 													  
             $this->review = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->review;
@@ -178,6 +181,7 @@ class user extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\review  $review review entity
+	 * @join
 	 * @return array
 	 */
 	public function set_review(array $review)
@@ -190,7 +194,8 @@ class user extends Entity
 	 * get user_visit_offer entity join by id of user
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_user_visit_offer($aWhere = array())
@@ -206,8 +211,7 @@ class user extends Entity
 											
 													  
             $this->user_visit_offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->user_visit_offer;
@@ -218,6 +222,7 @@ class user extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\user_visit_offer  $user_visit_offer user_visit_offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_user_visit_offer(array $user_visit_offer)
@@ -230,7 +235,8 @@ class user extends Entity
 	 * get vat entity join by id of user
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_vat($aWhere = array())
@@ -246,8 +252,7 @@ class user extends Entity
 											
 													  
             $this->vat = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->vat;
@@ -258,6 +263,7 @@ class user extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\vat  $vat vat entity
+	 * @join
 	 * @return array
 	 */
 	public function set_vat(array $vat)

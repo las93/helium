@@ -19,6 +19,7 @@ use \Venus\lib\Image as Image;
 use \Venus\src\Helium\common\Controller as Controller;
 use \Venus\src\Helium\Model\attribute_offer as AttributeOffer;
 use \Venus\src\Helium\Model\offer as Offer;
+use \Venus\src\Helium\Model\product as ProductModel;
 use \Venus\src\Helium\Model\product_image as ProductImage;
 use \Venus\src\Helium\Model\question as Question;
 use \Venus\src\Helium\Model\review as Review;
@@ -56,15 +57,15 @@ class Product extends Controller
 	 * the home page of the Site
 	 *
 	 * @access public
-	 * @param  int $iCategory
+	 * @param  int $iIdProduct
 	 * @return void
 	 */
-	public function index($iIdOffer)
+	public function index($iIdProduct)
 	{
 		$this->_loadLayout();
 		
 		$oOfferModel = new Offer;
-		$oOffer = $oOfferModel->findOneByid($iIdOffer);
+		$oOffer = $oOfferModel->findOneByid_product($iIdProduct);
 		
 		$oServiceApplication = new ServiceApplication;
 		$oServicePanne = $oServiceApplication->findOneBy(array('id_country' => 1, 'id_service' => 2));
@@ -169,5 +170,19 @@ class Product extends Controller
 	        header('Content-Type: image/jpeg');
 	        echo file_get_contents($sImgOriginal);
 	    }
+	}
+
+	/**
+	 * URL of product
+	 *
+	 * @access public
+	 * @param  int $iIdProductImg
+	 * @return void
+	 */
+	public function getProductUrl($iIdProduct)
+	{
+	    $oProduct = new ProductModel;
+	    $oOneProduct = $oProduct->findOneByid($iIdProduct);
+	    return 'http://'.FRONT_OFFICE_HOST.'/product/'.$iIdProduct.'/'.str_replace('__', '_', preg_replace('/[^a-zA-Z0-9_]/', '_', $oOneProduct->get_name())).'.html';
 	}
 }

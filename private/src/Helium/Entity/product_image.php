@@ -61,6 +61,7 @@ class product_image extends Entity
 	 *
 	 * @access private
 	 * @var    product
+	 * @join
 	 *
 	 */
     private $product = null;
@@ -141,7 +142,8 @@ class product_image extends Entity
 	 * get product entity join by id_product of product_image
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\product_image
 	 */
 	public function get_product($aWhere = array())
@@ -157,8 +159,7 @@ class product_image extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->product = $aResult[0]; }
           else { $this->product = array(); }
         }
@@ -171,6 +172,7 @@ class product_image extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\product  $product product entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\product_image
 	 */
 	public function set_product(\Venus\src\Helium\Entity\product $product)

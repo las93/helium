@@ -50,6 +50,7 @@ class attribute_offer extends Entity
 	 *
 	 * @access private
 	 * @var    attribute
+	 * @join
 	 *
 	 */
     private $attribute = null;
@@ -73,6 +74,7 @@ class attribute_offer extends Entity
 	 *
 	 * @access private
 	 * @var    offer
+	 * @join
 	 *
 	 */
     private $offer = null;
@@ -95,6 +97,7 @@ class attribute_offer extends Entity
 	 *
 	 * @access private
 	 * @var    attribute_value
+	 * @join
 	 *
 	 */
     private $attribute_value = null;
@@ -129,7 +132,8 @@ class attribute_offer extends Entity
 	 * get attribute entity join by id_attribute of attribute_offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_attribute($aWhere = array())
@@ -145,8 +149,7 @@ class attribute_offer extends Entity
 											
 													  
             $this->attribute = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->attribute;
@@ -157,6 +160,7 @@ class attribute_offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\attribute  $attribute attribute entity
+	 * @join
 	 * @return array
 	 */
 	public function set_attribute(array $attribute)
@@ -193,7 +197,8 @@ class attribute_offer extends Entity
 	 * get offer entity join by id_offer of attribute_offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_offer($aWhere = array())
@@ -209,8 +214,7 @@ class attribute_offer extends Entity
 											
 													  
             $this->offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->offer;
@@ -221,6 +225,7 @@ class attribute_offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_offer(array $offer)
@@ -257,7 +262,8 @@ class attribute_offer extends Entity
 	 * get attribute_value entity join by id_attribute_value of attribute_offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\attribute_offer
 	 */
 	public function get_attribute_value($aWhere = array())
@@ -273,8 +279,7 @@ class attribute_offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->attribute_value = $aResult[0]; }
           else { $this->attribute_value = array(); }
         }
@@ -287,6 +292,7 @@ class attribute_offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\attribute_value  $attribute_value attribute_value entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\attribute_offer
 	 */
 	public function set_attribute_value(\Venus\src\Helium\Entity\attribute_value $attribute_value)

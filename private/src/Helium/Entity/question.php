@@ -50,6 +50,7 @@ class question extends Entity
 	 *
 	 * @access private
 	 * @var    question
+	 * @join
 	 *
 	 */
     private $question = null;
@@ -83,6 +84,7 @@ class question extends Entity
 	 *
 	 * @access private
 	 * @var    product
+	 * @join
 	 *
 	 */
     private $product = null;
@@ -105,6 +107,7 @@ class question extends Entity
 	 *
 	 * @access private
 	 * @var    question
+	 * @join
 	 *
 	 */
     private $response = null;
@@ -172,7 +175,8 @@ class question extends Entity
 	 * get question entity join by id of question
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_question($aWhere = array())
@@ -188,8 +192,7 @@ class question extends Entity
 											
 													  
             $this->question = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->question;
@@ -200,6 +203,7 @@ class question extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\question  $question question entity
+	 * @join
 	 * @return array
 	 */
 	public function set_question(array $question)
@@ -260,7 +264,8 @@ class question extends Entity
 	 * get product entity join by id_product of question
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function get_product($aWhere = array())
@@ -276,8 +281,7 @@ class question extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->product = $aResult[0]; }
           else { $this->product = array(); }
         }
@@ -290,6 +294,7 @@ class question extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\product  $product product entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_product(\Venus\src\Helium\Entity\product $product)
@@ -326,7 +331,8 @@ class question extends Entity
 	 * get response entity join by id_question of question
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function get_response($aWhere = array())
@@ -342,8 +348,7 @@ class question extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->question = $aResult[0]; }
           else { $this->question = array(); }
         }
@@ -356,6 +361,7 @@ class question extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\question  $response question entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\question
 	 */
 	public function set_response(\Venus\src\Helium\Entity\question $response)

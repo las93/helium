@@ -61,6 +61,7 @@ class review_helpful extends Entity
 	 *
 	 * @access private
 	 * @var    review
+	 * @join
 	 *
 	 */
     private $review = null;
@@ -130,7 +131,8 @@ class review_helpful extends Entity
 	 * get review entity join by id_review of review_helpful
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\review_helpful
 	 */
 	public function get_review($aWhere = array())
@@ -146,8 +148,7 @@ class review_helpful extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->review = $aResult[0]; }
           else { $this->review = array(); }
         }
@@ -160,6 +161,7 @@ class review_helpful extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\review  $review review entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\review_helpful
 	 */
 	public function set_review(\Venus\src\Helium\Entity\review $review)

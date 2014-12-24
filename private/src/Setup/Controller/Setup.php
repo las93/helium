@@ -184,12 +184,12 @@ class Setup extends Controller {
 			$oPdo->query('TRUNCATE user_right');
 			$oPdo->query('TRUNCATE vat');
 			$oPdo->query('TRUNCATE country');
-			
+		
 			$oCountry = new Country;
 			
 			$iIdCountry = $oCountry->set_name('France')
 				  			 	   ->save();
-			
+
 			$oVat = new Vat;
 			
 			$iIdVat = $oVat->set_id_country($iIdCountry)

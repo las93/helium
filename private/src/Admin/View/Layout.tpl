@@ -82,8 +82,6 @@
         &nbsp;
         <a href="{url alias='offers'}">Offers</a>
         &nbsp;
-        <a href="{url alias='vat'}">Vat</a>
-        &nbsp;
         <a href="{url alias='categories'}">Categories</a>
         &nbsp;
         <a href="{url alias='attribute'}">Attributes</a>
@@ -91,12 +89,20 @@
         <a href="{url alias='merchants'}">Merchants</a>
     </div>
     <br/>&nbsp;<br/>
+    {if strstr($model, 'Brands') || strstr($model, 'Product') || strstr($model, 'Offer') || (strstr($model, 'Attribute') && !strstr($model, 'Search')) || strstr($model, 'Merchants') || strstr($model, 'Categories')}
+        {include file=$model}
+        <script>var iTabActive = 0;</script>
+    {/if}
   </div>
   <div id="fragment-2">
     <div style="float:left;width:100%">
         <a href="{url alias='users'}">Users</a>
     </div>
     <br/>&nbsp;<br/>
+    {if strstr($model, 'User')}
+        {include file=$model}
+        <script>var iTabActive = 1;</script>
+    {/if}
   </div>
   <div id="fragment-3">
      Orders
@@ -106,30 +112,34 @@
         &nbsp;
         <a href="{url alias='countries'}">Countries</a>
         &nbsp;
-        <a href="{url alias='offers'}">Offers</a>
-        &nbsp;
         <a href="{url alias='vat'}">Vat</a>
-        &nbsp;
-        <a href="{url alias='categories'}">Categories</a>
-        &nbsp;
-        <a href="{url alias='attribute'}">Attributes</a>
     <br/>&nbsp;<br/>
+    {if strstr($model, 'Setup') || strstr($model, 'Countries') || strstr($model, 'Vat')}
+        {include file=$model}
+        <script>var iTabActive = 3;</script>
+    {/if}
   </div>
   <div id="fragment-5">
   <div style="float:left;width:100%">
         <a href="{url alias='search_attribute'}">Search attributes</a>
     </div>
     <br/>&nbsp;<br/>
+    {if (strstr($model, 'Attribute') && strstr($model, 'Search'))}
+        {include file=$model}
+        <script>var iTabActive = 4;</script>
+    {/if}
   </div>
 </div>
  
 <script>
-$( "#tabs" ).tabs();
+$( "#tabs" ).tabs({
+  active: iTabActive
+});
 </script>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        {include file=$model}
+        
       </div>
     </div>
 

@@ -50,6 +50,7 @@ class country extends Entity
 	 *
 	 * @access private
 	 * @var    offer_vat_country
+	 * @join
 	 *
 	 */
     private $offer_vat_country = null;
@@ -95,7 +96,8 @@ class country extends Entity
 	 * get offer_vat_country entity join by id of country
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_offer_vat_country($aWhere = array())
@@ -111,8 +113,7 @@ class country extends Entity
 											
 													  
             $this->offer_vat_country = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->offer_vat_country;
@@ -123,6 +124,7 @@ class country extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\offer_vat_country  $offer_vat_country offer_vat_country entity
+	 * @join
 	 * @return array
 	 */
 	public function set_offer_vat_country(array $offer_vat_country)

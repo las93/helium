@@ -50,6 +50,7 @@ class service_application extends Entity
 	 *
 	 * @access private
 	 * @var    service_association
+	 * @join
 	 *
 	 */
     private $service_association = null;
@@ -94,6 +95,7 @@ class service_application extends Entity
 	 *
 	 * @access private
 	 * @var    vat
+	 * @join
 	 *
 	 */
     private $vat = null;
@@ -194,7 +196,8 @@ class service_application extends Entity
 	 * get service_association entity join by id of service_application
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_service_association($aWhere = array())
@@ -210,8 +213,7 @@ class service_application extends Entity
 											
 													  
             $this->service_association = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->service_association;
@@ -222,6 +224,7 @@ class service_application extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\service_association  $service_association service_association entity
+	 * @join
 	 * @return array
 	 */
 	public function set_service_association(array $service_association)
@@ -306,7 +309,8 @@ class service_application extends Entity
 	 * get vat entity join by id_vat of service_application
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\service_application
 	 */
 	public function get_vat($aWhere = array())
@@ -322,8 +326,7 @@ class service_application extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->vat = $aResult[0]; }
           else { $this->vat = array(); }
         }
@@ -336,6 +339,7 @@ class service_application extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\vat  $vat vat entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\service_application
 	 */
 	public function set_vat(\Venus\src\Helium\Entity\vat $vat)

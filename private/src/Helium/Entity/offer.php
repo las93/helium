@@ -50,6 +50,7 @@ class offer extends Entity
 	 *
 	 * @access private
 	 * @var    attribute_offer
+	 * @join
 	 *
 	 */
     private $attribute_offer = null;
@@ -61,6 +62,7 @@ class offer extends Entity
 	 *
 	 * @access private
 	 * @var    offer_vat_country
+	 * @join
 	 *
 	 */
     private $offer_vat_country = null;
@@ -72,6 +74,7 @@ class offer extends Entity
 	 *
 	 * @access private
 	 * @var    refund_offer_by_offer
+	 * @join
 	 *
 	 */
     private $refund_offer_by_offer = null;
@@ -83,6 +86,7 @@ class offer extends Entity
 	 *
 	 * @access private
 	 * @var    sponsored_offer
+	 * @join
 	 *
 	 */
     private $sponsored_offer = null;
@@ -94,6 +98,7 @@ class offer extends Entity
 	 *
 	 * @access private
 	 * @var    user_visit_offer
+	 * @join
 	 *
 	 */
     private $user_visit_offer = null;
@@ -116,6 +121,7 @@ class offer extends Entity
 	 *
 	 * @access private
 	 * @var    product
+	 * @join
 	 *
 	 */
     private $product = null;
@@ -138,6 +144,7 @@ class offer extends Entity
 	 *
 	 * @access private
 	 * @var    merchant
+	 * @join
 	 *
 	 */
     private $merchant = null;
@@ -160,6 +167,7 @@ class offer extends Entity
 	 *
 	 * @access private
 	 * @var    offer_status
+	 * @join
 	 *
 	 */
     private $offer_status = null;
@@ -315,7 +323,8 @@ class offer extends Entity
 	 * get attribute_offer entity join by id of offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_attribute_offer($aWhere = array())
@@ -331,8 +340,7 @@ class offer extends Entity
 											
 													  
             $this->attribute_offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->attribute_offer;
@@ -343,6 +351,7 @@ class offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\attribute_offer  $attribute_offer attribute_offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_attribute_offer(array $attribute_offer)
@@ -355,7 +364,8 @@ class offer extends Entity
 	 * get offer_vat_country entity join by id of offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_offer_vat_country($aWhere = array())
@@ -371,8 +381,7 @@ class offer extends Entity
 											
 													  
             $this->offer_vat_country = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->offer_vat_country;
@@ -383,6 +392,7 @@ class offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\offer_vat_country  $offer_vat_country offer_vat_country entity
+	 * @join
 	 * @return array
 	 */
 	public function set_offer_vat_country(array $offer_vat_country)
@@ -395,7 +405,8 @@ class offer extends Entity
 	 * get refund_offer_by_offer entity join by id of offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_refund_offer_by_offer($aWhere = array())
@@ -411,8 +422,7 @@ class offer extends Entity
 											
 													  
             $this->refund_offer_by_offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->refund_offer_by_offer;
@@ -423,6 +433,7 @@ class offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\refund_offer_by_offer  $refund_offer_by_offer refund_offer_by_offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_refund_offer_by_offer(array $refund_offer_by_offer)
@@ -435,7 +446,8 @@ class offer extends Entity
 	 * get sponsored_offer entity join by id of offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_sponsored_offer($aWhere = array())
@@ -451,8 +463,7 @@ class offer extends Entity
 											
 													  
             $this->sponsored_offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->sponsored_offer;
@@ -463,6 +474,7 @@ class offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\sponsored_offer  $sponsored_offer sponsored_offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_sponsored_offer(array $sponsored_offer)
@@ -475,7 +487,8 @@ class offer extends Entity
 	 * get user_visit_offer entity join by id of offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_user_visit_offer($aWhere = array())
@@ -491,8 +504,7 @@ class offer extends Entity
 											
 													  
             $this->user_visit_offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->user_visit_offer;
@@ -503,6 +515,7 @@ class offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\user_visit_offer  $user_visit_offer user_visit_offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_user_visit_offer(array $user_visit_offer)
@@ -539,7 +552,8 @@ class offer extends Entity
 	 * get product entity join by id_product of offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\offer
 	 */
 	public function get_product($aWhere = array())
@@ -555,8 +569,7 @@ class offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->product = $aResult[0]; }
           else { $this->product = array(); }
         }
@@ -569,6 +582,7 @@ class offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\product  $product product entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\offer
 	 */
 	public function set_product(\Venus\src\Helium\Entity\product $product)
@@ -605,7 +619,8 @@ class offer extends Entity
 	 * get merchant entity join by id_merchant of offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\offer
 	 */
 	public function get_merchant($aWhere = array())
@@ -621,8 +636,7 @@ class offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->merchant = $aResult[0]; }
           else { $this->merchant = array(); }
         }
@@ -635,6 +649,7 @@ class offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\merchant  $merchant merchant entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\offer
 	 */
 	public function set_merchant(\Venus\src\Helium\Entity\merchant $merchant)
@@ -671,7 +686,8 @@ class offer extends Entity
 	 * get offer_status entity join by id_offer_status of offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\offer
 	 */
 	public function get_offer_status($aWhere = array())
@@ -687,8 +703,7 @@ class offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->offer_status = $aResult[0]; }
           else { $this->offer_status = array(); }
         }
@@ -701,6 +716,7 @@ class offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\offer_status  $offer_status offer_status entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\offer
 	 */
 	public function set_offer_status(\Venus\src\Helium\Entity\offer_status $offer_status)

@@ -50,6 +50,7 @@ class category extends Entity
 	 *
 	 * @access private
 	 * @var    product
+	 * @join
 	 *
 	 */
     private $product = null;
@@ -61,6 +62,7 @@ class category extends Entity
 	 *
 	 * @access private
 	 * @var    sponsored_offer
+	 * @join
 	 *
 	 */
     private $sponsored_offer = null;
@@ -72,6 +74,7 @@ class category extends Entity
 	 *
 	 * @access private
 	 * @var    user
+	 * @join
 	 *
 	 */
     private $user = null;
@@ -194,7 +197,8 @@ class category extends Entity
 	 * get product entity join by id of category
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_product($aWhere = array())
@@ -210,8 +214,7 @@ class category extends Entity
 											
 													  
             $this->product = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->product;
@@ -222,6 +225,7 @@ class category extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\product  $product product entity
+	 * @join
 	 * @return array
 	 */
 	public function set_product(array $product)
@@ -234,7 +238,8 @@ class category extends Entity
 	 * get sponsored_offer entity join by id of category
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_sponsored_offer($aWhere = array())
@@ -250,8 +255,7 @@ class category extends Entity
 											
 													  
             $this->sponsored_offer = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->sponsored_offer;
@@ -262,6 +266,7 @@ class category extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\sponsored_offer  $sponsored_offer sponsored_offer entity
+	 * @join
 	 * @return array
 	 */
 	public function set_sponsored_offer(array $sponsored_offer)
@@ -274,7 +279,8 @@ class category extends Entity
 	 * get user entity join by id of category
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return array
 	 */
 	public function get_user($aWhere = array())
@@ -290,8 +296,7 @@ class category extends Entity
 											
 													  
             $this->user = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
         }
 
 		return $this->user;
@@ -302,6 +307,7 @@ class category extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\user  $user user entity
+	 * @join
 	 * @return array
 	 */
 	public function set_user(array $user)

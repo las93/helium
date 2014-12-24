@@ -61,6 +61,7 @@ class sponsored_offer extends Entity
 	 *
 	 * @access private
 	 * @var    offer
+	 * @join
 	 *
 	 */
     private $offer = null;
@@ -83,6 +84,7 @@ class sponsored_offer extends Entity
 	 *
 	 * @access private
 	 * @var    category
+	 * @join
 	 *
 	 */
     private $category = null;
@@ -141,7 +143,8 @@ class sponsored_offer extends Entity
 	 * get offer entity join by id_offer of sponsored_offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\sponsored_offer
 	 */
 	public function get_offer($aWhere = array())
@@ -157,8 +160,7 @@ class sponsored_offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->offer = $aResult[0]; }
           else { $this->offer = array(); }
         }
@@ -171,6 +173,7 @@ class sponsored_offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\offer  $offer offer entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\sponsored_offer
 	 */
 	public function set_offer(\Venus\src\Helium\Entity\offer $offer)
@@ -207,7 +210,8 @@ class sponsored_offer extends Entity
 	 * get category entity join by id_category of sponsored_offer
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\sponsored_offer
 	 */
 	public function get_category($aWhere = array())
@@ -223,8 +227,7 @@ class sponsored_offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->category = $aResult[0]; }
           else { $this->category = array(); }
         }
@@ -237,6 +240,7 @@ class sponsored_offer extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\category  $category category entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\sponsored_offer
 	 */
 	public function set_category(\Venus\src\Helium\Entity\category $category)

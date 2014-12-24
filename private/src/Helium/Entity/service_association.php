@@ -61,6 +61,7 @@ class service_association extends Entity
 	 *
 	 * @access private
 	 * @var    service_application
+	 * @join
 	 *
 	 */
     private $service_application = null;
@@ -174,7 +175,8 @@ class service_association extends Entity
 	 * get service_application entity join by id_service_application of service_association
 	 *
 	 * @access public
-	   @param  array $aWhere
+	 * @param  array $aWhere
+	 * @join
 	 * @return \Venus\src\Helium\Entity\service_association
 	 */
 	public function get_service_application($aWhere = array())
@@ -190,8 +192,7 @@ class service_association extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-                                   ->limit(1)
-						           ->load();
+						           ->load(false, 'Helium');
           if (count($aResult) > 0) { $this->service_application = $aResult[0]; }
           else { $this->service_application = array(); }
         }
@@ -204,6 +205,7 @@ class service_association extends Entity
 	 *
 	 * @access public
 	 * @param  \Venus\src\Helium\Entity\service_application  $service_application service_application entity
+	 * @join
 	 * @return \Venus\src\Helium\Entity\service_association
 	 */
 	public function set_service_application(\Venus\src\Helium\Entity\service_application $service_application)
