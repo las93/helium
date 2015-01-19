@@ -6,13 +6,12 @@
  * @category  	lib
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\lib;
 
 /**
@@ -21,24 +20,22 @@ namespace Venus\lib;
  * @category  	lib
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class PhpDoc {
-
+class PhpDoc
+{
 	/**
 	 * add the namespace
 	 *
 	 * @access public
 	 * @return array
 	 */
-
-	public static function getPhpDocOfMethod($sClassName, $sMethodName) {
-
+	public static function getPhpDocOfMethod($sClassName, $sMethodName)
+	{
 		$oReflectionClass  = new \ReflectionClass($sClassName);
 		$oReflectionMethod = $oReflectionClass->getMethod($sMethodName);
 		$sCommentPhpDoc = $oReflectionMethod->getDocComment();

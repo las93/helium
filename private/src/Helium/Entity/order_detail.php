@@ -3,8 +3,8 @@
 /**
  * Entity to order_detail
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to order_detail
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class order_detail extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * order_cart
@@ -51,10 +49,8 @@ class order_detail extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $order_cart = null;
-	
-	
 	
 	/**
 	 * id_order_status
@@ -62,10 +58,8 @@ class order_detail extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_order_status = null;
-	
-	
 	
 	/**
 	 * date_create
@@ -73,10 +67,8 @@ class order_detail extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_create = null;
-	
-	
 	
 	/**
 	 * date_update
@@ -84,10 +76,8 @@ class order_detail extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_update = null;
-	
-	
 	
 	/**
 	 * enable
@@ -95,10 +85,8 @@ class order_detail extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $enable = null;
-	
-	
 	
 	/**
 	 * get id of order_detail

@@ -65,7 +65,7 @@ class category extends Model {
 						
 		$aResult = $this->orm
 						->orderBy(['`order` ASC'])
-						->load(false, 'Helium');
+						->load(false, 'Venus\src\Helium\Entity\\');
 
 		return $aResult;
 	}

@@ -3,8 +3,8 @@
 /**
  * Entity to review
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to review
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class review extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * review_helpful Entity
@@ -63,10 +61,8 @@ class review extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_user = null;
-	
-	
 	
 	/**
 	 * user Entity
@@ -86,10 +82,8 @@ class review extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_product = null;
-	
-	
 	
 	/**
 	 * product Entity
@@ -109,10 +103,8 @@ class review extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $title = null;
-	
-	
 	
 	/**
 	 * comment
@@ -120,10 +112,8 @@ class review extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $comment = null;
-	
-	
 	
 	/**
 	 * date_create
@@ -131,10 +121,8 @@ class review extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_create = null;
-	
-	
 	
 	/**
 	 * enable
@@ -142,10 +130,8 @@ class review extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $enable = null;
-	
-	
 	
 	/**
 	 * rate
@@ -153,10 +139,8 @@ class review extends Entity
 	 * @access private
 	 * @var    float
 	 *
-		 */
+	 */
     private $rate = null;
-	
-	
 	
 	/**
 	 * get id of review

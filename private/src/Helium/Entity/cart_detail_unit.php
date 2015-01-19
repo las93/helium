@@ -3,8 +3,8 @@
 /**
  * Entity to cart_detail_unit
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to cart_detail_unit
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * id_cart_detail
@@ -51,10 +49,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_cart_detail = null;
-	
-	
 	
 	/**
 	 * id_discount
@@ -62,10 +58,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_discount = null;
-	
-	
 	
 	/**
 	 * id_tax
@@ -73,10 +67,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_tax = null;
-	
-	
 	
 	/**
 	 * id_parent
@@ -84,10 +76,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_parent = null;
-	
-	
 	
 	/**
 	 * date_create
@@ -95,10 +85,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_create = null;
-	
-	
 	
 	/**
 	 * date_update
@@ -106,10 +94,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_update = null;
-	
-	
 	
 	/**
 	 * enable
@@ -117,10 +103,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $enable = null;
-	
-	
 	
 	/**
 	 * discount_amount
@@ -128,10 +112,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    float
 	 *
-		 */
+	 */
     private $discount_amount = null;
-	
-	
 	
 	/**
 	 * tax_amount
@@ -139,10 +121,8 @@ class cart_detail_unit extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $tax_amount = null;
-	
-	
 	
 	/**
 	 * get id of cart_detail_unit

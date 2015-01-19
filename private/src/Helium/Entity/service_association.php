@@ -3,8 +3,8 @@
 /**
  * Entity to service_association
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to service_association
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class service_association extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * id_service_application
@@ -51,10 +49,8 @@ class service_association extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_service_application = null;
-	
-	
 	
 	/**
 	 * service_application Entity
@@ -74,10 +70,8 @@ class service_association extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_service_price = null;
-	
-	
 	
 	/**
 	 * id_service_price_range
@@ -85,10 +79,8 @@ class service_association extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_service_price_range = null;
-	
-	
 	
 	/**
 	 * id_service_period
@@ -96,10 +88,8 @@ class service_association extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_service_period = null;
-	
-	
 	
 	/**
 	 * type
@@ -107,10 +97,8 @@ class service_association extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $type = null;
-	
-	
 	
 	/**
 	 * id_type
@@ -118,10 +106,8 @@ class service_association extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_type = null;
-	
-	
 	
 	/**
 	 * get id of service_association

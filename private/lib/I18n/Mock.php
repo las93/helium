@@ -7,13 +7,12 @@
  * @package		lib\Cache
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\lib\I18n;
 
 /**
@@ -23,15 +22,14 @@ namespace Venus\lib\I18n;
  * @package		lib\Cache
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class Mock {
-
+class Mock
+{
 	/**
 	 * get a value
 	 *
@@ -41,9 +39,8 @@ class Mock {
 	 * @param  int $iTimeout expiration of cache
 	 * @return mixed
 	 */
-
-	public static function _($sValue) {
-	    
+	public static function _($sValue)
+	{ 
 	    return $sValue;
 	}
 }

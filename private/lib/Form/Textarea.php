@@ -7,13 +7,12 @@
  * @package		lib\Form
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\lib\Form;
 
 /**
@@ -23,22 +22,20 @@ namespace Venus\lib\Form;
  * @package		lib\Form
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class Textarea extends Common {
-
+class Textarea extends Common
+{
 	/**
 	 * the label of element
 	 *
 	 * @access private
 	 * @var    string
 	 */
-
 	private $_sLabel = null;
 	
 	/**
@@ -47,7 +44,6 @@ class Textarea extends Common {
 	 * @access private
 	 * @var    string
 	 */
-
 	private $_sValue = null;
 
 	/**
@@ -59,9 +55,8 @@ class Textarea extends Common {
 	 * @param  string $sValue value of textarea
 	 * @return \Venus\lib\Form\Textarea
 	 */
-
-	public function __construct($sName, $sLabel = null, $sValue = null) {
-
+	public function __construct($sName, $sLabel = null, $sValue = null)
+	{
 		$this->setName($sName);
 		$this->setValue($sValue);
 
@@ -75,9 +70,8 @@ class Textarea extends Common {
 	 * @access public
 	 * @return string
 	 */
-
-	public function getValue() {
-
+	public function getValue()
+	{
 		return $this->_sValue;
 	}
 
@@ -88,9 +82,8 @@ class Textarea extends Common {
 	 * @param  string $sValue Value of input;
 	 * @return \Venus\lib\Form\Textarea
 	 */
-
-	public function setValue($sValue) {
-
+	public function setValue($sValue)
+	{
 		$this->_sValue = $sValue;
 		return $this;
 	}
@@ -101,9 +94,8 @@ class Textarea extends Common {
 	 * @access public
 	 * @return string
 	 */
-
-	public function getLabel() {
-
+	public function getLabel()
+	{
 		return $this->_sLabel;
 	}
 
@@ -114,9 +106,8 @@ class Textarea extends Common {
 	 * @param  string $sLabel Label of input;
 	 * @return \Venus\lib\Form\Textarea
 	 */
-
-	public function setLabel($sLabel) {
-
+	public function setLabel($sLabel)
+	{
 		$this->_sLabel = $sLabel;
 		return $this;
 	}
@@ -128,9 +119,8 @@ class Textarea extends Common {
 	 * @param  string $sType type of input;
 	 * @return bool
 	 */
-
-	public function isClicked($sType) {
-
+	public function isClicked($sType)
+	{
 		if ($this->getType() === 'submit' || $this->getType() === 'button') {
 
 			if (isset($_POST[$this->getName()])) { return true; }
@@ -145,9 +135,8 @@ class Textarea extends Common {
 	 * @access public
 	 * @return string
 	 */
-
-	public function fetch() {
-
+	public function fetch()
+	{
 		$sContent = '';
 
 		if ($this->getLabel()) {

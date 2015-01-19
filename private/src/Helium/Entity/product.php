@@ -3,8 +3,8 @@
 /**
  * Entity to product
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to product
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class product extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * product_image Entity
@@ -99,10 +97,8 @@ class product extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_brand = null;
-	
-	
 	
 	/**
 	 * id_main_category
@@ -110,10 +106,8 @@ class product extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_main_category = null;
-	
-	
 	
 	/**
 	 * category Entity
@@ -133,10 +127,8 @@ class product extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_create = null;
-	
-	
 	
 	/**
 	 * date_update
@@ -144,10 +136,8 @@ class product extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_update = null;
-	
-	
 	
 	/**
 	 * name
@@ -155,10 +145,8 @@ class product extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $name = null;
-	
-	
 	
 	/**
 	 * short_description
@@ -166,10 +154,8 @@ class product extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $short_description = null;
-	
-	
 	
 	/**
 	 * description
@@ -177,10 +163,8 @@ class product extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $description = null;
-	
-	
 	
 	/**
 	 * ean13
@@ -188,10 +172,8 @@ class product extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $ean13 = null;
-	
-	
 	
 	/**
 	 * market_price
@@ -199,10 +181,8 @@ class product extends Entity
 	 * @access private
 	 * @var    float
 	 *
-		 */
+	 */
     private $market_price = null;
-	
-	
 	
 	/**
 	 * reference
@@ -210,10 +190,8 @@ class product extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $reference = null;
-	
-	
 	
 	/**
 	 * get id of product
@@ -297,7 +275,7 @@ class product extends Entity
 			$oOrm->select(array('*'))
 				 ->from('offer');
 												   
-	        $aWhere['id'] = $this->get_id();
+	        $aWhere['id_product'] = $this->get_id();
 											
 													  
             $this->offer = $oOrm->where($aWhere)

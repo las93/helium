@@ -7,11 +7,11 @@
  * @package   	core\
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
- * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @version   	Release: 2.0.0
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
- * @since     	1.0
+ * @since     	2.0.0
  */
 namespace Venus\core;
 
@@ -19,7 +19,7 @@ use \Venus\core\Security as Security;
 use \Venus\lib\Cache as Cache;
 use \Venus\lib\PhpDoc as PhpDoc;
 use \Venus\lib\Request as Request;
-use \Venus\lib\Template as Template;
+use \Venus\lib\Vendor as Vendor;
 use \Venus\core\UrlManager as UrlManager;
 use \Venus\lib\Debug as Debug;
 use \Venus\lib\Log\LoggerAwareInterface as LoggerAwareInterface;
@@ -32,11 +32,11 @@ use \Venus\lib\Log\LoggerInterface as LoggerInterface;
  * @package   	core\
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
- * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @version   	Release: 2.0.0
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
- * @since     	1.0
+ * @since     	2.0.0
  */
 class Router implements LoggerAwareInterface
 {
@@ -440,7 +440,7 @@ class Router implements LoggerAwareInterface
 			}
 			else if (isset($oRoute->template) && isset($oRoute->layout) && $oRoute->layout === true) {
 
-				$oLayout = new Template(DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAIL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.'Layout.tpl');
+			    $oLayout = Vendor::getVendor('Apollina\Template', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAIL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.'Layout.tpl');
 
 				if (isset($oRoute->vars)) {
 
@@ -455,7 +455,7 @@ class Router implements LoggerAwareInterface
 			}
 			else if (isset($oRoute->template)) {
 
-				$oTemplate = new Template(DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAIL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.$oRoute->template.'.tpl');
+				$oTemplate = Vendor::getVendor('Apollina\Template', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAIL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.$oRoute->template.'.tpl');
 
 				if (isset($oRoute->vars)) {
 

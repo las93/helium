@@ -3,8 +3,8 @@
 /**
  * Entity to search_attribute_rule
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to search_attribute_rule
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class search_attribute_rule extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * id_search_attribute
@@ -51,10 +49,8 @@ class search_attribute_rule extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_search_attribute = null;
-	
-	
 	
 	/**
 	 * name
@@ -62,10 +58,8 @@ class search_attribute_rule extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $name = null;
-	
-	
 	
 	/**
 	 * type
@@ -73,10 +67,8 @@ class search_attribute_rule extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $type = null;
-	
-	
 	
 	/**
 	 * id_by_type
@@ -84,10 +76,8 @@ class search_attribute_rule extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $id_by_type = null;
-	
-	
 	
 	/**
 	 * value_min
@@ -95,10 +85,8 @@ class search_attribute_rule extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $value_min = null;
-	
-	
 	
 	/**
 	 * value_max
@@ -106,10 +94,8 @@ class search_attribute_rule extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $value_max = null;
-	
-	
 	
 	/**
 	 * value
@@ -117,10 +103,8 @@ class search_attribute_rule extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $value = null;
-	
-	
 	
 	/**
 	 * get id of search_attribute_rule

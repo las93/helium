@@ -3,8 +3,8 @@
 /**
  * Entity to cart_detail
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to cart_detail
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * id_cart
@@ -51,10 +49,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_cart = null;
-	
-	
 	
 	/**
 	 * id_offer
@@ -62,10 +58,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_offer = null;
-	
-	
 	
 	/**
 	 * id_merchant
@@ -73,10 +67,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_merchant = null;
-	
-	
 	
 	/**
 	 * id_shipping_address
@@ -84,10 +76,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_shipping_address = null;
-	
-	
 	
 	/**
 	 * vat_id
@@ -95,10 +85,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    float
 	 *
-		 */
+	 */
     private $vat_id = null;
-	
-	
 	
 	/**
 	 * date_create
@@ -106,10 +94,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_create = null;
-	
-	
 	
 	/**
 	 * date_update
@@ -117,10 +103,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_update = null;
-	
-	
 	
 	/**
 	 * enable
@@ -128,10 +112,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $enable = null;
-	
-	
 	
 	/**
 	 * price
@@ -139,10 +121,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    float
 	 *
-		 */
+	 */
     private $price = null;
-	
-	
 	
 	/**
 	 * is_gift
@@ -150,10 +130,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $is_gift = null;
-	
-	
 	
 	/**
 	 * gift_message
@@ -161,10 +139,8 @@ class cart_detail extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $gift_message = null;
-	
-	
 	
 	/**
 	 * get id of cart_detail

@@ -7,13 +7,12 @@
  * @package   	core\
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\core;
 
 /**
@@ -23,20 +22,18 @@ namespace Venus\core;
  * @package   	core\
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class UrlManager {
-
+class UrlManager
+{
 	/**
 	 * The base Uri to construct the route
 	 * @var string
 	 */
-
 	private $_sBaseUri = '';
 
 	/**
@@ -65,9 +62,8 @@ class UrlManager {
 	 *				$oUrlManager = new \Venus\core\UrlManager;
 	 *				$sUrl = $oUrlManager->getUrl('menu_edit', array('language' => 'vn', 'id' => 125));
 	 */
-
-	public function getUrl($sCode, $aParams = array()) {
-
+	public function getUrl($sCode, $aParams = array())
+	{
 		if (isset($_SERVER) && isset($_SERVER['HTTP_HOST'])) {
 
 			foreach (Config::get('Route') as $sHost => $oHost) {
@@ -132,9 +128,8 @@ class UrlManager {
 	 * @param  string $sStringToEncode text
 	 * @return string
 	 */
-
-	public function encodeToUrl($sStringToEncode) {
-
+	public function encodeToUrl($sStringToEncode)
+	{
 		if (!is_string($sStringToEncode)) {
 
 			throw new \Exception();

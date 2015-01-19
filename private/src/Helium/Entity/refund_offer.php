@@ -3,8 +3,8 @@
 /**
  * Entity to refund_offer
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to refund_offer
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class refund_offer extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * refund_offer_by_offer Entity
@@ -63,10 +61,8 @@ class refund_offer extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $name = null;
-	
-	
 	
 	/**
 	 * amount
@@ -74,10 +70,8 @@ class refund_offer extends Entity
 	 * @access private
 	 * @var    float
 	 *
-		 */
+	 */
     private $amount = null;
-	
-	
 	
 	/**
 	 * url
@@ -85,10 +79,8 @@ class refund_offer extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $url = null;
-	
-	
 	
 	/**
 	 * get id of refund_offer

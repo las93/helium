@@ -3,8 +3,8 @@
 /**
  * Entity to attribute_value
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to attribute_value
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class attribute_value extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * attribute_offer Entity
@@ -58,27 +56,13 @@ class attribute_value extends Entity
 	
 	
 	/**
-	 * attribute_value Entity
-	 *
-	 * @access private
-	 * @var    attribute_value
-	 * @join
-	 *
-	 */
-    private $attribute_value = null;
-	
-	
-	
-	/**
 	 * id_attribute
 	 *
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_attribute = null;
-	
-	
 	
 	/**
 	 * value
@@ -86,10 +70,8 @@ class attribute_value extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $value = null;
-	
-	
 	
 	/**
 	 * get id of attribute_value
@@ -153,47 +135,6 @@ class attribute_value extends Entity
 	public function set_attribute_offer(array $attribute_offer)
 	{
 		$this->attribute_offer = $attribute_offer;
-		return $this;
-	}
-
-	/**
-	 * get attribute_value entity join by id of attribute_value
-	 *
-	 * @access public
-	 * @param  array $aWhere
-	 * @join
-	 * @return array
-	 */
-	public function get_attribute_value($aWhere = array())
-	{
-		if ($this->attribute_value === null) {
-
-			$oOrm = new Orm;
-
-			$oOrm->select(array('*'))
-				 ->from('attribute_value');
-												   
-	        $aWhere['id'] = $this->get_id();
-											
-													  
-            $this->attribute_value = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
-        }
-
-		return $this->attribute_value;
-	}
-	
-	/**
-	 * set attribute_value entity join by id of attribute_value
-	 *
-	 * @access public
-	 * @param  \Venus\src\Helium\Entity\attribute_value  $attribute_value attribute_value entity
-	 * @join
-	 * @return array
-	 */
-	public function set_attribute_value(array $attribute_value)
-	{
-		$this->attribute_value = $attribute_value;
 		return $this;
 	}
 

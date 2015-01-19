@@ -6,13 +6,12 @@
  * @category  	lib
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\lib;
 
 /**
@@ -21,15 +20,14 @@ namespace Venus\lib;
  * @category  	lib
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class Cookie {
-
+class Cookie
+{
   	/**
   	 * set a value
   	 *
@@ -38,9 +36,8 @@ class Cookie {
   	 * @param  mixed $mValue value of this sesion var
   	 * @return \Venus\lib\Cookie
   	 */
-
-  	public function set($sName, $mValue, $iExpire = 0, $sPath = '', $sDomain = '', $iSecure = false) {
-
+  	public function set($sName, $mValue, $iExpire = 0, $sPath = '', $sDomain = '', $iSecure = false)
+	{
   		$iExpire = time() + $iExpire;
     	setcookie($sName, $mValue, $iExpire, $sPath, $sDomain, $iSecure);
     	return $this;
@@ -53,9 +50,8 @@ class Cookie {
   	 * @param  string $sName name of the Cookie
   	 * @return mixed
   	 */
-
-  	public function get($sName) {
-
+  	public function get($sName)
+	{
     	return $_COOKIE[$sName];
   	}
 
@@ -66,9 +62,8 @@ class Cookie {
   	 * @param  string $sName name of the Cookie
   	 * @return bool
   	 */
-
-  	public function exists($sName) {
-
+  	public function exists($sName)
+	{
     	return isset($_COOKIE[$sName]);
   	}
 }

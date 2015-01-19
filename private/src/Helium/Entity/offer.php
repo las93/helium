@@ -3,8 +3,8 @@
 /**
  * Entity to offer
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to offer
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,35 +39,9 @@ class offer extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
-	
-	/**
-	 * attribute_offer Entity
-	 *
-	 * @access private
-	 * @var    attribute_offer
-	 * @join
-	 *
-	 */
-    private $attribute_offer = null;
-	
-	
-	
-	/**
-	 * offer_vat_country Entity
-	 *
-	 * @access private
-	 * @var    offer_vat_country
-	 * @join
-	 *
-	 */
-    private $offer_vat_country = null;
-	
-	
 	
 	/**
 	 * refund_offer_by_offer Entity
@@ -106,15 +80,37 @@ class offer extends Entity
 	
 	
 	/**
+	 * attribute_offer Entity
+	 *
+	 * @access private
+	 * @var    attribute_offer
+	 * @join
+	 *
+	 */
+    private $attribute_offer = null;
+	
+	
+	
+	/**
+	 * offer_vat_country Entity
+	 *
+	 * @access private
+	 * @var    offer_vat_country
+	 * @join
+	 *
+	 */
+    private $offer_vat_country = null;
+	
+	
+	
+	/**
 	 * id_product
 	 *
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_product = null;
-	
-	
 	
 	/**
 	 * product Entity
@@ -134,10 +130,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_merchant = null;
-	
-	
 	
 	/**
 	 * merchant Entity
@@ -157,10 +151,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_offer_status = null;
-	
-	
 	
 	/**
 	 * offer_status Entity
@@ -180,10 +172,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $enable = null;
-	
-	
 	
 	/**
 	 * date_create
@@ -191,10 +181,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_create = null;
-	
-	
 	
 	/**
 	 * date_update
@@ -202,10 +190,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_update = null;
-	
-	
 	
 	/**
 	 * quantity_public
@@ -213,10 +199,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $quantity_public = null;
-	
-	
 	
 	/**
 	 * quantity_reserved
@@ -224,10 +208,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $quantity_reserved = null;
-	
-	
 	
 	/**
 	 * quantity_confirmed
@@ -235,10 +217,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $quantity_confirmed = null;
-	
-	
 	
 	/**
 	 * name
@@ -246,10 +226,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $name = null;
-	
-	
 	
 	/**
 	 * short_description
@@ -257,10 +235,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $short_description = null;
-	
-	
 	
 	/**
 	 * description
@@ -268,10 +244,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $description = null;
-	
-	
 	
 	/**
 	 * price
@@ -279,10 +253,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    float
 	 *
-		 */
+	 */
     private $price = null;
-	
-	
 	
 	/**
 	 * gift_possible
@@ -290,10 +262,8 @@ class offer extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $gift_possible = null;
-	
-	
 	
 	/**
 	 * get id of offer
@@ -319,88 +289,6 @@ class offer extends Entity
 		return $this;
 	}
 	
-	/**
-	 * get attribute_offer entity join by id of offer
-	 *
-	 * @access public
-	 * @param  array $aWhere
-	 * @join
-	 * @return array
-	 */
-	public function get_attribute_offer($aWhere = array())
-	{
-		if ($this->attribute_offer === null) {
-
-			$oOrm = new Orm;
-
-			$oOrm->select(array('*'))
-				 ->from('attribute_offer');
-												   
-	        $aWhere['id_offer'] = $this->get_id();
-											
-													  
-            $this->attribute_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
-        }
-
-		return $this->attribute_offer;
-	}
-	
-	/**
-	 * set attribute_offer entity join by id of offer
-	 *
-	 * @access public
-	 * @param  \Venus\src\Helium\Entity\attribute_offer  $attribute_offer attribute_offer entity
-	 * @join
-	 * @return array
-	 */
-	public function set_attribute_offer(array $attribute_offer)
-	{
-		$this->attribute_offer = $attribute_offer;
-		return $this;
-	}
-
-	/**
-	 * get offer_vat_country entity join by id of offer
-	 *
-	 * @access public
-	 * @param  array $aWhere
-	 * @join
-	 * @return array
-	 */
-	public function get_offer_vat_country($aWhere = array())
-	{
-		if ($this->offer_vat_country === null) {
-
-			$oOrm = new Orm;
-
-			$oOrm->select(array('*'))
-				 ->from('offer_vat_country');
-												   
-	        $aWhere['id_offer'] = $this->get_id();
-											
-													  
-            $this->offer_vat_country = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
-        }
-
-		return $this->offer_vat_country;
-	}
-	
-	/**
-	 * set offer_vat_country entity join by id of offer
-	 *
-	 * @access public
-	 * @param  \Venus\src\Helium\Entity\offer_vat_country  $offer_vat_country offer_vat_country entity
-	 * @join
-	 * @return array
-	 */
-	public function set_offer_vat_country(array $offer_vat_country)
-	{
-		$this->offer_vat_country = $offer_vat_country;
-		return $this;
-	}
-
 	/**
 	 * get refund_offer_by_offer entity join by id of offer
 	 *
@@ -521,6 +409,88 @@ class offer extends Entity
 	public function set_user_visit_offer(array $user_visit_offer)
 	{
 		$this->user_visit_offer = $user_visit_offer;
+		return $this;
+	}
+
+	/**
+	 * get attribute_offer entity join by id of offer
+	 *
+	 * @access public
+	 * @param  array $aWhere
+	 * @join
+	 * @return array
+	 */
+	public function get_attribute_offer($aWhere = array())
+	{
+		if ($this->attribute_offer === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('attribute_offer');
+												   
+	        $aWhere['id_offer'] = $this->get_id();
+											
+													  
+            $this->attribute_offer = $oOrm->where($aWhere)
+						           ->load(false, 'Helium');
+        }
+
+		return $this->attribute_offer;
+	}
+	
+	/**
+	 * set attribute_offer entity join by id of offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\attribute_offer  $attribute_offer attribute_offer entity
+	 * @join
+	 * @return array
+	 */
+	public function set_attribute_offer(array $attribute_offer)
+	{
+		$this->attribute_offer = $attribute_offer;
+		return $this;
+	}
+
+	/**
+	 * get offer_vat_country entity join by id of offer
+	 *
+	 * @access public
+	 * @param  array $aWhere
+	 * @join
+	 * @return array
+	 */
+	public function get_offer_vat_country($aWhere = array())
+	{
+		if ($this->offer_vat_country === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('offer_vat_country');
+												   
+	        $aWhere['id_offer'] = $this->get_id();
+											
+													  
+            $this->offer_vat_country = $oOrm->where($aWhere)
+						           ->load(false, 'Helium');
+        }
+
+		return $this->offer_vat_country;
+	}
+	
+	/**
+	 * set offer_vat_country entity join by id of offer
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\offer_vat_country  $offer_vat_country offer_vat_country entity
+	 * @join
+	 * @return array
+	 */
+	public function set_offer_vat_country(array $offer_vat_country)
+	{
+		$this->offer_vat_country = $offer_vat_country;
 		return $this;
 	}
 

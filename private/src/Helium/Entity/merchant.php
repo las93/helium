@@ -3,8 +3,8 @@
 /**
  * Entity to merchant
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to merchant
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class merchant extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * offer Entity
@@ -63,10 +61,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $name = null;
-	
-	
 	
 	/**
 	 * legal_form
@@ -74,10 +70,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $legal_form = null;
-	
-	
 	
 	/**
 	 * store_capital_account
@@ -85,10 +79,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    float
 	 *
-		 */
+	 */
     private $store_capital_account = null;
-	
-	
 	
 	/**
 	 * store_rcs_certificate
@@ -96,10 +88,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $store_rcs_certificate = null;
-	
-	
 	
 	/**
 	 * store_vat_certificate
@@ -107,10 +97,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $store_vat_certificate = null;
-	
-	
 	
 	/**
 	 * store_cnil_certificate
@@ -118,10 +106,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $store_cnil_certificate = null;
-	
-	
 	
 	/**
 	 * store_url
@@ -129,10 +115,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $store_url = null;
-	
-	
 	
 	/**
 	 * contact_civ
@@ -140,10 +124,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_civ = null;
-	
-	
 	
 	/**
 	 * contact_firstname
@@ -151,10 +133,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_firstname = null;
-	
-	
 	
 	/**
 	 * contact_lastname
@@ -162,10 +142,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_lastname = null;
-	
-	
 	
 	/**
 	 * contact_function
@@ -173,10 +151,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_function = null;
-	
-	
 	
 	/**
 	 * contact_address
@@ -184,10 +160,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_address = null;
-	
-	
 	
 	/**
 	 * contact_address2
@@ -195,10 +169,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_address2 = null;
-	
-	
 	
 	/**
 	 * contact_zip
@@ -206,10 +178,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_zip = null;
-	
-	
 	
 	/**
 	 * contact_city
@@ -217,10 +187,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_city = null;
-	
-	
 	
 	/**
 	 * contact_country
@@ -228,10 +196,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_country = null;
-	
-	
 	
 	/**
 	 * contact_phone
@@ -239,10 +205,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_phone = null;
-	
-	
 	
 	/**
 	 * contact_fax
@@ -250,10 +214,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_fax = null;
-	
-	
 	
 	/**
 	 * contact_email
@@ -261,10 +223,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $contact_email = null;
-	
-	
 	
 	/**
 	 * store_cgv
@@ -272,10 +232,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $store_cgv = null;
-	
-	
 	
 	/**
 	 * store_phone_taxed
@@ -283,10 +241,8 @@ class merchant extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $store_phone_taxed = null;
-	
-	
 	
 	/**
 	 * get id of merchant

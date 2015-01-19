@@ -3,8 +3,8 @@
 /**
  * Entity to category
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to category
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class category extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * product Entity
@@ -70,27 +68,13 @@ class category extends Entity
 	
 	
 	/**
-	 * user Entity
-	 *
-	 * @access private
-	 * @var    user
-	 * @join
-	 *
-	 */
-    private $user = null;
-	
-	
-	
-	/**
 	 * id_category
 	 *
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_category = null;
-	
-	
 	
 	/**
 	 * id_shortcuts_category
@@ -98,10 +82,8 @@ class category extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_shortcuts_category = null;
-	
-	
 	
 	/**
 	 * name
@@ -109,10 +91,8 @@ class category extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $name = null;
-	
-	
 	
 	/**
 	 * enable
@@ -120,10 +100,8 @@ class category extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $enable = null;
-	
-	
 	
 	/**
 	 * visible
@@ -131,10 +109,8 @@ class category extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $visible = null;
-	
-	
 	
 	/**
 	 * order
@@ -142,10 +118,8 @@ class category extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $order = null;
-	
-	
 	
 	/**
 	 * section
@@ -153,10 +127,8 @@ class category extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $section = null;
-	
-	
 	
 	/**
 	 * route_alias
@@ -164,10 +136,8 @@ class category extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $route_alias = null;
-	
-	
 	
 	/**
 	 * get id of category
@@ -272,47 +242,6 @@ class category extends Entity
 	public function set_sponsored_offer(array $sponsored_offer)
 	{
 		$this->sponsored_offer = $sponsored_offer;
-		return $this;
-	}
-
-	/**
-	 * get user entity join by id of category
-	 *
-	 * @access public
-	 * @param  array $aWhere
-	 * @join
-	 * @return array
-	 */
-	public function get_user($aWhere = array())
-	{
-		if ($this->user === null) {
-
-			$oOrm = new Orm;
-
-			$oOrm->select(array('*'))
-				 ->from('user');
-												   
-	        $aWhere['id'] = $this->get_id();
-											
-													  
-            $this->user = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
-        }
-
-		return $this->user;
-	}
-	
-	/**
-	 * set user entity join by id of category
-	 *
-	 * @access public
-	 * @param  \Venus\src\Helium\Entity\user  $user user entity
-	 * @join
-	 * @return array
-	 */
-	public function set_user(array $user)
-	{
-		$this->user = $user;
 		return $this;
 	}
 

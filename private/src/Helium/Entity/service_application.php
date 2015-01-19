@@ -3,8 +3,8 @@
 /**
  * Entity to service_application
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to service_application
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class service_application extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * service_association Entity
@@ -63,10 +61,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_service = null;
-	
-	
 	
 	/**
 	 * id_country
@@ -74,10 +70,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_country = null;
-	
-	
 	
 	/**
 	 * id_vat
@@ -85,10 +79,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_vat = null;
-	
-	
 	
 	/**
 	 * vat Entity
@@ -108,10 +100,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $name = null;
-	
-	
 	
 	/**
 	 * discount_authorized
@@ -119,10 +109,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $discount_authorized = null;
-	
-	
 	
 	/**
 	 * enable
@@ -130,10 +118,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $enable = null;
-	
-	
 	
 	/**
 	 * url_cgu
@@ -141,10 +127,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $url_cgu = null;
-	
-	
 	
 	/**
 	 * type_selling
@@ -152,10 +136,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $type_selling = null;
-	
-	
 	
 	/**
 	 * auto_add
@@ -163,10 +145,8 @@ class service_application extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $auto_add = null;
-	
-	
 	
 	/**
 	 * get id of service_application

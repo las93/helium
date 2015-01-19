@@ -3,8 +3,8 @@
 /**
  * Entity to cart
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -15,14 +15,14 @@
  */
 namespace Venus\src\Helium\Entity;
 
-use \Venus\core\Entity as Entity;
-use \Venus\lib\Orm as Orm;
+use \Attila\core\Entity as Entity;
+use \Attila\Orm as Orm;
 
 /**
  * Entity to cart
  *
- * @category  	src
- * @package   	src\Helium\Entity
+ * @category  	\Venus
+ * @package   	\Venus\src\Helium\Entity
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 Judicaël Paquet (https://github.com/las93)
  * @license   	https://github.com/las93/helium/blob/master/LICENSE.md Tout droit réservé à Judicaël Paquet
@@ -39,11 +39,9 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 * @primary_key
+	 * @primary_key
 	 */
     private $id = null;
-	
-	
 	
 	/**
 	 * id_cart_status
@@ -51,10 +49,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_cart_status = null;
-	
-	
 	
 	/**
 	 * id_user
@@ -62,10 +58,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_user = null;
-	
-	
 	
 	/**
 	 * id_billing_address
@@ -73,10 +67,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_billing_address = null;
-	
-	
 	
 	/**
 	 * id_site
@@ -84,10 +76,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_site = null;
-	
-	
 	
 	/**
 	 * id_currency
@@ -95,10 +85,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_currency = null;
-	
-	
 	
 	/**
 	 * id_insert_channel_id
@@ -106,10 +94,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_insert_channel_id = null;
-	
-	
 	
 	/**
 	 * id_channel_id
@@ -117,10 +103,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_channel_id = null;
-	
-	
 	
 	/**
 	 * id_cart_parent
@@ -128,10 +112,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $id_cart_parent = null;
-	
-	
 	
 	/**
 	 * date_create
@@ -139,10 +121,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_create = null;
-	
-	
 	
 	/**
 	 * date_update
@@ -150,10 +130,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    string
 	 *
-		 */
+	 */
     private $date_update = null;
-	
-	
 	
 	/**
 	 * enable
@@ -161,10 +139,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    bool
 	 *
-		 */
+	 */
     private $enable = null;
-	
-	
 	
 	/**
 	 * synchronize
@@ -172,10 +148,8 @@ class cart extends Entity
 	 * @access private
 	 * @var    int
 	 *
-		 */
+	 */
     private $synchronize = null;
-	
-	
 	
 	/**
 	 * get id of cart

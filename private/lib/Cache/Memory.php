@@ -7,13 +7,12 @@
  * @package		lib\Cache
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
 namespace Venus\lib\Cache;
 
 /**
@@ -23,20 +22,18 @@ namespace Venus\lib\Cache;
  * @package		lib\Cache
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
  * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus
+ * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-
-class Memory implements CacheInterface {
-
+class Memory implements CacheInterface
+{
     /**
      * A static variable to keep the cache
      * @var array
-     */
-    
+     */    
     private static $_aMemories = array();
     
 	/**
@@ -49,9 +46,8 @@ class Memory implements CacheInterface {
 	 * @param  int $iExpire expiration of cache
 	 * @return \Venus\lib\Cache\Apc
 	 */
-
-	public function set($sName, $mValue, $iFlag = 0, $iExpire = 0) {
-
+	public function set($sName, $mValue, $iFlag = 0, $iExpire = 0)
+	{
 		self::$_aMemories[$sName] = $mValue;
 		return $this;
 	}
@@ -65,9 +61,8 @@ class Memory implements CacheInterface {
 	 * @param  int $iTimeout expiration of cache
 	 * @return mixed
 	 */
-
-	public function get($sName, &$iFlags = null, $iTimeout = 0) {
-
+	public function get($sName, &$iFlags = null, $iTimeout = 0)
+	{
 		return self::$_aMemories[$sName];
 	}
 
@@ -78,9 +73,8 @@ class Memory implements CacheInterface {
 	 * @param  string $sName name of the session
 	 * @return true
 	 */
-
-	public function delete($sName) {
-
+	public function delete($sName)
+	{
 		unset(self::$_aMemories[$sName]);
 		return true;
 	}
@@ -91,9 +85,8 @@ class Memory implements CacheInterface {
 	 * @access public
 	 * @return mixed
 	 */
-
-	public function flush() {
-
+	public function flush()
+	{
 		return self::$_aMemories = array();
 	}
 }
