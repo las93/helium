@@ -187,7 +187,7 @@ class review extends Entity
 											
 													  
             $this->review_helpful = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->review_helpful;
@@ -252,7 +252,8 @@ class review extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->user = $aResult[0]; }
           else { $this->user = array(); }
         }
@@ -319,7 +320,8 @@ class review extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->product = $aResult[0]; }
           else { $this->product = array(); }
         }

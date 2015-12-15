@@ -193,7 +193,7 @@ class service_application extends Entity
 											
 													  
             $this->service_association = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->service_association;
@@ -306,7 +306,8 @@ class service_application extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->vat = $aResult[0]; }
           else { $this->vat = array(); }
         }

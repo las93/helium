@@ -118,7 +118,7 @@ class attribute_value extends Entity
 											
 													  
             $this->attribute_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->attribute_offer;

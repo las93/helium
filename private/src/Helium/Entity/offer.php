@@ -310,7 +310,7 @@ class offer extends Entity
 											
 													  
             $this->refund_offer_by_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->refund_offer_by_offer;
@@ -351,7 +351,7 @@ class offer extends Entity
 											
 													  
             $this->sponsored_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->sponsored_offer;
@@ -392,7 +392,7 @@ class offer extends Entity
 											
 													  
             $this->user_visit_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->user_visit_offer;
@@ -433,7 +433,7 @@ class offer extends Entity
 											
 													  
             $this->attribute_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->attribute_offer;
@@ -474,7 +474,7 @@ class offer extends Entity
 											
 													  
             $this->offer_vat_country = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->offer_vat_country;
@@ -539,7 +539,8 @@ class offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->product = $aResult[0]; }
           else { $this->product = array(); }
         }
@@ -606,7 +607,8 @@ class offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->merchant = $aResult[0]; }
           else { $this->merchant = array(); }
         }
@@ -673,7 +675,8 @@ class offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->offer_status = $aResult[0]; }
           else { $this->offer_status = array(); }
         }

@@ -128,7 +128,7 @@ class attribute_offer extends Entity
 	 * @access public
 	 * @param  array $aWhere
 	 * @join
-	 * @return array
+	 * @return \Venus\src\Helium\Entity\attribute_offer
 	 */
 	public function get_attribute($aWhere = array())
 	{
@@ -142,8 +142,11 @@ class attribute_offer extends Entity
 	        $aWhere['id'] = $this->get_id_attribute();
 											
 													  
-            $this->attribute = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->attribute = $aResult[0]; }
+          else { $this->attribute = array(); }
         }
 
 		return $this->attribute;
@@ -193,7 +196,7 @@ class attribute_offer extends Entity
 	 * @access public
 	 * @param  array $aWhere
 	 * @join
-	 * @return array
+	 * @return \Venus\src\Helium\Entity\attribute_offer
 	 */
 	public function get_offer($aWhere = array())
 	{
@@ -207,8 +210,11 @@ class attribute_offer extends Entity
 	        $aWhere['id'] = $this->get_id_offer();
 											
 													  
-            $this->offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->offer = $aResult[0]; }
+          else { $this->offer = array(); }
         }
 
 		return $this->offer;
@@ -273,7 +279,8 @@ class attribute_offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->attribute_value = $aResult[0]; }
           else { $this->attribute_value = array(); }
         }

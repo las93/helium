@@ -178,7 +178,8 @@ class service_association extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->service_application = $aResult[0]; }
           else { $this->service_application = array(); }
         }

@@ -44,6 +44,18 @@ class attribute_category extends Entity
     private $id_attribute = null;
 	
 	/**
+	 * attribute Entity
+	 *
+	 * @access private
+	 * @var    attribute
+	 * @join
+	 *
+	 */
+    private $attribute = null;
+	
+	
+	
+	/**
 	 * id_category
 	 *
 	 * @access private
@@ -52,6 +64,18 @@ class attribute_category extends Entity
 	 * @primary_key
 	 */
     private $id_category = null;
+	
+	/**
+	 * category Entity
+	 *
+	 * @access private
+	 * @var    category
+	 * @join
+	 *
+	 */
+    private $category = null;
+	
+	
 	
 	/**
 	 * get id_attribute of attribute_category
@@ -78,6 +102,50 @@ class attribute_category extends Entity
 	}
 	
 	/**
+	 * get attribute entity join by id_attribute of attribute_category
+	 *
+	 * @access public
+	 * @param  array $aWhere
+	 * @join
+	 * @return \Venus\src\Helium\Entity\attribute_category
+	 */
+	public function get_attribute($aWhere = array())
+	{
+		if ($this->attribute === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('attribute');
+												   
+	        $aWhere['id'] = $this->get_id_attribute();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->attribute = $aResult[0]; }
+          else { $this->attribute = array(); }
+        }
+
+		return $this->attribute;
+	}
+	
+	/**
+	 * set attribute entity join by id_attribute of attribute_category
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\attribute  $attribute attribute entity
+	 * @join
+	 * @return array
+	 */
+	public function set_attribute(array $attribute)
+	{
+		$this->attribute = $attribute;
+		return $this;
+	}
+
+	/**
 	 * get id_category of attribute_category
 	 *
 	 * @access public
@@ -100,4 +168,48 @@ class attribute_category extends Entity
 		$this->id_category = $id_category;
 		return $this;
 	}
+	
+	/**
+	 * get category entity join by id_category of attribute_category
+	 *
+	 * @access public
+	 * @param  array $aWhere
+	 * @join
+	 * @return \Venus\src\Helium\Entity\attribute_category
+	 */
+	public function get_category($aWhere = array())
+	{
+		if ($this->category === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('category');
+												   
+	        $aWhere['id'] = $this->get_id_category();
+											
+													  
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->category = $aResult[0]; }
+          else { $this->category = array(); }
+        }
+
+		return $this->category;
 	}
+	
+	/**
+	 * set category entity join by id_category of attribute_category
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\category  $category category entity
+	 * @join
+	 * @return array
+	 */
+	public function set_category(array $category)
+	{
+		$this->category = $category;
+		return $this;
+	}
+}

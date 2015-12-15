@@ -127,7 +127,7 @@ class refund_offer extends Entity
 											
 													  
             $this->refund_offer_by_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->refund_offer_by_offer;

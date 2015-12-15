@@ -142,7 +142,8 @@ class review_helpful extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->review = $aResult[0]; }
           else { $this->review = array(); }
         }

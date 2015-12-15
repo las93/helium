@@ -128,7 +128,7 @@ class offer_vat_country extends Entity
 	 * @access public
 	 * @param  array $aWhere
 	 * @join
-	 * @return array
+	 * @return \Venus\src\Helium\Entity\offer_vat_country
 	 */
 	public function get_offer($aWhere = array())
 	{
@@ -142,8 +142,11 @@ class offer_vat_country extends Entity
 	        $aWhere['id'] = $this->get_id_offer();
 											
 													  
-            $this->offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->offer = $aResult[0]; }
+          else { $this->offer = array(); }
         }
 
 		return $this->offer;
@@ -193,7 +196,7 @@ class offer_vat_country extends Entity
 	 * @access public
 	 * @param  array $aWhere
 	 * @join
-	 * @return array
+	 * @return \Venus\src\Helium\Entity\offer_vat_country
 	 */
 	public function get_country($aWhere = array())
 	{
@@ -207,8 +210,11 @@ class offer_vat_country extends Entity
 	        $aWhere['id'] = $this->get_id_country();
 											
 													  
-            $this->country = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->country = $aResult[0]; }
+          else { $this->country = array(); }
         }
 
 		return $this->country;
@@ -273,7 +279,8 @@ class offer_vat_country extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->vat = $aResult[0]; }
           else { $this->vat = array(); }
         }

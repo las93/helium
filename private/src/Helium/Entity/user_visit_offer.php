@@ -107,7 +107,7 @@ class user_visit_offer extends Entity
 	 * @access public
 	 * @param  array $aWhere
 	 * @join
-	 * @return array
+	 * @return \Venus\src\Helium\Entity\user_visit_offer
 	 */
 	public function get_offer($aWhere = array())
 	{
@@ -121,8 +121,11 @@ class user_visit_offer extends Entity
 	        $aWhere['id'] = $this->get_id_offer();
 											
 													  
-            $this->offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->offer = $aResult[0]; }
+          else { $this->offer = array(); }
         }
 
 		return $this->offer;
@@ -172,7 +175,7 @@ class user_visit_offer extends Entity
 	 * @access public
 	 * @param  array $aWhere
 	 * @join
-	 * @return array
+	 * @return \Venus\src\Helium\Entity\user_visit_offer
 	 */
 	public function get_user($aWhere = array())
 	{
@@ -186,8 +189,11 @@ class user_visit_offer extends Entity
 	        $aWhere['id'] = $this->get_id_user();
 											
 													  
-            $this->user = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->user = $aResult[0]; }
+          else { $this->user = array(); }
         }
 
 		return $this->user;

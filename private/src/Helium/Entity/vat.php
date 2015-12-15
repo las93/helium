@@ -139,7 +139,7 @@ class vat extends Entity
 											
 													  
             $this->offer_vat_country = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->offer_vat_country;
@@ -180,7 +180,7 @@ class vat extends Entity
 											
 													  
             $this->service_application = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->service_application;

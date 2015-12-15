@@ -15,8 +15,6 @@
  */
 namespace Venus\core;
 
-use \Venus\lib\PhpDoc as PhpDoc;
-
 /**
  * The Mother Manager
  *
@@ -51,26 +49,6 @@ class Mother implements \ArrayAccess
 	protected $_aData = array();
 
 	/**
-	 * array of filter
-	 *
-	 * @access private
-	 * @var    array
-	 */
-	private $_aFilterVar = array(
-		'int' => FILTER_VALIDATE_INT,
-		'integer' => FILTER_VALIDATE_INT,
-		'bool' => FILTER_VALIDATE_BOOLEAN,
-		'boolean' => FILTER_VALIDATE_BOOLEAN,
-		'float' => FILTER_VALIDATE_FLOAT,
-		'decimal' => FILTER_VALIDATE_FLOAT,
-		'string' => null,
-		'email' => FILTER_VALIDATE_EMAIL,
-		'ip' => FILTER_VALIDATE_IP,
-		'url' => FILTER_VALIDATE_URL,
-		'regexp' => FILTER_VALIDATE_REGEXP,
-	);
-
-	/**
 	 * get a property
 	 *
 	 * @access public
@@ -87,9 +65,8 @@ class Mother implements \ArrayAccess
 			}
 			else {
 
-				$context = 'context' !== $mKey ? $this->context : null;
 				$dataStore = &$this->_aDataType[$mKey];
-				$dataStore[$mKey] = call_user_func($data, $context);
+				$dataStore[$mKey] = call_user_func($data, null);
 				return $dataStore[$mKey];
 			}
 		}
@@ -194,33 +171,5 @@ class Mother implements \ArrayAccess
 	public function offsetUnset($offset)
 	{
 		$this->__unset($offset);
-	}
-
-	/**
-	 * magic method call when the method call not exists (or it's protected)
-	 *
-	 * @access public
-	 * @param  string $sName
-	 * @param  array $aArguments
-	 * @return
-	 */
-	public function __call($sName, $aArguments)
-	{
-		if (method_exists($this, $sName)) {
-
-			$aPhpDoc = PhpDoc::getPhpDocOfMethod(get_called_class(), $sName);
-			$aParam = array();
-
-			if (isset($aPhpDoc['param'])) {
-				
-				foreach ($aPhpDoc['param'] as $iIndex => $aOne) {
-	
-					if (!filter_var($aArguments[$iIndex], $this->_aFilterVar[$aOne[0]])) {
-	
-						new Exception($aOne[1].' must be '.$aOne[0]);
-					}
-				}
-			}
-		}
 	}
 }

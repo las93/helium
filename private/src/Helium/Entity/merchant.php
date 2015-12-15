@@ -289,7 +289,7 @@ class merchant extends Entity
 											
 													  
             $this->offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->offer;

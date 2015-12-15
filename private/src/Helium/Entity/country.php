@@ -109,7 +109,7 @@ class country extends Entity
 											
 													  
             $this->offer_vat_country = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->offer_vat_country;

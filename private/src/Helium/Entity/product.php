@@ -238,7 +238,7 @@ class product extends Entity
 											
 													  
             $this->product_image = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->product_image;
@@ -279,7 +279,7 @@ class product extends Entity
 											
 													  
             $this->offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->offer;
@@ -320,7 +320,7 @@ class product extends Entity
 											
 													  
             $this->question = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->question;
@@ -361,7 +361,7 @@ class product extends Entity
 											
 													  
             $this->review = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->review;
@@ -450,7 +450,8 @@ class product extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->category = $aResult[0]; }
           else { $this->category = array(); }
         }

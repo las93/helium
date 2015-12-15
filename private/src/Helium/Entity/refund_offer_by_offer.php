@@ -107,7 +107,7 @@ class refund_offer_by_offer extends Entity
 	 * @access public
 	 * @param  array $aWhere
 	 * @join
-	 * @return array
+	 * @return \Venus\src\Helium\Entity\refund_offer_by_offer
 	 */
 	public function get_refund_offer($aWhere = array())
 	{
@@ -121,8 +121,11 @@ class refund_offer_by_offer extends Entity
 	        $aWhere['id'] = $this->get_id_refund_offer();
 											
 													  
-            $this->refund_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->refund_offer = $aResult[0]; }
+          else { $this->refund_offer = array(); }
         }
 
 		return $this->refund_offer;
@@ -172,7 +175,7 @@ class refund_offer_by_offer extends Entity
 	 * @access public
 	 * @param  array $aWhere
 	 * @join
-	 * @return array
+	 * @return \Venus\src\Helium\Entity\refund_offer_by_offer
 	 */
 	public function get_offer($aWhere = array())
 	{
@@ -186,8 +189,11 @@ class refund_offer_by_offer extends Entity
 	        $aWhere['id'] = $this->get_id_offer();
 											
 													  
-            $this->offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+            $aResult = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+
+          if (count($aResult) > 0) { $this->offer = $aResult[0]; }
+          else { $this->offer = array(); }
         }
 
 		return $this->offer;

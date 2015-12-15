@@ -56,9 +56,13 @@ abstract class Controller extends CoreController {
 	
 	protected function _loadLayout() {
 
+	    $oCategory = new Category;
+// 	    var_dump($oCategory->count(array('group' => 'name')));
+// 	    exit;
+	    
 		$oCategory = new Category;
 		$aCategories = $oCategory->getAllCategoriesInOrder(0, true);
-
+		
 		foreach ($aCategories as $iKey => $aOneCategorie) {
 
 			$oCategory = new Category;

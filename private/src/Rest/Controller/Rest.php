@@ -19,6 +19,7 @@ use \Venus\core\Config as Config;
 use \Venus\lib\Entity as LibEntity;
 use \Venus\lib\Http as Http;
 use \Venus\lib\Response as Response;
+use \Venus\lib\Request as Request;
 use \Venus\src\Rest\common\Controller as Controller;
 
 /**
@@ -158,7 +159,7 @@ class Rest extends Controller
 	 */
 	public function put($sEntity, $iId) 
 	{
-	    $_PUT = Http::getPut();
+	    $_PUT = Request::getPut();
 	    
 	    if (count($_PUT) > 0) {
 

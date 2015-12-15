@@ -154,7 +154,8 @@ class sponsored_offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->offer = $aResult[0]; }
           else { $this->offer = array(); }
         }
@@ -221,7 +222,8 @@ class sponsored_offer extends Entity
 											
 													  
             $aResult = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
+
           if (count($aResult) > 0) { $this->category = $aResult[0]; }
           else { $this->category = array(); }
         }

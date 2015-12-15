@@ -44,6 +44,18 @@ class attribute extends Entity
     private $id = null;
 	
 	/**
+	 * attribute_category Entity
+	 *
+	 * @access private
+	 * @var    attribute_category
+	 * @join
+	 *
+	 */
+    private $attribute_category = null;
+	
+	
+	
+	/**
 	 * attribute_offer Entity
 	 *
 	 * @access private
@@ -98,6 +110,47 @@ class attribute extends Entity
 	}
 	
 	/**
+	 * get attribute_category entity join by id of attribute
+	 *
+	 * @access public
+	 * @param  array $aWhere
+	 * @join
+	 * @return array
+	 */
+	public function get_attribute_category($aWhere = array())
+	{
+		if ($this->attribute_category === null) {
+
+			$oOrm = new Orm;
+
+			$oOrm->select(array('*'))
+				 ->from('attribute_category');
+												   
+	        $aWhere['id_category'] = $this->get_id();
+											
+													  
+            $this->attribute_category = $oOrm->where($aWhere)
+						           ->load(false, '\Venus\src\Helium\Entity');
+        }
+
+		return $this->attribute_category;
+	}
+	
+	/**
+	 * set attribute_category entity join by id of attribute
+	 *
+	 * @access public
+	 * @param  \Venus\src\Helium\Entity\attribute_category  $attribute_category attribute_category entity
+	 * @join
+	 * @return array
+	 */
+	public function set_attribute_category(array $attribute_category)
+	{
+		$this->attribute_category = $attribute_category;
+		return $this;
+	}
+
+	/**
 	 * get attribute_offer entity join by id of attribute
 	 *
 	 * @access public
@@ -118,7 +171,7 @@ class attribute extends Entity
 											
 													  
             $this->attribute_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->attribute_offer;

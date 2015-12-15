@@ -148,7 +148,7 @@ class user extends Entity
 											
 													  
             $this->user_visit_offer = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->user_visit_offer;
@@ -189,7 +189,7 @@ class user extends Entity
 											
 													  
             $this->review = $oOrm->where($aWhere)
-						           ->load(false, 'Helium');
+						           ->load(false, '\Venus\src\Helium\Entity');
         }
 
 		return $this->review;
